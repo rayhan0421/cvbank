@@ -1,0 +1,23 @@
+{
+
+  "autoload":{
+
+    "psr-4":{
+
+      "App\\": "src"
+
+    },
+    "psr-0": {
+      "vendor": ""
+     },
+
+    "classmap": [
+      "src/model"
+
+    ]
+  },
+  "require": {
+    "mpdf/mpdf": "^6.1"
+
+  }
+}
