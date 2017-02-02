@@ -141,9 +141,9 @@ if(!isset($_SESSION['userinfo'])){
             </li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php if(array_key_exists('userinfo', $_SESSION)){
-                      echo $name = $_SESSION['userinfo'][0]['username'];
+                        echo $name = $_SESSION['userinfo'][0]['username'];
 
-                      $id= $_SESSION['userinfo'][0]['id'];
+                        $id= $_SESSION['userinfo'][0]['id'];
 
 
 
@@ -171,13 +171,13 @@ if(!isset($_SESSION['userinfo'])){
                 </li>
 
                 <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#publication"><i class="fa fa-newspaper-o" aria-hidden="true"></i> publication <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="publication" class="collapse">
+                    <a href="javascript:;" data-toggle="collapse" data-target="#awards"><i class="fa fa-newspaper-o" aria-hidden="true"></i> awards <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="awards" class="collapse">
                         <li>
-                               <a href="#"><i class="fa fa-envelope"></i>  new  </a>
+                            <a href="#"><i class="fa fa-envelope"></i>  new  </a>
                         </li>
                         <li>
-                            <a href="#">trash</a>
+                            <a href="#"><i class="fa fa-adjust"></i> trash</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
@@ -188,46 +188,222 @@ if(!isset($_SESSION['userinfo'])){
                         </li>
                     </ul>
                 </li>
+
                 <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#AboutMe"><i class="fa fa-book "></i> About Me <i class="fa fa-fw fa-caret-down"></i></a>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#contacts"><i class="fa fa-newspaper-o" aria-hidden="true"></i> contacts <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="contacts" class="collapse">
+                        <li>
+                            <a href="#"><i class="fa fa-envelope"></i>  new  </a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-adjust"></i> trash</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
+                        </li>
+
+                        <li>
+                            <a href="#"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#education"><i class="fa fa-newspaper-o" aria-hidden="true"></i> education <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="education" class="collapse">
+                        <li>
+                            <a href="#"><i class="fa fa-envelope"></i>  new  </a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-adjust"></i> trash</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
+                        </li>
+
+                        <li>
+                            <a href="#"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#experiences"><i class="fa fa-newspaper-o" aria-hidden="true"></i> experiences <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="experiences" class="collapse">
+                        <li>
+                            <a href="#"><i class="fa fa-envelope"></i>  new  </a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-adjust"></i> trash</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
+                        </li>
+
+                        <li>
+                            <a href="#"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#portfolios"><i class="fa fa-newspaper-o" aria-hidden="true"></i> portfolios <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="portfolios" class="collapse">
+                        <li>
+                            <a href="#"><i class="fa fa-envelope"></i>  new  </a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-adjust"></i> trash</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
+                        </li>
+
+                        <li>
+                            <a href="#"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#publication"><i class="fa fa-newspaper-o" aria-hidden="true"></i> publication <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="publication" class="collapse">
+                        <li>
+                            <a href="#"><i class="fa fa-envelope"></i>  new  </a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-adjust"></i> trash</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
+                        </li>
+
+                        <li>
+                            <a href="#"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#hobbies"><i class="fa fa-newspaper-o" aria-hidden="true"></i> hobbies <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="hobbies" class="collapse">
+                        <li>
+                            <a href="#"><i class="fa fa-envelope"></i>  new  </a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-adjust"></i> trash</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
+                        </li>
+
+                        <li>
+                            <a href="#"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#posts"><i class="fa fa-newspaper-o" aria-hidden="true"></i> posts <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="posts" class="collapse">
+                        <li>
+                            <a href="#"><i class="fa fa-envelope"></i>  new  </a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-adjust"></i> trash</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
+                        </li>
+
+                        <li>
+                            <a href="#"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#services"><i class="fa fa-newspaper-o" aria-hidden="true"></i> services <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="services" class="collapse">
+                        <li>
+                            <a href="#"><i class="fa fa-envelope"></i>  new  </a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-adjust"></i> trash</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
+                        </li>
+
+                        <li>
+                            <a href="#"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#settings"><i class="fa fa-newspaper-o" aria-hidden="true"></i> settings <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="settings" class="collapse">
+                        <li>
+                            <a href="#"><i class="fa fa-envelope"></i>  new  </a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-adjust"></i> trash</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
+                        </li>
+
+                        <li>
+                            <a href="#"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+
+                <li>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#AboutMe"><i class="fa fa-newspaper-o" aria-hidden="true"></i> About Me <i class="fa fa-fw fa-caret-down"></i></a>
                     <ul id="AboutMe" class="collapse">
                         <li>
-                            <a href="#">new</a>
+                            <a href="#"><i class="fa fa-envelope"></i>  new  </a>
                         </li>
                         <li>
-                            <a href="#">trash</a>
+                            <a href="#"><i class="fa fa-adjust"></i> trash</a>
                         </li>
                         <li>
-                            <a href="../aboutme/index.php">list</a>
+                            <a href="#"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
                         </li>
                     </ul>
                 </li>
 
 
                 <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#skill"><i class="fa fa-envelope"></i> skill <i class="fa fa-fw fa-caret-down"></i></a>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#skill"><i class="fa fa-newspaper-o" aria-hidden="true"></i> skill <i class="fa fa-fw fa-caret-down"></i></a>
                     <ul id="skill" class="collapse">
                         <li>
-                            <a href="http://localhost/cvbank/views/skills/create.php">new</a>
+                            <a href="http://localhost/cvbank/views/skills/create.php"><i class="fa fa-envelope"></i> new</a>
                         </li>
                         <li>
-                            <a href="http://localhost/cvbank/views/skills/">views skill</a>
+                            <a href="http://localhost/cvbank/views/skills/"><i class="fa fa-th-list" aria-hidden="true"></i> views skill</a>
                         </li>
                     </ul>
                 </li>
                 <li>
 
                 <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#facts"><i class="fa fa-envelope"></i> facts <i class="fa fa-fw fa-caret-down"></i></a>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#facts"><i class="fa fa-newspaper-o" aria-hidden="true"></i> facts <i class="fa fa-fw fa-caret-down"></i></a>
                     <ul id="facts" class="collapse">
                         <li>
-                            <a  href="#">new</a>
+                            <a href="#"><i class="fa fa-envelope"></i>  new  </a>
                         </li>
                         <li>
-                            <a href="#">trash</a>
+                            <a href="#"><i class="fa fa-adjust"></i> trash</a>
                         </li>
                         <li>
-                            <a href="#">list</a>
+                            <a href="#"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
                         </li>
                     </ul>
                 </li>
@@ -251,21 +427,21 @@ if(!isset($_SESSION['userinfo'])){
                         <?php
 
 
-                            if(isset($_SESSION['msg'])){
-                                echo $_SESSION['msg'];
-                                echo "<br/>";
-                                unset($_SESSION['msg']);
-                            }else{
-                                echo "Welcome";
-                                echo "<br/>";
-                            }
+                        if(isset($_SESSION['msg'])){
+                            echo $_SESSION['msg'];
+                            echo "<br/>";
+                            unset($_SESSION['msg']);
+                        }else{
+                            echo "Welcome";
+                            echo "<br/>";
+                        }
 
-                            if(isset($_SESSION['fail'])){
-                                echo "<i class=\"fa fa-exclamation-triangle\" aria-hidden=\"true\"></i>" ."  ";
-                                echo $_SESSION['fail'];
-                                echo "<br/>";
-                                unset($_SESSION['fail']);
-                            }
+                        if(isset($_SESSION['fail'])){
+                            echo "<i class=\"fa fa-exclamation-triangle\" aria-hidden=\"true\"></i>" ."  ";
+                            echo $_SESSION['fail'];
+                            echo "<br/>";
+                            unset($_SESSION['fail']);
+                        }
 
 
 
