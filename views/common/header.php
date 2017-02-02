@@ -153,12 +153,12 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
                 <li class="active">
-                    <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    <a href="http://localhost/cvbank/views/deshboard/"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                 </li>
 
                 <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> publication <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="demo" class="collapse">
+                    <a href="javascript:;" data-toggle="collapse" data-target="#publication"><i class="fa fa-fw fa-arrows-v"></i> publication <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="publication" class="collapse">
                         <li>
                             <a href="#">new</a>
                         </li>
@@ -171,8 +171,8 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> publication <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="demo" class="collapse">
+                    <a href="javascript:;" data-toggle="collapse" data-target="#AboutMe"><i class="fa fa-fw fa-arrows-v"></i> About Me <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="AboutMe" class="collapse">
                         <li>
                             <a href="#">new</a>
                         </li>
@@ -180,7 +180,7 @@
                             <a href="#">trash</a>
                         </li>
                         <li>
-                            <a href="#">list</a>
+                            <a href="../aboutme/index.php">list</a>
                         </li>
                     </ul>
                 </li>
@@ -189,8 +189,8 @@
 
 
                 <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> publication <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="demo" class="collapse">
+                    <a href="javascript:;" data-toggle="collapse" data-target="#skill"><i class="fa fa-fw fa-arrows-v"></i> skill <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="skill" class="collapse">
                         <li>
                             <a href="#">new</a>
                         </li>
