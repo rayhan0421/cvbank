@@ -219,6 +219,7 @@
                 <div class="col-lg-12">
                     <div class="alert alert-info alert-dismissable">
                         <button type="button" class="close " data-dismiss="alert" aria-hidden="true">&times;</button>
+
                         <?php
 
 
@@ -227,6 +228,9 @@
                                 echo "<li>".$_SESSION['msg']."</li>";
                                 echo "<br/>";
                                 unset($_SESSION['msg']);
+                            }else{
+                                echo "Welcome";
+                                echo "<br/>";
                             }
 
                             if(isset($_SESSION['fail'])){

@@ -31,7 +31,7 @@ Class deshboard extends model{
 
     $_SESSION["msg"] = "suucessful validate";
     $_SESSION["fail"] = "failed validation";
-    header("location:../deshboard/index.php");
+    header("location:http://localhost/cvbank/views/deshboard/index.php");
 
   }
 
