@@ -162,10 +162,10 @@ session_start();
                 </li>
 
                 <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#publication"><i class="fa fa-fw fa-arrows-v"></i> publication <i class="fa fa-fw fa-caret-down"></i></a>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#publication"><i class="fa fa-wrench fa-fw"></i> publication <i class="fa fa-fw fa-caret-down"></i></a>
                     <ul id="publication" class="collapse">
                         <li>
-                            <a href="#">new</a>
+                               <a href="#"><i class="fa fa-envelope"></i>  new  </a>
                         </li>
                         <li>
                             <a href="#">trash</a>
@@ -176,7 +176,7 @@ session_start();
                     </ul>
                 </li>
                 <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#AboutMe"><i class="fa fa-fw fa-arrows-v"></i> About Me <i class="fa fa-fw fa-caret-down"></i></a>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#AboutMe"><i class="fa fa-book "></i> About Me <i class="fa fa-fw fa-caret-down"></i></a>
                     <ul id="AboutMe" class="collapse">
                         <li>
                             <a href="#">new</a>
@@ -191,13 +191,27 @@ session_start();
                 </li>
 
 
-
-
                 <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#skill"><i class="fa fa-fw fa-arrows-v"></i> skill <i class="fa fa-fw fa-caret-down"></i></a>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#skill"><i class="fa fa-envelope"></i> skill <i class="fa fa-fw fa-caret-down"></i></a>
                     <ul id="skill" class="collapse">
                         <li>
                             <a href="#">new</a>
+                        </li>
+                        <li>
+                            <a href="#">trash</a>
+                        </li>
+                        <li>
+                            <a href="#">list</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+
+                <li>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#facts"><i class="fa fa-envelope"></i> facts <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="facts" class="collapse">
+                        <li>
+                            <a  href="#">new</a>
                         </li>
                         <li>
                             <a href="#">trash</a>
@@ -223,7 +237,7 @@ session_start();
                 <div class="col-lg-12">
                     <div class="alert alert-info alert-dismissable">
                         <button type="button" class="close " data-dismiss="alert" aria-hidden="true">&times;</button>
-
+                        <i class="fa fa-info" aria-hidden="true"></i>
                         <?php
 
 
@@ -237,6 +251,7 @@ session_start();
                             }
 
                             if(isset($_SESSION['fail'])){
+                                echo "<i class=\"fa fa-exclamation-triangle\" aria-hidden=\"true\"></i>" ."  ";
                                 echo $_SESSION['fail'];
                                 echo "<br/>";
                                 unset($_SESSION['fail']);
