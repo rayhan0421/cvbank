@@ -150,14 +150,12 @@ if(!isset($_SESSION['userinfo'])){
                     } ?> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        <a href="../users/index.php"><i class="fa fa-fw fa-user"></i> Profile</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
                     </li>
-                    <li>
-                        <a href="../users/index.php"><i class="fa fa-fw fa-gear"></i> Settings</a>
-                    </li>
+
                     <li class="divider"></li>
                     <li>
                         <a href="http://localhost/cvbank/views/login/logout.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
@@ -210,13 +208,10 @@ if(!isset($_SESSION['userinfo'])){
                     <a href="javascript:;" data-toggle="collapse" data-target="#skill"><i class="fa fa-envelope"></i> skill <i class="fa fa-fw fa-caret-down"></i></a>
                     <ul id="skill" class="collapse">
                         <li>
-                            <a href="#">new</a>
+                            <a href="http://localhost/cvbank/views/skills/create.php">new</a>
                         </li>
                         <li>
-                            <a href="#">trash</a>
-                        </li>
-                        <li>
-                            <a href="#">list</a>
+                            <a href="http://localhost/cvbank/views/skills/">views skill</a>
                         </li>
                     </ul>
                 </li>
