@@ -11,6 +11,7 @@ Class model {
 
     public function __construct()
     {
+        session_start();
         try {
             $this->pdo = new PDO("mysql:host=$this->host;dbname=$this->db", $this->dbuser, $this->dbpass);
         }catch( PDOException $Exception ) {

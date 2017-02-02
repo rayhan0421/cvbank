@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -217,8 +218,30 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="alert alert-info alert-dismissable">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <i class="fa fa-info-circle"></i>  <strong>Like  Admin?</strong> Try out <a href="#" class="alert-link">SB Admin 2</a> for additional features!
+                        <button type="button" class="close " data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <?php
+
+
+
+                            if(isset($_SESSION['msg'])){
+                                echo "<li>".$_SESSION['msg']."</li>";
+                                echo "<br/>";
+                                unset($_SESSION['msg']);
+                            }
+
+                            if(isset($_SESSION['fail'])){
+                                echo $_SESSION['fail'];
+                                echo "<br/>";
+                                unset($_SESSION['fail']);
+                            }
+
+
+
+
+
+
+
+                        ?>
                     </div>
                 </div>
             </div>

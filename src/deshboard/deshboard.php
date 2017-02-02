@@ -3,12 +3,17 @@ namespace App\deshboard;
 use App\model\model;
 Class deshboard extends model{
 
+   protected $id="";
+   protected $name='';
+
  // if you use constructor here
   // use this parent::__construct();
 
  public function index(){
 
-     $queary = "select * from users";
+     $this->validate();
+
+    $queary = "select * from users";
 
      $st = $this->pdo->prepare($queary);
 
@@ -19,7 +24,16 @@ Class deshboard extends model{
      return $stu;
 
 
- }
+  }
+
+  protected function validate(){
+
+
+    $_SESSION["msg"] = "suucessful validate";
+    $_SESSION["fail"] = "failed validation";
+    header("location:../deshboard/index.php");
+
+  }
 
  }
 
