@@ -1,8 +1,16 @@
 <?php
 include ("../../vendor/autoload.php");
 use App\deshboard\deshboard;
-$d= new deshboard();
+use App\aboutme\aboutme;
+$d= new aboutme();
+$d->index();
 
-var_dump($d->index());
+//$d= new deshboard();
+
+$d->index();
+
+
+
+ //$t= new mPDF();
 
 ?>

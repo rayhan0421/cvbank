@@ -1,7 +1,7 @@
 <?php
-namespace App\deshboard;
+namespace App\aboutme;
 use App\model\model;
-Class deshboard extends model{
+Class aboutme extends model{
 
    protected $id="";
    protected $name='';
@@ -10,7 +10,6 @@ Class deshboard extends model{
   // use this parent::__construct();
 
  public function index(){
-
 
      $this->validate();
 
@@ -29,6 +28,8 @@ Class deshboard extends model{
     public function list(){
 
 
+        $_SESSION["msg"] = "suucessful validate about me now ";
+        $_SESSION["fail"] = "failed validation";
 
         $queary = "select * from users";
 
@@ -46,13 +47,13 @@ Class deshboard extends model{
   protected function validate(){
 
 
-    $_SESSION["msg"] = "suucessful validate";
+    $_SESSION["msg"] = "suucessful validate about me";
     $_SESSION["fail"] = "failed validation";
-    header("location:http://localhost/cvbank/views/deshboard/index.php");
+    header("location:http://localhost/cvbank/views/aboutme/index.php");
 
   }
 
 
-}
+ }
 
 

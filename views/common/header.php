@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php
+include ("../../vendor/autoload.php");
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -223,9 +227,8 @@
                         <?php
 
 
-
                             if(isset($_SESSION['msg'])){
-                                echo "<li>".$_SESSION['msg']."</li>";
+                                echo $_SESSION['msg'];
                                 echo "<br/>";
                                 unset($_SESSION['msg']);
                             }else{
