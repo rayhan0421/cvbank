@@ -51,7 +51,7 @@ session_start();
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">CVBANK</a>
+            <a class="navbar-brand" href="index.html"><i class="fa fa-eye-slash" aria-hidden="true"></i> CVBANK</a>
         </div>
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
@@ -162,7 +162,7 @@ session_start();
                 </li>
 
                 <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#publication"><i class="fa fa-wrench fa-fw"></i> publication <i class="fa fa-fw fa-caret-down"></i></a>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#publication"><i class="fa fa-newspaper-o" aria-hidden="true"></i> publication <i class="fa fa-fw fa-caret-down"></i></a>
                     <ul id="publication" class="collapse">
                         <li>
                                <a href="#"><i class="fa fa-envelope"></i>  new  </a>
@@ -171,7 +171,11 @@ session_start();
                             <a href="#">trash</a>
                         </li>
                         <li>
-                            <a href="#">list</a>
+                            <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
+                        </li>
+
+                        <li>
+                            <a href="#"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
                         </li>
                     </ul>
                 </li>
