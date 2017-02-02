@@ -5,8 +5,19 @@ session_start();
 if(!isset($_SESSION['userinfo'])){
 
     header("location: http://localhost/cvbank/views/login/");
+}else{
+    $role= $_SESSION['userinfo'][0]['user_role'];
+
+
+    if($role==1){
+
+        header("location: http://localhost/cvbank/views/deshboard/");
+    }
 }
+
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -156,7 +167,7 @@ if(!isset($_SESSION['userinfo'])){
                         <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
                     </li>
                     <li>
-                        <a href="../users/index.php"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                        <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
                     <li>

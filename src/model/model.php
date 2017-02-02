@@ -16,7 +16,7 @@ Class model {
             $this->pdo = new PDO("mysql:host=$this->host;dbname=$this->db", $this->dbuser, $this->dbpass);
         }catch( PDOException $Exception ) {
             // Note The Typecast To An Integer!
-            throw new MyDatabaseException( $Exception->getMessage( ) , (int)$Exception->getCode( ) );
+            throw new Exception( $Exception->getMessage( ) , (int)$Exception->getCode( ) );
         }
     }
 }

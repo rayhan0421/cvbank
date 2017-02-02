@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6 lt8"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="en" class="no-js ie7 lt8"> <![endif]-->
@@ -25,7 +26,15 @@
                 <h1>Login and Registration Form </h1>
 				<nav class="codrops-demos">
 
+                <?php
 
+                if(isset($_SESSION['msg'])){
+
+                    echo $_SESSION['msg'];
+                    unset($_SESSION['msg']);
+                }
+
+                ?>
 				</nav>
             </header>
             <section>				
@@ -35,7 +44,7 @@
                     <a class="hiddenanchor" id="tologin"></a>
                     <div id="wrapper">
                         <div id="login" class="animate form">
-                            <form  action="mysuperscript.php" autocomplete="on"> 
+                            <form  action="login.php" method="post" autocomplete="on">
                                 <h1>Log in</h1> 
                                 <p> 
                                     <label for="username" class="uname" data-icon="u" > Your email or username </label>
@@ -43,12 +52,14 @@
                                 </p>
                                 <p> 
                                     <label for="password" class="youpasswd" data-icon="p"> Your password </label>
-                                    <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" /> 
+                                    <input id="password" name="password" required="required" type="password" placeholder="" />
                                 </p>
                                 <p class="keeplogin"> 
 									<input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
 									<label for="loginkeeping">Keep me logged in</label>
+
 								</p>
+                                <input type="submit" value="login" >
                                 <p class="change_link">
 
                                     <a href="#toregister" class="to_register">Forgot Password</a>
@@ -65,7 +76,7 @@
                         </div>
 
                         <div id="register" class="animate form">
-                            <form  action="mysuperscript.php" autocomplete="on"> 
+                            <form  action="store.php" method="post" autocomplete="on">
                                 <h1> Sign up </h1> 
                                 <p> 
                                     <label for="usernamesignup" class="uname" data-icon="u">Your username</label>

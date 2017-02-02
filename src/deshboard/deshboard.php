@@ -9,7 +9,9 @@ Class deshboard extends model{
  // if you use constructor here
   // use this parent::__construct();
 
- public function index(){
+
+
+    public function index(){
 
 
      $this->validate();
