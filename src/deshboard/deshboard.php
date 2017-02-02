@@ -1,13 +1,26 @@
 <?php
-
 namespace App\deshboard;
+use App\model\model;
+Class deshboard extends model{
 
-Class deshboard {
+ // if you use constructor here
+  // use this parent::__construct();
 
-public function __construct()
-{
-    echo "test";
-}
-}
+ public function index(){
+
+     $queary = "select * from users";
+
+     $st = $this->pdo->prepare($queary);
+
+     $st->execute();
+
+     $stu= $st->fetchAll();
+
+     return $stu;
+
+
+ }
+
+ }
 
 
