@@ -59,7 +59,8 @@ $skills =$skills->index();
                                 <td><?php echo $value['level']; ?></td>
                                 <td><?php echo $value['experience']; ?></td>
                                 <td><?php echo $value['experience_area']; ?></td>
-                                <td> <a href="edit.php">Edit</a>/ <a href="delete.php" >delete</a> </td>
+                                <td> <a href="edit.php?id=<?php echo $value['id'] ?>">Edit</a>/
+                                    <a href="trash.php?id=<?php echo $value['skid'] ?>" >delete</a> </td>
                             </tr>
                      <?php } ?>
 
