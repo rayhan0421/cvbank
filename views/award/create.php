@@ -46,7 +46,7 @@ $award =$award->index($_SESSION['userinfo']);
                             </div>
                             <div class="form-group">
                                 <label>Organization</label>
-                                <input name="organization" class="form-control">
+                                <in put name="organization" class="form-control">
 
                             </div>
 
