@@ -14,11 +14,16 @@ Class skills extends model{
 
    public function setdata($data){
 
+
    if( isset($data[0])){
        if(array_key_exists('id',$data[0]))  {
            $this->id= $data[0]['id'];
        }
    }else{
+
+       if(array_key_exists('id',$data))  {
+           $this->auto_id= $data['id'];
+       }
 
        if(array_key_exists('user_id',$data))  {
            $this->id= $data['user_id'];
@@ -44,7 +49,7 @@ Class skills extends model{
        }
    }
 
-
+       return $this;
 
 
    }
@@ -52,7 +57,7 @@ Class skills extends model{
     public function index(){
 
 
-        $queary = "SELECT * FROM  skills JOIN users ON users.id = skills.user_id WHERE users.id=$this->id";
+        $queary = "SELECT  skills.id as skid, skills.*, users.* FROM  skills JOIN users ON users.id = skills.user_id WHERE users.id=$this->id AND  skills.deleted_at='0000-00-00 00:00:00'";
 
         $st = $this->pdo->prepare($queary);
 
@@ -116,8 +121,28 @@ Class skills extends model{
 
    }
 
-    public function delete(){
+    public  function trash()
+    {
 
+        try {
+            $query = "UPDATE skills SET deleted_at=:datetme WHERE id=:id";
+
+
+            $stmt = $this->pdo->prepare($query);
+            $stmt->execute(
+                array(
+                    ':id' => $this->auto_id,
+                    ':datetme' => date('y-m-d h:m:s'),
+                )
+            );
+            if($stmt){
+
+                $_SESSION['message'] ="succesfully deleted ";
+                header("location:http://localhost/cvbank/views/skills/index.php");
+            }
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+        }
     }
 
     public function restore(){
