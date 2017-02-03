@@ -15,7 +15,7 @@ if(isset($_GET['keyword'])){
  <style>
 
      #flipkart-navbar {
-         background-color: #2874f0;
+         background-color: #81B71A !important;
          color: #FFFFFF;
      }
 
