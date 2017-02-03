@@ -47,7 +47,25 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                </div>
                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                    <div class="panel-body">
+                       <ul class="nav nav-pills">
+                           <li class="active"><a data-toggle="pill" href="#about">views</a></li>
 
+                           <li><a data-toggle="pill" href="#aboutadd">Add New</a></li>
+
+                       </ul>
+
+                       <div class="tab-content">
+                           <div id="about" class="tab-pane fade in active">
+                               <h3>views</h3>
+                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                           </div>
+
+                           <div id="aboutadd" class="tab-pane fade">
+                               <h3>add new</h3>
+                               <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                           </div>
+
+                       </div>
                   <?php
 
                   echo $resume->about();
@@ -65,7 +83,25 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                </div>
                <div id="collapseexp" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingexpe">
                    <div class="panel-body">
-                      anim
+                       <ul class="nav nav-pills">
+                           <li class="active"><a data-toggle="pill" href="#expe">views</a></li>
+
+                           <li><a data-toggle="pill" href="#expeadd">Add New</a></li>
+
+                       </ul>
+
+                       <div class="tab-content">
+                           <div id="expe" class="tab-pane fade in active">
+                               <h3>views</h3>
+                               <p> expe Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                           </div>
+
+                           <div id="expeadd" class="tab-pane fade">
+                               <h3>add new</h3>
+                               <p> aexpe add Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                           </div>
+
+                       </div>
                    </div>
                </div>
            </div>
@@ -79,7 +115,25 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                </div>
                <div id="collapseskill" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingskill">
                    <div class="panel-body">
-                       skill cont
+                       <ul class="nav nav-pills">
+                           <li class="active"><a data-toggle="pill" href="#skill">views</a></li>
+
+                           <li><a data-toggle="pill" href="#skilladd">Add New</a></li>
+
+                       </ul>
+
+                       <div class="tab-content">
+                           <div id="skill" class="tab-pane fade in active">
+                               <h3>views</h3>
+                               <p>askil ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                           </div>
+
+                           <div id="skilladd" class="tab-pane fade">
+                               <h3>add new</h3>
+                               <p> askill e omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                           </div>
+
+                       </div>
                    </div>
                </div>
            </div>
@@ -93,7 +147,25 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                </div>
                <div id="collapseedu" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingeducation">
                    <div class="panel-body">
-                       education cont
+                       <ul class="nav nav-pills">
+                           <li class="active"><a data-toggle="pill" href="#education">views</a></li>
+
+                           <li><a data-toggle="pill" href="#educationadd">Add New</a></li>
+
+                       </ul>
+
+                       <div class="tab-content">
+                           <div id="education" class="tab-pane fade in active">
+                               <h3>views</h3>
+                               <p>education ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                           </div>
+
+                           <div id="educationadd" class="tab-pane fade">
+                               <h3>add new</h3>
+                               <p> education e omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                           </div>
+
+                       </div>
                    </div>
                </div>
            </div>
@@ -107,7 +179,25 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                </div>
                <div id="collapseportfolio" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingportfolio">
                    <div class="panel-body">
-                       portfolio cont
+                       <ul class="nav nav-pills">
+                           <li class="active"><a data-toggle="pill" href="#portfolio">views</a></li>
+
+                           <li><a data-toggle="pill" href="#portfolioadd">Add New</a></li>
+
+                       </ul>
+
+                       <div class="tab-content">
+                           <div id="portfolio" class="tab-pane fade in active">
+                               <h3>views</h3>
+                               <p>portfolio ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                           </div>
+
+                           <div id="portfolioadd" class="tab-pane fade">
+                               <h3>add new</h3>
+                               <p> portfolio e omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                           </div>
+
+                       </div>
                    </div>
                </div>
            </div>
@@ -121,7 +211,26 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                </div>
                <div id="collapsepublication" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingpublication">
                    <div class="panel-body">
-                       publication cont
+                       <ul class="nav nav-pills">
+                           <li class="active"><a data-toggle="pill" href="#publicationnew">views</a></li>
+
+                           <li><a data-toggle="pill" href="#publicationadd">Add New</a></li>
+
+                       </ul>
+
+                       <div class="tab-content">
+                           <div id="publicationnew" class="tab-pane fade in active">
+                               <h3>views</h3>
+                               <p>publication ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                           </div>
+
+                           <div id="publicationadd" class="tab-pane fade">
+                               <h3>add new</h3>
+                               <p> publication e omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                           </div>
+
+                       </div>
+                   </div>
                    </div>
                </div>
            </div>
@@ -135,7 +244,25 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                </div>
                <div id="collapsefacts" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingfacts">
                    <div class="panel-body">
-                       headingfacts cont
+                       <ul class="nav nav-pills">
+                           <li class="active"><a data-toggle="pill" href="#factsnew">views</a></li>
+
+                           <li><a data-toggle="pill" href="#factsadd">Add New</a></li>
+
+                       </ul>
+
+                       <div class="tab-content">
+                           <div id="factsnew" class="tab-pane fade in active">
+                               <h3>views</h3>
+                               <p> facts publication ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                           </div>
+
+                           <div id="factsadd" class="tab-pane fade">
+                               <h3>add new</h3>
+                               <p>facts publication e omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                           </div>
+
+                       </div>
                    </div>
                </div>
            </div>
@@ -149,7 +276,25 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                </div>
                <div id="collapsehobbies" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headinghobbies">
                    <div class="panel-body">
-                       hobbies cont
+                       <ul class="nav nav-pills">
+                           <li class="active"><a data-toggle="pill" href="#hobbiesnew">views</a></li>
+
+                           <li><a data-toggle="pill" href="#hobbiesadd">Add New</a></li>
+
+                       </ul>
+
+                       <div class="tab-content">
+                           <div id="hobbiesnew" class="tab-pane fade in active">
+                               <h3>views</h3>
+                               <p>hobbies publication ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                           </div>
+
+                           <div id="hobbiesadd" class="tab-pane fade">
+                               <h3>add new</h3>
+                               <p>hobbies e omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                           </div>
+
+                       </div>
                    </div>
                </div>
            </div>
@@ -163,7 +308,25 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                </div>
                <div id="collapsepost" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingpost">
                    <div class="panel-body">
-                       post cont
+                       <ul class="nav nav-pills">
+                           <li class="active"><a data-toggle="pill" href="#postnew">views</a></li>
+
+                           <li><a data-toggle="pill" href="#postadd">Add New</a></li>
+
+                       </ul>
+
+                       <div class="tab-content">
+                           <div id="postnew" class="tab-pane fade in active">
+                               <h3>views</h3>
+                               <p>post publication ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                           </div>
+
+                           <div id="postadd" class="tab-pane fade">
+                               <h3>add new</h3>
+                               <p>post e omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                           </div>
+
+                       </div>
                    </div>
                </div>
            </div>
@@ -177,7 +340,25 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                </div>
                <div id="collapseaward" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingaward">
                    <div class="panel-body">
-                       award cont
+                       <ul class="nav nav-pills">
+                           <li class="active"><a data-toggle="pill" href="#awardnew">views</a></li>
+
+                           <li><a data-toggle="pill" href="#awardadd">Add New</a></li>
+
+                       </ul>
+
+                       <div class="tab-content">
+                           <div id="awardnew" class="tab-pane fade in active">
+                               <h3>views</h3>
+                               <p>award ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                           </div>
+
+                           <div id="awardadd" class="tab-pane fade">
+                               <h3>add new</h3>
+                               <p>award e omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                           </div>
+
+                       </div>
                    </div>
                </div>
            </div>
@@ -191,7 +372,25 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                </div>
                <div id="collapseservice" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingservice">
                    <div class="panel-body">
-                       service cont
+                       <ul class="nav nav-pills">
+                           <li class="active"><a data-toggle="pill" href="#servicenew">views</a></li>
+
+                           <li><a data-toggle="pill" href="#serviceadd">Add New</a></li>
+
+                       </ul>
+
+                       <div class="tab-content">
+                           <div id="servicenew" class="tab-pane fade in active">
+                               <h3>views</h3>
+                               <p>service ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                           </div>
+
+                           <div id="serviceadd" class="tab-pane fade">
+                               <h3>add new</h3>
+                               <p>service e omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                           </div>
+
+                       </div>
                    </div>
                </div>
            </div>
@@ -205,7 +404,25 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                </div>
                <div id="collapsesetting" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingsetting">
                    <div class="panel-body">
-                       setting cont
+                       <ul class="nav nav-pills">
+                           <li class="active"><a data-toggle="pill" href="#settingnew">views</a></li>
+
+                           <li><a data-toggle="pill" href="#settingadd">Add New</a></li>
+
+                       </ul>
+
+                       <div class="tab-content">
+                           <div id="settingnew" class="tab-pane fade in active">
+                               <h3>views</h3>
+                               <p>setting ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                           </div>
+
+                           <div id="settingadd" class="tab-pane fade">
+                               <h3>add new</h3>
+                               <p>setting e omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                           </div>
+
+                       </div>
                    </div>
                </div>
            </div>
