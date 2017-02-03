@@ -171,7 +171,7 @@ Class skills extends model{
 
     public function trashlist(){
 
-        $queary = "SELECT  * FROM  skills JOIN users ON users.id = skills.user_id WHERE users.id=$this->id AND  skills.deleted_at!='0000-00-00 00:00:00'";
+        $queary = "SELECT  skills.* FROM  skills JOIN users ON users.id = skills.user_id WHERE users.id=$this->id AND  skills.deleted_at!='0000-00-00 00:00:00'";
 
         $st = $this->pdo->prepare($queary);
 
@@ -198,8 +198,27 @@ Class skills extends model{
 
     public function restore(){
 
+        try {
+            $query = "UPDATE skills SET deleted_at=:datetme WHERE id=:id";
 
 
+            $stmt = $this->pdo->prepare($query);
+            $stmt->execute(
+                array(
+                    ':id' =>$this->auto_id,
+                    ':datetme'=>'0000-00-00 00:00:00'
+                )
+            );
+
+            if($stmt){
+
+
+                $_SESSION['message'] ="succesfully restore ";
+                header("location:http://localhost/cvbank/views/skills/index.php");
+            }
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+        }
     }
 
 
