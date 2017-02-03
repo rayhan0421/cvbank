@@ -258,7 +258,7 @@ if(isset($_GET['keyword'])){
         <div class="row row2">
             <div class="col-sm-2">
                 <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()">☰ CVBANK</span></h2>
-                <h1 style="margin:0px;"><span class="largenav">CVBANK</span></h1>
+                <a href="index.php" style="text-decoration: none"> <h1 style="margin:0px;"><span class="largenav">CVBANK</span></h1> </a>
             </div>
             <div class="flipkart-navbar-search smallsearch col-sm-8 col-xs-11">
               <form action="" method="get">
@@ -284,14 +284,56 @@ if(isset($_GET['keyword'])){
 <div class="container">
 
     <div class="row">
-        <div class="col-lg-9">
-         no result found
+        <div class="col-lg-12">
 
-        </div>
-        <div class="col-lg-3">
-         <h1> category search </h1>
+            <div class="container">
+                <?php if(isset($_GET['keyword'])) {?>
+                <hgroup class="mb20">
+                    <h1>Search Results for <?php echo $_GET['keyword'] ?></h1>
 
-        </div>
+                    <br/>
+                </hgroup>
+
+                <section class="col-xs-12 col-sm-6 col-md-12">
+                    <article class="search-result row">
+                        <div class="col-xs-12 col-sm-12 col-md-3">
+                            <a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/people" alt="Lorem ipsum" /></a>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-2">
+                            <ul class="meta-search">
+                                <li><i class="glyphicon glyphicon-calendar"></i> <span>part-time</span></li>
+                                <li><i class="glyphicon glyphicon-time"></i> <span>4:28 pm</span></li>
+                                <li><i class="glyphicon glyphicon-tags"></i> <span>skill</span></li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
+                            <h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>
+
+                        </div>
+                        <span class="clearfix borda"></span>
+                    </article>
+
+
+          <?php  } ?>
+
+                </section>
+            </div>
+            <?php if(!isset($_GET['keyword'])) {?>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <center>  <h1>Resume Category </h1> </center>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <?php  } ?>
+
+       </div>
+
     </div>
 </div>
 
