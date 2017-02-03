@@ -134,7 +134,7 @@ Class skills extends model{
            );
            if($stmt){
 
-               $_SESSION['message'] ="succesfully updated ";
+               $_SESSION['msg'] ="succesfully updated ";
 
                header("location:http://localhost/cvbank/views/skills");
 
