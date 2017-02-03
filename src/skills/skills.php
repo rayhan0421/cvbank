@@ -111,8 +111,8 @@ Class skills extends model{
 
         }catch (\PDOException $e){
 
-            echo "Error: ". $e->getTrace();
-        }
+          echo "Error: ". $e->getTrace();
+         }
 
 
     }

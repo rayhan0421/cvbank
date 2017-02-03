@@ -13,16 +13,24 @@ Class resume extends model{
     {
 
 
-        if (isset($data[0])) {
+
             if (array_key_exists('id', $data)) {
                 $this->id = $data['id'];
             }
-        }
+
 
     }
 
     public function about(){
+        $queary = "SELECT  abouts.id as aboutid ,abouts.* FROM abouts JOIN users ON users.id = abouts.user_id WHERE users.user_role!=2 AND user_id=$this->id";
 
+        $st = $this->pdo->prepare($queary);
+
+        $st->execute();
+
+        $stu= $st->fetchAll();
+
+        return $stu;
 
      return $this->id ;
     }

@@ -57,7 +57,35 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                        <div class="tab-content">
                            <div id="about" class="tab-pane fade in active">
                                <h3>views</h3>
-                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                               <table class="table">
+                             <tr>
+                             <td>SL</td>
+                              <td>Title </td>
+                               <td>phone</td>
+                                 <td>bio</td>
+                             </tr>
+                             <?php
+                             $about = $resume->about();
+                             $sl=1;
+                             if(is_array($about)){
+
+                                 foreach ($about as $value){ ?>
+                                       <tr>
+                                           <td><?php echo $sl++; ?> </td>
+                                           <td><?php echo $value['title']; ?> </td>
+                                            <td> <?php echo $value['phone']; ?></td>
+                                           <td> <?php echo $value['bio'] ;?></td>
+                                       </tr>
+
+
+
+                                     <?php
+
+                                 }
+                             }
+
+                             ?>
+                               </table>
                            </div>
 
                            <div id="aboutadd" class="tab-pane fade">
@@ -68,7 +96,7 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                        </div>
                   <?php
 
-                  echo $resume->about();
+
                   ?>
                    </div>
                </div>
@@ -414,7 +442,7 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                        <div class="tab-content">
                            <div id="settingnew" class="tab-pane fade in active">
                                <h3>views</h3>
-                               <p>setting ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                               <p><?php echo $resume->contact(); ?></p>
                            </div>
 
                            <div id="settingadd" class="tab-pane fade">
