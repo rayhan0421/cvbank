@@ -32,10 +32,18 @@ Class resume extends model{
 
         return $stu;
 
-     return $this->id ;
+
     }
     public function skill(){
-        return $this->id ;
+        $queary = "SELECT  skills.id as skillid ,skills.* FROM skills JOIN users ON users.id =skills.user_id WHERE users.user_role!=2 AND user_id=$this->id";
+
+        $st = $this->pdo->prepare($queary);
+
+        $st->execute();
+
+        $stu= $st->fetchAll();
+
+        return $stu;
     }
     public function hobbies(){
         return $this->id ;

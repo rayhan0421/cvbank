@@ -37,7 +37,7 @@ Class skills extends model{
        }
 
        if(array_key_exists('level',$data))  {
-           $this->title= $data['level'];
+           $this->level= $data['level'];
        }
 
        if(array_key_exists('experience',$data))  {
