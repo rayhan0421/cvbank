@@ -160,8 +160,8 @@ Class skills extends model{
                 )
             );
             if($stmt){
-
-                $_SESSION['message'] ="succesfully deleted ";
+                session_start();
+                $_SESSION['msg'] ="succesfully deleted ";
                 header("location:http://localhost/cvbank/views/skills/index.php");
             }
         } catch (PDOException $e) {
