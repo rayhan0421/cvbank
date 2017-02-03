@@ -3,7 +3,7 @@
 use App\service\service;
 $service= new service();
 $service->setdata($_SESSION['userinfo']);
-//$service=$service->index($_SESSION['userinfo']);
+$service =$service->trashlist();
 
 
 ?>
@@ -30,39 +30,43 @@ $service->setdata($_SESSION['userinfo']);
     <div class="row">
 
 
-    <div class="col-lg-6">
+    <div class="col-lg-12">
     <div class="panel panel-default">
     <div class="panel-heading">
-        <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> service Panel</h3>
+        <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Transactions Panel</h3>
     </div>
     <div class="panel-body">
     <div class="table-responsive">
-        <form role="form" action="store.php" method="post" enctype="multipart/form-data">
+    <table class="table table-bordered table-hover table-striped">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Desc</th>
+        <th>Image</th>
+        <th>Action</th>
 
-            <div class="form-group">
-                <label>Title</label>
-                <input name="title" class="form-control">
-
-            </div>
-            <div class="form-group">
-                <label>desc</label>
-                <textarea cols="6" rows="6"  name="desc" class="form-control"> </textarea>
-
-            </div>
-
-            <div class="form-group">
-                <label>image</label>
-                <input type="file" name="img" class="form-control">
-
-            </div>
+    </tr>
+    </thead>
+    <tbody>
 
 
-        <button type="submit" class="btn btn-default">Save</button>
+<?php if(is_array($service)){ ?>
+    <?php foreach ($service as $value){ ?>
+        <tr>
+            <td> <?php echo $value['title']; ?></td>
+            <td><?php echo $value['description']; ?></td>
+            <td><?php echo $value['img']; ?></td>
 
-        </form>
+          <td> <a href="restoreentry.php?id=<?php echo $value['id'] ?>" >restore</a> </td>
+        </tr>
+    <?php } ?>
+
+<?php }else ?>
+    </tbody>
+    </table>
     </div>
     <div class="text-right">
-
+        <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
     </div>
     </div>
     </div>
