@@ -389,6 +389,9 @@ if(!isset($_SESSION['userinfo'])){
                         <li>
                             <a href="http://localhost/cvbank/views/skills/"><i class="fa fa-th-list" aria-hidden="true"></i> views skill</a>
                         </li>
+                        <li>
+                            <a href="http://localhost/cvbank/views/skills/restore.php"><i class="fa fa-adjust"></i> Trash skills</a>
+                        </li>
                     </ul>
                 </li>
                 <li>

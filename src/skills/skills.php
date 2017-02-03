@@ -169,8 +169,17 @@ Class skills extends model{
         }
     }
 
-    public function restore(){
+    public function trashlist(){
 
+        $queary = "SELECT  * FROM  skills JOIN users ON users.id = skills.user_id WHERE users.id=$this->id AND  skills.deleted_at!='0000-00-00 00:00:00'";
+
+        $st = $this->pdo->prepare($queary);
+
+        $st->execute();
+
+        $stu= $st->fetchAll();
+
+        return $stu;
     }
 
     public function show(){
@@ -185,6 +194,12 @@ Class skills extends model{
         $stu= $st->fetch();
 
         return $stu;
+    }
+
+    public function restore(){
+
+
+
     }
 
 
