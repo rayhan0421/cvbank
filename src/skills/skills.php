@@ -149,6 +149,20 @@ Class skills extends model{
 
     }
 
+    public function show(){
+
+      $this->auto_id;
+        $queary = "SELECT  * FROM  skills WHERE id=$this->auto_id";
+
+        $st = $this->pdo->prepare($queary);
+
+        $st->execute();
+
+        $stu= $st->fetch();
+
+        return $stu;
+    }
+
 
 
 }

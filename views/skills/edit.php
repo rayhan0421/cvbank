@@ -2,8 +2,11 @@
 <?php
 use App\skills\skills;
 $skills= new skills();
-//$skills->setdata($_SESSION['userinfo']);
-$skills =$skills->index($_SESSION['userinfo']);
+$skills->setdata($_GET);
+
+
+$value= $skills->show();
+
 
 
 ?>
@@ -11,7 +14,7 @@ $skills =$skills->index($_SESSION['userinfo']);
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Skills <small>Statistics Overview</small>
+                Skills <small>update</small>
             </h1>
 
         </div>
@@ -37,36 +40,36 @@ $skills =$skills->index($_SESSION['userinfo']);
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <form role="form" action="store.php" method="post">
+                        <form role="form" action="update.php" method="post">
 
                             <div class="form-group">
                                 <label>Title</label>
-                                <input name="title" class="form-control">
+                                <input name="title" value="<?php echo $value['title']; ?>" class="form-control">
 
                             </div>
                             <div class="form-group">
                                 <label>desc</label>
-                                <input name="desc" class="form-control">
+                                <input name="desc" value="<?php echo $value['description']; ?>" class="form-control">
 
                             </div>
 
                             <div class="form-group">
                                 <label>lavel</label>
-                                <input name="lavel" class="form-control">
+                                <input name="lavel" value="<?php echo $value['level']; ?>" class="form-control">
 
                             </div>
                             <div class="form-group">
                                 <label>experienc</label>
-                                <input name="experience" class="form-control">
+                                <input name="experience" value="<?php echo $value['experience']; ?>" class="form-control">
 
                             </div>
                             <div class="form-group">
                                 <label>area</label>
-                                <input name="area" class="form-control">
+                                <input value="<?php echo $value['experience_area']; ?>" name="area" class="form-control">
 
                             </div>
 
-                            <button type="submit" class="btn btn-default">Save</button>
+                            <button type="submit" class="btn btn-default">update</button>
 
                         </form>
                     </div>
