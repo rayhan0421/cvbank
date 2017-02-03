@@ -248,7 +248,7 @@ if(!isset($_SESSION['userinfo'])){
                     </ul>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-fw fa-file"></i> Blank Page</a>
+                    <a href="resume.php"><i class="fa fa-book"></i> Resume </a>
                 </li>
 
             </ul>
