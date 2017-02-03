@@ -109,8 +109,7 @@
                            use App\deshboard\deshboard;
                            use App\aboutme\aboutme;
 
-                           $d= new aboutme();
-                           var_dump($d->list());
+
 
                           // $dd= new deshboard();
 

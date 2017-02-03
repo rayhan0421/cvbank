@@ -1,9 +1,9 @@
 <?php include_once("../common/header.php"); ?>
 <?php
-use App\experiance\experiance;
-$experiance= new experiance();
-$experiance->setdata($_SESSION['userinfo']);
-$experiance =$experiance->trashlist();
+use App\experience\experience;
+$experience= new experience();
+$experience->setdata($_SESSION['userinfo']);
+$experience =$experience->trashlist();
 
 
 ?>
@@ -11,7 +11,7 @@ $experiance =$experiance->trashlist();
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Experiance <small>Statistics Overview</small>
+                Experience <small>Statistics Overview</small>
             </h1>
 
         </div>
@@ -51,8 +51,8 @@ $experiance =$experiance->trashlist();
     <tbody>
 
 
-<?php if(is_array($experiance)){ ?>
-    <?php foreach ($experiance as $value){ ?>
+<?php if(is_array($experience)){ ?>
+    <?php foreach ($experience as $value){ ?>
         <tr>
             <td> <?php echo $value['designation']; ?></td>
             <td><?php echo $value['company_name']; ?></td>
