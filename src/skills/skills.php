@@ -119,6 +119,30 @@ Class skills extends model{
 
    public function update(){
 
+      session_start();
+       try {
+           $query = "UPDATE skills SET title=:title,description=:desc WHERE id=:id";
+
+
+           $stmt = $this->pdo->prepare($query);
+           $stmt->execute(
+               array(
+                   ':id' => $this->auto_id,
+                   ':title' => $this->title,
+                   ':desc'=>$this->desc
+               )
+           );
+           if($stmt){
+
+               $_SESSION['message'] ="succesfully updated ";
+
+               header("location:http://localhost/cvbank/views/skills");
+
+           }
+       } catch (PDOException $e) {
+           echo 'Error: ' . $e->getMessage();
+       }
+
    }
 
     public  function trash()
@@ -151,7 +175,7 @@ Class skills extends model{
 
     public function show(){
 
-      $this->auto_id;
+
         $queary = "SELECT  * FROM  skills WHERE id=$this->auto_id";
 
         $st = $this->pdo->prepare($queary);

@@ -1,7 +1,12 @@
+<?php ob_start(); ?>
+<?php include_once("../common/header.php"); ?>
 <?php
-/**
- * Created by PhpStorm.
- * User: rayha
- * Date: 03-02-2017
- * Time: 12:37 PM
- */
+use App\skills\skills;
+$skills= new skills();
+$skills->setdata($_POST);
+$skills->update();
+?>
+
+<?php  ob_end_flush(); ?>
+
+

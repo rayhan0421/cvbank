@@ -66,7 +66,7 @@ $value= $skills->show();
                             <div class="form-group">
                                 <label>area</label>
                                 <input value="<?php echo $value['experience_area']; ?>" name="area" class="form-control">
-
+                                <input value="<?php echo $value['id']; ?>" name="id"  class="form-control">
                             </div>
 
                             <button type="submit" class="btn btn-default">update</button>
