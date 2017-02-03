@@ -7,6 +7,7 @@ Class signup extends model{
     protected $username='';
     protected $email ='';
     protected $password='';
+    protected $newpass='';
 
     // if you use constructor here
     // use this parent::__construct();
@@ -24,6 +25,12 @@ Class signup extends model{
         if(array_key_exists('passwordsignup',$data)){
             $this->password= $data['passwordsignup'];
         }
+
+        if(array_key_exists('passwordsignup_confirm',$data)){
+            $this->newpass= $data['passwordsignup_confirm'];
+        }
+
+
 
         $this->validate();
 
@@ -90,6 +97,35 @@ Class signup extends model{
       return $data;
       }
 
+      public function update(){
+
+          try{
+
+              $id= $_SESSION['userinfo'][0]['id'];
+
+              $queary = "UPDATE `users` SET `password` = :pass WHERE `users`.`id` = :id;";
+
+              $st = $this->pdo->prepare($queary);
+
+              $st->execute(
+                  array(
+                      ':id'=>$id,
+                      ':pass'=>$this->newpass,
+                  )
+              );
+
+              if($st){
+
+
+                  header("location:index.php");
+              }
+
+          }catch (\PDOException $e){
+
+              echo "Error: ". $e->getTrace();
+          }
+}
+
 
     protected function validate(){
 
@@ -100,6 +136,8 @@ Class signup extends model{
 
 
     }
+
+
 
 
 }

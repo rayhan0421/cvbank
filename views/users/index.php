@@ -39,7 +39,7 @@
                     <tr>
                         <td><?php echo $_SESSION['userinfo'][0]['username']; ?> </td>
                         <td><?php echo $_SESSION['userinfo'][0]['email']; ?></td>
-                        <td> <a href="edit.php" >Edit</a>   </td>
+                        <td> <a href="edit.php?id=<?php echo $_SESSION['userinfo'][0]['id']; ?>" >Edit</a>   </td>
 
                     </tr>
 
