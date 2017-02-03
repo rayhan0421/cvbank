@@ -3,7 +3,7 @@
 use App\award\award;
 $award= new award();
 $award->setdata($_SESSION['userinfo']);
-$award =$award->index();
+$award =$award->trashlist();
 
 
 ?>
@@ -11,7 +11,7 @@ $award =$award->index();
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Award <small>Statistics Overview</small>
+                $award <small>Statistics Overview</small>
             </h1>
 
         </div>
@@ -41,10 +41,10 @@ $award =$award->index();
     <thead>
     <tr>
         <th>Title</th>
-        <th>Organization</th>
-        <th>Description</th>
-        <th>Location</th>
-        <th> Year  </th>
+        <th>organization</th>
+        <th>description</th>
+        <th>location</th>
+        <th> year </th>
         <th>Action</th>
     </tr>
     </thead>
@@ -59,8 +59,8 @@ $award =$award->index();
             <td><?php echo $value['description']; ?></td>
             <td><?php echo $value['location']; ?></td>
             <td><?php echo $value['year']; ?></td>
-            <td> <a href="edit.php?id=<?php echo $value['aid'] ?>">Edit</a>/
-                <a href="trash.php?id=<?php echo $value['aid'] ?>" >delete</a> </td>
+
+            <td> <a href="restoreentry.php?id=<?php echo $value['id'] ?>" >restore</a> </td>
         </tr>
     <?php } ?>
 

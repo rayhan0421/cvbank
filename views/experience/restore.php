@@ -1,9 +1,9 @@
 <?php include_once("../common/header.php"); ?>
 <?php
-use App\award\award;
-$award= new award();
-$award->setdata($_SESSION['userinfo']);
-$award =$award->index();
+use App\experiance\experiance;
+$experiance= new experiance();
+$experiance->setdata($_SESSION['userinfo']);
+$experiance =$experiance->trashlist();
 
 
 ?>
@@ -11,7 +11,7 @@ $award =$award->index();
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Award <small>Statistics Overview</small>
+                Experiance <small>Statistics Overview</small>
             </h1>
 
         </div>
@@ -40,27 +40,27 @@ $award =$award->index();
     <table class="table table-bordered table-hover table-striped">
     <thead>
     <tr>
-        <th>Title</th>
-        <th>Organization</th>
-        <th>Description</th>
-        <th>Location</th>
-        <th> Year  </th>
+        <th>Designation</th>
+        <th>Company_name</th>
+        <th>Start_date</th>
+        <th>End_date</th>
+        <th> Company_location</th>
         <th>Action</th>
     </tr>
     </thead>
     <tbody>
 
 
-<?php if(is_array($award)){ ?>
-    <?php foreach ($award as $value){ ?>
+<?php if(is_array($experiance)){ ?>
+    <?php foreach ($experiance as $value){ ?>
         <tr>
-            <td> <?php echo $value['title']; ?></td>
-            <td><?php echo $value['organization']; ?></td>
-            <td><?php echo $value['description']; ?></td>
-            <td><?php echo $value['location']; ?></td>
-            <td><?php echo $value['year']; ?></td>
-            <td> <a href="edit.php?id=<?php echo $value['aid'] ?>">Edit</a>/
-                <a href="trash.php?id=<?php echo $value['aid'] ?>" >delete</a> </td>
+            <td> <?php echo $value['designation']; ?></td>
+            <td><?php echo $value['company_name']; ?></td>
+            <td><?php echo $value['start_date']; ?></td>
+            <td><?php echo $value['end_date']; ?></td>
+            <td><?php echo $value['company_location']; ?></td>
+
+            <td> <a href="restoreentry.php?id=<?php echo $value['id'] ?>" >restore</a> </td>
         </tr>
     <?php } ?>
 
