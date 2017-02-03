@@ -144,14 +144,21 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                <div id="collapseskill" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingskill">
                    <div class="panel-body">
                        <ul class="nav nav-pills">
-                           <li class="active"><a data-toggle="pill" href="#skill">views</a></li>
+
 
                            <li><a data-toggle="pill" href="#skilladd">Add New</a></li>
+                           <li><a data-toggle="pill" href="#skilldelete">views</a></li>
 
                        </ul>
 
                        <div class="tab-content">
-                           <div id="skill" class="tab-pane fade in active">
+
+
+                           <div id="skilladd" class="tab-pane fade">
+                               <h3>add new</h3>
+                               <p> askill e omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                           </div>
+                           <div id="skilldelete" class="tab-pane fade">
                                <h3>views</h3>
                                <table class="table">
                                    <tr>
@@ -170,18 +177,18 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
 
                                        foreach ($skill as $value){ ?>
                                            <form action="update.php">
-                                           <tr>
-                                               <td>  <?php echo $sl++; ?> </td>
-                                               <td> <input type="text" value=" <?php echo $value['title']; ?>" name="title" >  </td>
-                                               <td > <input type="text" value="<?php echo $value['description']; ?> " name="desc"></td>
-                                               <td > <?php echo $value['experience'] ;?></td>
-                                               <td > <?php echo $value['level'] ;?></td>
-                                               <td > <?php echo $value['experience_area'];?></td>
-                                               <input type="hidden" name="id" value="<?php echo $value['skillid']; ?>">
-                                               <input type="hidden" name="user_id" value="<?php echo $value['user_id']; ?>">
-                                               <td> <input type="submit" >
-                                                   <a href="delete.php?user_id=<?php echo $value['user_id']; ?> & id=<?php  echo $value['skillid']; ?>"> Delete </a> </td>
-                                           </tr>
+                                               <tr>
+                                                   <td>  <?php echo $sl++; ?> </td>
+                                                   <td> <input type="text" value=" <?php echo $value['title']; ?>" name="title" >  </td>
+                                                   <td > <input type="text" value="<?php echo $value['description']; ?> " name="desc"></td>
+                                                   <td > <?php echo $value['experience'] ;?></td>
+                                                   <td > <?php echo $value['level'] ;?></td>
+                                                   <td > <?php echo $value['experience_area'];?></td>
+                                                   <input type="hidden" name="id" value="<?php echo $value['skillid']; ?>">
+                                                   <input type="hidden" name="user_id" value="<?php echo $value['user_id']; ?>">
+                                                   <td> <input type="submit" >
+                                                       <a href="delete.php?user_id=<?php echo $value['user_id']; ?> & id=<?php  echo $value['skillid']; ?>"> Delete </a> </td>
+                                               </tr>
                                            </form>
 
 
@@ -193,13 +200,6 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
 
                                    ?>
                                </table>
-
-
-                           </div>
-
-                           <div id="skilladd" class="tab-pane fade">
-                               <h3>add new</h3>
-                               <p> askill e omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
                            </div>
 
                        </div>
