@@ -102,8 +102,7 @@ Class signup extends model{
           try{
 
               $id= $_SESSION['userinfo'][0]['id'];
-
-              $queary = "UPDATE `users` SET `password` = :pass WHERE `users`.`id` = :id;";
+             $queary = "UPDATE `users` SET `password` = :pass WHERE `users`.`id` = :id;";
 
               $st = $this->pdo->prepare($queary);
 
@@ -116,7 +115,7 @@ Class signup extends model{
 
               if($st){
 
-
+                 $_SESSION['msg'] = "seccesfully updated password !";
                   header("location:index.php");
               }
 
