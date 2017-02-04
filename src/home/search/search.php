@@ -22,7 +22,7 @@ Class search extends model
 
     public function search(){
 
-        $queary = "SELECT  abouts.id as aboutid ,abouts.* FROM abouts JOIN users ON users.id = abouts.user_id WHERE users.user_role!=2";
+        $queary = "SELECT users.id as userid ,abouts.* users.* FROM abouts JOIN users ON users.id = abouts.user_id WHERE users.user_role!=2 AND users.is_active=1";
 
         $st = $this->pdo->prepare($queary);
 

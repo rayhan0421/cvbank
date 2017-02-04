@@ -1,17 +1,18 @@
 <?php include_once("../common/header.php"); ?>
 <?php
 use App\facts\facts;
-$facts= new facts();
-$facts->setdata($_SESSION['userinfo']);
-$facts =$facts->index();
+$service= new facts();
+$service->setdata($_SESSION['userinfo']);
+$service =$service->trashlist();
 
 
 ?>
     <!-- Page Heading -->
+
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                facts <small>Statistics Overview</small>
+                Service <small>Statistics Overview</small>
             </h1>
 
         </div>
@@ -41,23 +42,23 @@ $facts =$facts->index();
     <thead>
     <tr>
         <th>Title</th>
-        <th>no of item</th>
-        <th>image</th>
+        <th>no of items</th>
+        <th>Image</th>
         <th>Action</th>
+
     </tr>
     </thead>
     <tbody>
 
 
-<?php if(is_array($facts)){ ?>
-    <?php foreach ($facts as $value){ ?>
+<?php if(is_array($service)){ ?>
+    <?php foreach ($service as $value){ ?>
         <tr>
             <td> <?php echo $value['title']; ?></td>
             <td><?php echo $value['no_of_items']; ?></td>
-            <td><img height="150" width="150" src="http://localhost/cvbank/storage/images/<?php echo $value['img']; ?>" /> </td>
+            <td><?php echo $value['img']; ?></td>
 
-            <td> <a href="edit.php?id=<?php echo $value['fid'] ?>">Edit</a>/
-                <a href="trash.php?id=<?php echo $value['fid'] ?>" >delete</a> </td>
+            <td> <a href="restoreentry.php?id=<?php echo $value['id'] ?>" >restore</a> </td>
         </tr>
     <?php } ?>
 
