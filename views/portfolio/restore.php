@@ -3,7 +3,7 @@
 use App\Portfolio\Portfolio;
 $Portfolio= new Portfolio();
 $Portfolio->setdata($_SESSION['userinfo']);
-$Portfolio =$Portfolio->index();
+$Portfolio =$Portfolio->trashlist();
 
 
 ?>
@@ -42,8 +42,8 @@ $Portfolio =$Portfolio->index();
     <tr>
         <th>Title</th>
         <th>Description</th>
-        <th>image</th>
-        <th>category</th>
+        <th>Image</th>
+        <th>Category</th>
         <th>Action</th>
     </tr>
     </thead>
@@ -55,10 +55,10 @@ $Portfolio =$Portfolio->index();
         <tr>
             <td> <?php echo $value['title']; ?></td>
             <td><?php echo $value['description']; ?></td>
-            <td><img height="150" width="150" src="http://localhost/cvbank/storage/images/<?php echo $value['img']; ?>" /> </td>
+            <td><?php echo $value['img']; ?></td>
             <td><?php echo $value['category']; ?></td>
-            <td> <a href="edit.php?id=<?php echo $value['portid'] ?>">Edit</a>/
-                <a href="trash.php?id=<?php echo $value['portid'] ?>" >delete</a> </td>
+
+            <td> <a href="restoreentry.php?id=<?php echo $value['id'] ?>" >restore</a> </td>
         </tr>
     <?php } ?>
 

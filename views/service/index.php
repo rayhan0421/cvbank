@@ -42,7 +42,7 @@ $service =$service->index();
                             <tr>
                                 <th>Title</th>
                                 <th>Desc</th>
-                                <th>image</th>
+                                <th>Image</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
