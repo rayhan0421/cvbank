@@ -13,4 +13,5 @@ $_SESSION['msg'] = "from update";
 var_dump($_GET);
 $user_id=$_GET['user_id'];
 
+$_SESSION['about']='in';
 header("location:http://localhost/cvbank/views/admin/userdetails.php?id=$user_id");
