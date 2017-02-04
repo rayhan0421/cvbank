@@ -4,7 +4,7 @@ use App\settings\settings;
 $settings= new settings();
 
 $settings->setdata($_SESSION['userinfo']);
-$settings =$settings->index();
+$settings =$settings->trashlist();
 
 
 ?>
@@ -60,9 +60,9 @@ $settings =$settings->index();
             <td><?php echo $value['description']; ?></td>
             <td><?php echo $value['address']; ?></td>
 
+
             <td><img height="150" width="150" src="http://localhost/cvbank/storage/images/<?php echo $value['featured_img']; ?>" /> </td>
-            <td> <a href="edit.php?id=<?php echo $value['stid'] ?>">Edit</a>/
-                <a href="trash.php?id=<?php echo $value['stid'] ?>" >delete</a> </td>
+            <td> <a href="restoreentry.php?id=<?php echo $value['id'] ?>" >restore</a> </td>
         </tr>
     <?php } ?>
 

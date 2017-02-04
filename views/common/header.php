@@ -312,7 +312,7 @@ if(!isset($_SESSION['userinfo'])){
                         <li>
                             <a href="http://localhost/cvbank/views/post/restore.php"><i class="fa fa-adjust"></i> trash</a>
                         </li>
-                       
+
 
                         <li>
                             <a href="http://localhost/cvbank/views/post/index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
@@ -341,17 +341,17 @@ if(!isset($_SESSION['userinfo'])){
                     <a href="javascript:;" data-toggle="collapse" data-target="#settings"><i class="fa fa-newspaper-o" aria-hidden="true"></i> settings <i class="fa fa-fw fa-caret-down"></i></a>
                     <ul id="settings" class="collapse">
                         <li>
-                            <a href="#"><i class="fa fa-envelope"></i>  new  </a>
+                            <a href="http://localhost/cvbank/views/settings/create.php"><i class="fa fa-envelope"></i>  new  </a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-adjust"></i> trash</a>
+                            <a href="http://localhost/cvbank/views/settings/restore.php"><i class="fa fa-adjust"></i> trash</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
+                            <a href="http://localhost/cvbank/views/settings/index.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
                         </li>
 
                         <li>
-                            <a href="#"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
+                            <a href="http://localhost/cvbank/views/settings/index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
                         </li>
                     </ul>
                 </li>
