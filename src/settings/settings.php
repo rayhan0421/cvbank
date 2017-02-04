@@ -59,7 +59,7 @@ Class settings extends model
     {
 
 
-        $queary = "SELECT  settings.id as stid, settings.*, users.* FROM  settings JOIN users ON users.id = settings.user_id WHERE users.id=$this->id AND  settings.deleted_at='0000-00-00 00:00:00'";
+        $queary = "SELECT  settings.id as stid, settings.*, users.* FROM  settings JOIN users ON users.id = settings.user_id WHERE users.id=$this->id AND  settings.deleted_at='0000-00-00 00:00:00' ORDER BY `settings`.`id` DESC LIMIT 1";
 
         $st = $this->pdo->prepare($queary);
 
@@ -120,23 +120,44 @@ Class settings extends model
 
     public function update(){
 
-//var_dump($_POST);
-        session_start();
-        try {
-        $query = "UPDATE settings SET title=:title,fullname=:fullname,description=:description,address=:address,featured_img=:featured_img WHERE id=:id";;id
-//$query="UPDATE `settings` SET `title`=:title,`fullname`=:fullname,`description`=:description,`address`=:address,`featured_img`=featured_img, WHERE id=:id";
 
-            $stmt = $this->pdo->prepare($query);
-            $stmt->execute(
-                array(
-                    ':id' => $this->auto_id,
-                    ':title' => $this->title,
-                    ':description'=>$this->fullname,
-                    ':description'=>$this->description,
-                ':address'=>$this->address,
-                ':featured_img'=>$this->featured_img
-                )
-            );
+        try {
+            if(empty($this->featured_img)){
+                //$query = "UPDATE settings SET title=:title,fullname=:fullname,description=:description,address=:address,featured_img=:featured_img WHERE id=:id";
+                $query="UPDATE `settings` SET `title` =:title , `fullname` =:fname, `description` =:description, `address` =:address WHERE `settings`.`id` =:id;";
+
+                $stmt = $this->pdo->prepare($query);
+                $stmt->execute(
+                    array(
+                        ':id' => $this->auto_id,
+                        ':title' => $this->title,
+                        ':fname'=>$this->fullname,
+                        ':description'=>$this->description,
+                        ':address'=>$this->address
+
+                    )
+                );
+
+            }else{
+                //$query = "UPDATE settings SET title=:title,fullname=:fullname,description=:description,address=:address,featured_img=:featured_img WHERE id=:id";
+                $query="UPDATE `settings` SET `title` =:title , `fullname` =:fname, `description` =:description, `address` =:address, `featured_img` =:featured_img WHERE `settings`.`id` =:id;";
+
+                $stmt = $this->pdo->prepare($query);
+                $stmt->execute(
+                    array(
+                        ':id' => $this->auto_id,
+                        ':title' => $this->title,
+                        ':fname'=>$this->fullname,
+                        ':description'=>$this->description,
+                        ':address'=>$this->address,
+                        ':featured_img'=>$this->featured_img
+                    )
+                );
+
+            }
+
+
+
             if($stmt){
 
                 $_SESSION['msg'] ="succesfully updated ";

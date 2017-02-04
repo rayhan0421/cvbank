@@ -39,7 +39,7 @@ $value= $facts->show();
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <form role="form" action="update.php" method="post">
+                        <form role="form" action="update.php" method="post" enctype="multipart/form-data">
 
                             <div class="form-group">
                                 <label>Title</label>

@@ -58,7 +58,7 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                        </a>
                    </h4>
                </div>
-               <div id="collapseOne" class="panel-collapse collapse <?php if(isset($_SESSION['about'])){ echo "in"; /*unset($_SESSION['about']); */ } ?>" role="tabpanel" aria-labelledby="headingOne">
+               <div id="collapseOne" class="panel-collapse collapse <?php if(isset($_SESSION['aboute'])){ echo "in"; unset($_SESSION['aboute']);  } ?>" role="tabpanel" aria-labelledby="headingOne">
                    <div class="panel-body">
                        <ul class="nav nav-pills">
                            <li class="active"><a data-toggle="pill" href="#about">views</a></li>
@@ -74,35 +74,45 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                                    <tr>
                                        <td>SL</td>
                                        <td>Title </td>
-                                       <td>desc</td>
-                                       <td>experience</td>
-                                       <td>level</td>
-                                       <td>area</td>
+                                       <td>phone</td>
+                                       <td>bio</td>
+
                                        <td> action </td>
                                    </tr>
                                    <?php
-                                   $skill = $resume->skill();
+                                   $about = $resume->about();
 
-                                   if(is_array($skill)){
+                                   if(is_array($about)){
 
-                                       foreach ($skill as $value){ ?>
-                                           <form action="skills/update.php" method="post">
+                                       foreach ($about as $value){ ?>
+                                           <form action="abouts/update.php" method="post">
                                                <tr>
                                                    <td>  <?php echo $sl++; ?> </td>
-                                                   <td> <input type="text" value=" <?php echo $value['title']; ?>" name="title" >  </td>
-                                                   <td > <input type="text" value="<?php echo $value['description']; ?> " name="desc"></td>
-                                                   <td ><input type="text" value="<?php echo $value['experience'] ;?>" name="experience" ></td>
-                                                   <td > <input type="text" value="<?php echo $value['level'] ;?>" name="level" ></td>
-                                                   <td > <input type="text" value="<?php echo $value['experience_area'];?>" name="area">
+                                                   <td>
+                                                       <div class="form-group">
+                                                       <input class="form-control" type="text" value=" <?php echo $value['title']; ?>" name="title" >
+                                                       </div>
+                                                   </td>
+                                                   <td >
+                                                       <div class="form-group">
+                                                       <input class="form-control" type="text" value="<?php echo $value['phone']; ?> " name="phone">
+                                                       </div>
+                                                   </td>
+                                                   <td width="300" >
+                                                       <div class="form-group">
+                                                       <textarea class="form-control" cols="26" rows="8" name="bio"><?php echo $value['bio'] ;?> </textarea>
+                                                       </div>
+
+                                                   </td>
 
 
                                                    </td>
 
                                                    <td>
-                                                       <input  type="hidden" name="id" value="<?php echo $value['skillid']; ?>" />
+                                                       <input  type="hidden" name="id" value="<?php echo $value['aboutid']; ?>" />
                                                        <input type="hidden" name="user_id" value="<?php echo $value['user_id']; ?>" />
-                                                       <input type="submit" >
-                                                       <a   href="skills/delete.php?user_id=<?php echo $value['user_id']; ?> & id=<?php  echo $value['skillid']; ?>"> Delete </a> </td>
+                                                       <input type="submit" value="Update" >
+                                                       <a   href="abouts/delete.php?user_id=<?php echo $value['user_id']; ?> & id=<?php  echo $value['aboutid']; ?>"> Delete </a> </td>
                                                </tr>
                                            </form>
 
@@ -119,7 +129,27 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
 
                            <div id="aboutadd" class="tab-pane fade">
                                <h3>add new</h3>
-                               <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                               <form action="abouts/store.php" method="post">
+
+
+
+                                   <div class="form-group">
+                                       <label for="usr">Title:</label>
+                                       <input type="text" name="title" value="" class="form-control" id="usr">
+                                   </div>
+                                   <div class="form-group">
+                                       <label for="pwd">phone</label>
+                                       <input type="text"   name="phone"  value="" class="form-control" id="pwd">
+                                   </div>
+                                   <div class="form-group">
+                                       <label for="bio">bio</label>
+                                       <textarea class="form-control" rows="5" name="bio" id="bio"> </textarea>
+                                   </div>
+                                   <input type="hidden" name="user_id"  value="<?php echo $_GET['id']; ?>" class="form-control" id="pwd">
+
+
+                                   <button type="submit" class="btn btn-primary">Add</button>
+                               </form>
                            </div>
 
                        </div>
@@ -711,7 +741,7 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                        </a>
                    </h4>
                </div>
-               <div id="collapseaward" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingaward">
+               <div id="collapseaward" class="panel-collapse collapse  <?php if(isset($_SESSION['awards'])){ echo "in"; unset($_SESSION['awards']); } ?>" role="tabpanel" aria-labelledby="headingaward">
                    <div class="panel-body">
                        <ul class="nav nav-pills">
                            <li class="active"><a data-toggle="pill" href="#awardnew">views</a></li>
@@ -727,35 +757,35 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                                    <tr>
                                        <td>SL</td>
                                        <td>Title </td>
-                                       <td>desc</td>
-                                       <td>experience</td>
-                                       <td>level</td>
-                                       <td>area</td>
+                                       <td>description</td>
+                                       <td>organization</td>
+                                       <td>location</td>
+                                       <td>year</td>
                                        <td> action </td>
                                    </tr>
                                    <?php
-                                   $skill = $resume->skill();
+                                   $awards = $resume->award();
 
-                                   if(is_array($about)){
+                                   if(is_array($awards)){
 
-                                       foreach ($skill as $value){ ?>
-                                           <form action="skills/update.php" method="post">
+                                       foreach ($awards as $value){ ?>
+                                           <form action="awards/update.php" method="post">
                                                <tr>
                                                    <td>  <?php echo $sl++; ?> </td>
                                                    <td> <input type="text" value=" <?php echo $value['title']; ?>" name="title" >  </td>
                                                    <td > <input type="text" value="<?php echo $value['description']; ?> " name="desc"></td>
-                                                   <td ><input type="text" value="<?php echo $value['experience'] ;?>" name="experience" ></td>
-                                                   <td > <input type="text" value="<?php echo $value['level'] ;?>" name="level" ></td>
-                                                   <td > <input type="text" value="<?php echo $value['experience_area'];?>" name="area">
+                                                   <td ><input type="text" value="<?php echo $value['organization'] ;?>" name="organization" ></td>
+                                                   <td > <input type="text" value="<?php echo $value['location'] ;?>" name="location" ></td>
+                                                   <td > <input type="text" value="<?php echo $value['year'];?>" name="year">
 
 
                                                    </td>
 
                                                    <td>
-                                                       <input  type="hidden" name="id" value="<?php echo $value['skillid']; ?>" />
+                                                       <input  type="hidden" name="id" value="<?php echo $value['awardsid']; ?>" />
                                                        <input type="hidden" name="user_id" value="<?php echo $value['user_id']; ?>" />
-                                                       <input type="submit" >
-                                                       <a   href="skills/delete.php?user_id=<?php echo $value['user_id']; ?> & id=<?php  echo $value['skillid']; ?>"> Delete </a> </td>
+                                                       <input type="submit" value="Update">
+                                                       <a   href="awards/delete.php?user_id=<?php echo $value['user_id']; ?> & id=<?php  echo $value['awardsid']; ?>"> Delete </a> </td>
                                                </tr>
                                            </form>
 
@@ -773,7 +803,40 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
 
                            <div id="awardadd" class="tab-pane fade">
                                <h3>add new</h3>
-                               <p>award e omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                               <div class="table-responsive">
+                                   <form role="form" action="awards/store.php" method="post">
+
+                                       <div class="form-group">
+                                           <label>Title</label>
+                                           <input name="title" class="form-control">
+
+                                       </div>
+                                       <div class="form-group">
+                                           <label>Organization</label>
+                                           <input name="organization" class="form-control">
+
+                                       </div>
+
+                                       <div class="form-group">
+                                           <label>Description</label>
+                                           <textarea name="description" cols="12" rows="12" class="form-control"></textarea>
+
+                                       </div>
+                                       <div class="form-group">
+                                           <label>Location</label>
+                                           <input name="location" class="form-control">
+
+                                       </div>
+                                       <div class="form-group">
+                                           <label>Year</label>
+                                           <input type="text" name="year" class="form-control">
+
+                                       </div>
+                                       <input type="hidden" name="user_id" value="<?php echo $_GET['id']; ?>" class="form-control">
+                                       <button type="submit" class="btn btn-default">Add Awards</button>
+
+                                   </form>
+                               </div>
                            </div>
 
                        </div>
@@ -788,7 +851,7 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                        </a>
                    </h4>
                </div>
-               <div id="collapseservice" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingservice">
+               <div id="collapseservice" class="panel-collapse collapse <?php if(isset($_SESSION['service'])){ echo $_SESSION['service']; unset($_SESSION['service']); } ?>" role="tabpanel" aria-labelledby="headingservice">
                    <div class="panel-body">
                        <ul class="nav nav-pills">
                            <li class="active"><a data-toggle="pill" href="#servicenew">views</a></li>
@@ -804,35 +867,35 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                                    <tr>
                                        <td>SL</td>
                                        <td>Title </td>
-                                       <td>desc</td>
-                                       <td>experience</td>
-                                       <td>level</td>
-                                       <td>area</td>
+                                       <td>description	</td>
+
+                                       <td>img</td>
                                        <td> action </td>
                                    </tr>
                                    <?php
-                                   $skill = $resume->skill();
+                                   $service = $resume->service();
 
-                                   if(is_array($about)){
+                                   if(is_array($service)){
 
-                                       foreach ($skill as $value){ ?>
-                                           <form action="skills/update.php" method="post">
+                                       foreach ($service as $value){ ?>
+                                           <form action="services/update.php" method="post" enctype="multipart/form-data">
                                                <tr>
                                                    <td>  <?php echo $sl++; ?> </td>
                                                    <td> <input type="text" value=" <?php echo $value['title']; ?>" name="title" >  </td>
                                                    <td > <input type="text" value="<?php echo $value['description']; ?> " name="desc"></td>
-                                                   <td ><input type="text" value="<?php echo $value['experience'] ;?>" name="experience" ></td>
-                                                   <td > <input type="text" value="<?php echo $value['level'] ;?>" name="level" ></td>
-                                                   <td > <input type="text" value="<?php echo $value['experience_area'];?>" name="area">
+                                                   <td >
+                                                    <input type="file" name="img">
+                                                       <img  height="150" width="150" src="http://localhost/cvbank/storage/images/<?php echo $value['img']; ?>" />
+                                                   </td>
 
 
                                                    </td>
 
                                                    <td>
-                                                       <input  type="hidden" name="id" value="<?php echo $value['skillid']; ?>" />
+                                                       <input  type="hidden" name="id" value="<?php echo $value['servicesid']; ?>" />
                                                        <input type="hidden" name="user_id" value="<?php echo $value['user_id']; ?>" />
-                                                       <input type="submit" >
-                                                       <a   href="skills/delete.php?user_id=<?php echo $value['user_id']; ?> & id=<?php  echo $value['skillid']; ?>"> Delete </a> </td>
+                                                       <input type="submit" value="Update" >
+                                                       <a   href="services/delete.php?user_id=<?php echo $value['user_id']; ?> & id=<?php  echo $value['servicesid']; ?>"> Delete </a> </td>
                                                </tr>
                                            </form>
 
@@ -849,7 +912,32 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
 
                            <div id="serviceadd" class="tab-pane fade">
                                <h3>add new</h3>
-                               <p>service e omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                               <div class="table-responsive">
+                                   <form role="form" action="services/store.php" method="post" enctype="multipart/form-data">
+
+                                       <div class="form-group">
+                                           <label>Title</label>
+                                           <input name="title" class="form-control">
+
+                                       </div>
+                                       <div class="form-group">
+                                           <label>desc</label>
+                                           <textarea cols="6" rows="6"  name="desc" class="form-control"> </textarea>
+
+                                       </div>
+
+                                       <div class="form-group">
+                                           <label>image</label>
+                                           <input type="file" name="img" class="form-control">
+
+                                       </div>
+                                       <input type="hidden" name="user_id" value="<?php echo $_GET['id']; ?>">
+
+
+                                       <button type="submit" class="btn btn-default">Save</button>
+
+                                   </form>
+                               </div>
                            </div>
 
                        </div>
@@ -864,7 +952,7 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                        </a>
                    </h4>
                </div>
-               <div id="collapsesetting" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingsetting">
+               <div id="collapsesetting" class="panel-collapse collapse <?php if(isset($_SESSION['setting'])){ echo $_SESSION['setting']; unset($_SESSION['setting']); } ?>" role="tabpanel" aria-labelledby="headingsetting">
                    <div class="panel-body">
                        <ul class="nav nav-pills">
                            <li class="active"><a data-toggle="pill" href="#settingnew">views</a></li>
@@ -880,35 +968,36 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                                    <tr>
                                        <td>SL</td>
                                        <td>Title </td>
-                                       <td>desc</td>
-                                       <td>experience</td>
-                                       <td>level</td>
-                                       <td>area</td>
+                                       <td>fullname</td>
+                                       <td>description</td>
+                                       <td>address</td>
+                                       <td>feature image</td>
                                        <td> action </td>
                                    </tr>
                                    <?php
-                                   $skill = $resume->skill();
+                                   $setting = $resume->settings();
 
                                    if(is_array($about)){
 
-                                       foreach ($skill as $value){ ?>
-                                           <form action="skills/update.php" method="post">
+                                       foreach ($setting as $value){ ?>
+                                           <form action="settings/update.php" method="post" enctype="multipart/form-data">
                                                <tr>
                                                    <td>  <?php echo $sl++; ?> </td>
                                                    <td> <input type="text" value=" <?php echo $value['title']; ?>" name="title" >  </td>
-                                                   <td > <input type="text" value="<?php echo $value['description']; ?> " name="desc"></td>
-                                                   <td ><input type="text" value="<?php echo $value['experience'] ;?>" name="experience" ></td>
-                                                   <td > <input type="text" value="<?php echo $value['level'] ;?>" name="level" ></td>
-                                                   <td > <input type="text" value="<?php echo $value['experience_area'];?>" name="area">
-
+                                                   <td > <input type="text" value="<?php echo $value['fullname']; ?> " name="fullname"></td>
+                                                   <td ><input type="text" value="<?php echo $value['description'] ;?>" name="description" ></td>
+                                                   <td > <input type="text" value="<?php echo $value['address'] ;?>" name="address" ></td>
+                                                   <td >
+                                                       <input type="file" name="img">
+                                                       <img height="150" width="150" src="http://localhost/cvbank/storage/images/<?php echo $value['featured_img']; ?>" />
 
                                                    </td>
 
                                                    <td>
-                                                       <input  type="hidden" name="id" value="<?php echo $value['skillid']; ?>" />
+                                                       <input  type="hidden" name="id" value="<?php echo $value['settingsid']; ?>" />
                                                        <input type="hidden" name="user_id" value="<?php echo $value['user_id']; ?>" />
-                                                       <input type="submit" >
-                                                       <a   href="skills/delete.php?user_id=<?php echo $value['user_id']; ?> & id=<?php  echo $value['skillid']; ?>"> Delete </a> </td>
+                                                       <input type="submit" value="Update" >
+                                                       <a   href="settings/delete.php?user_id=<?php echo $value['user_id']; ?> & id=<?php  echo $value['settingsid']; ?>"> Delete </a> </td>
                                                </tr>
                                            </form>
 
@@ -926,51 +1015,41 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                            <div id="settingadd" class="tab-pane fade">
                                <h3>add new</h3>
 
-                               <table class="table">
-                                   <tr>
-                                       <td>SL</td>
-                                       <td>Title </td>
-                                       <td>desc</td>
-                                       <td>experience</td>
-                                       <td>level</td>
-                                       <td>area</td>
-                                       <td> action </td>
-                                   </tr>
-                                   <?php
-                                   $skill = $resume->skill();
+                               <div class="table-responsive">
+                                   <form role="form" action="settings/store.php" method="post" enctype="multipart/form-data">
 
-                                   if(is_array($about)){
+                                       <div class="form-group">
+                                           <label>Title</label>
+                                           <input name="title" class="form-control">
 
-                                       foreach ($skill as $value){ ?>
-                                           <form action="skills/update.php" method="post">
-                                               <tr>
-                                                   <td>  <?php echo $sl++; ?> </td>
-                                                   <td> <input type="text" value=" <?php echo $value['title']; ?>" name="title" >  </td>
-                                                   <td > <input type="text" value="<?php echo $value['description']; ?> " name="desc"></td>
-                                                   <td ><input type="text" value="<?php echo $value['experience'] ;?>" name="experience" ></td>
-                                                   <td > <input type="text" value="<?php echo $value['level'] ;?>" name="level" ></td>
-                                                   <td > <input type="text" value="<?php echo $value['experience_area'];?>" name="area">
+                                       </div>
+                                       <div class="form-group">
+                                           <label>fullname</label>
+                                           <input name="fullname" class="form-control">
 
+                                       </div>
 
-                                                   </td>
+                                       <div class="form-group">
+                                           <label>description</label>
+                                           <input name="description" class="form-control">
 
-                                                   <td>
-                                                       <input  type="hidden" name="id" value="<?php echo $value['skillid']; ?>" />
-                                                       <input type="hidden" name="user_id" value="<?php echo $value['user_id']; ?>" />
-                                                       <input type="submit" >
-                                                       <a   href="skills/delete.php?user_id=<?php echo $value['user_id']; ?> & id=<?php  echo $value['skillid']; ?>"> Delete </a> </td>
-                                               </tr>
-                                           </form>
+                                       </div>
+                                       <div class="form-group">
+                                           <label>address</label>
+                                           <input name="address" class="form-control">
 
+                                       </div>
+                                       <input name="user_id" type="hidden" value="<?php echo $_GET['id']; ?>" class="form-control">
+                                       <div class="form-group">
+                                           <label>featured_img</label>
+                                           <input type="file" name="featured_img" class="form-control">
 
+                                       </div>
 
-                                           <?php
+                                       <button type="submit" class="btn btn-default">Save</button>
 
-                                       }
-                                   }
-
-                                   ?>
-                               </table>
+                                   </form>
+                               </div>
                            </div>
 
                        </div>

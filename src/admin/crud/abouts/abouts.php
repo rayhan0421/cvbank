@@ -1,7 +1,7 @@
 <?php
-namespace App\admin\crud\hobbies;
+namespace App\admin\crud\abouts;
 use App\model\model;
-Class hobbies extends model
+Class abouts extends model
 {
 
     protected $id = '';
@@ -25,28 +25,63 @@ Class hobbies extends model
         if(array_key_exists('title',$data))  {
             $this->title= $data['title'];
         }
-        if(array_key_exists('desc',$data))  {
-            $this->desc= $data['desc'];
+        if(array_key_exists('bio',$data))  {
+            $this->bio= $data['bio'];
         }
 
-        if(array_key_exists('level',$data))  {
-            $this->level= $data['level'];
+        if(array_key_exists('phone',$data))  {
+            $this->phone= $data['phone'];
         }
 
-        if(array_key_exists('experience',$data))  {
-            $this->experience= $data['experience'];
-        }
-
-        if(array_key_exists('area',$data))  {
-            $this->area= $data['area'];
-        }
+     $this->validate();
     }
 
+
+    public function store(){
+
+
+
+        $queary = "INSERT INTO `abouts` (`id`,`user_id`,`title`,`phone`,`bio`,`created_at`) VALUES (:a,:b,:c,:d,:e,:f);";
+
+        $st = $this->pdo->prepare($queary);
+
+        $st->execute(
+            array(
+                ':a'=>null,
+                ':b'=>$this->user_id,
+                ':c'=>$this->title,
+                ':d'=>$this->phone,
+                ':e'=>$this->bio,
+                ':f'=>date('Y-m-d h:m:s')
+
+            )
+        );
+
+
+
+        if($st){
+
+            $_SESSION['msg']= "Successfully added aboute";
+
+
+
+            header("location:http://localhost/cvbank/views/admin/userdetails.php?id=$this->user_id");
+        }else{
+
+            $_SESSION['msg']= "aboute creation failed";
+
+
+            header("location:http://localhost/cvbank/views/admin/userdetails.php?id=$this->user_id");
+
+        }
+
+
+    }
     public function update(){
 
 
         try {
-            $query = "UPDATE hobbies SET title=:title,description=:desc,level=:levell,experience=:exp,experience_area=:area WHERE id=:id";
+            $query = "UPDATE abouts SET title=:title,phone=:phone,bio=:bio WHERE id=:id";
 
 
             $stmt = $this->pdo->prepare($query);
@@ -54,12 +89,12 @@ Class hobbies extends model
                 array(
                     ':id' => $this->id,
                     ':title' => $this->title,
-                    ':desc'=>$this->desc,
-                    ':exp' =>$this->experience,
-                    ':levell'=>$this->level,
-                    ':area'=>$this->area
+                    ':phone'=>$this->phone,
+                    ':bio' =>$this->bio
+
                 )
             );
+
             if($stmt){
 
                 $_SESSION['msg'] ="succesfully updated ";
@@ -78,7 +113,7 @@ Class hobbies extends model
 
     public function delete(){
         try {
-            $query = "UPDATE hobbies SET deleted_at=:datetme WHERE id=:id";
+            $query = "UPDATE abouts SET deleted_at=:datetme WHERE id=:id";
 
 
             $stmt = $this->pdo->prepare($query);
@@ -97,5 +132,12 @@ Class hobbies extends model
             $_SESSION['msg'] ="failed to deleted ";
             header("location:http://localhost/cvbank/views/admin/userdetails.php?id=$this->user_id");
         }
+    }
+
+    public function validate(){
+
+        $this->title = filter_var($this->title,FILTER_SANITIZE_STRIPPED);
+        $this->phone = filter_var($this->phone,FILTER_SANITIZE_STRIPPED);
+
     }
 }

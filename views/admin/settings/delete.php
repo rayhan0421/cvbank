@@ -1,9 +1,12 @@
 
 <?php
 include_once ("../../../vendor/autoload.php");
-use App\admin\crud\skills\skills;
+use App\admin\crud\settings\settings;
 session_start();
-$sk = new skills();
+$sk = new settings();
+
+$_SESSION['setting']="in";
+
 $sk->setdata($_GET);
 $sk->delete();
 

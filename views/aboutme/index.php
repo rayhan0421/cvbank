@@ -35,23 +35,19 @@ if($ab) {
                 <div class="row">
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> 608d69a63a084caff6cf761069c8c1c1c9c80719
 
 
 <?php if(is_array($ab)){ ?>
       <form action="update.php" method="post">
 
-=======
+
 
 
 <?php if(is_array($ab)){ ?>
       <form action="update.php" method="post">
 
->>>>>>> a2876a67feb3f3f278b88695378810c999114492
+
 
 
           <div class="form-group">
@@ -63,8 +59,8 @@ if($ab) {
               <input type="text"   name="phone"  value="<?php echo $ab['phone']; ?>" class="form-control" id="pwd">
           </div>
           <div class="form-group">
-              <label for="comment">Comment:</label>
-              <textarea class="form-control" rows="5" name="bio" id="comment"><?php echo $ab['bio']; ?></textarea>
+              <label for="bio">bio</label>
+              <textarea class="form-control" rows="5" name="bio" id="bio"><?php echo $ab['bio']; ?></textarea>
           </div>
           <input type="hidden"   name="id"  value="<?php echo $ab['id']; ?>" class="form-control" id="pwd">
 
@@ -88,8 +84,8 @@ else {
             <input type="text"   name="phone"  value="<?php echo $ab['phone']; ?>" class="form-control" id="pwd">
         </div>
         <div class="form-group">
-            <label for="comment">Comment:</label>
-            <textarea class="form-control" rows="5" name="bio" id="comment"><?php echo $ab['bio']; ?></textarea>
+            <label for="bio">bio</label>
+            <textarea class="form-control" rows="5" name="bio" id="bio"><?php echo $ab['bio']; ?></textarea>
         </div>
 
 
@@ -98,9 +94,9 @@ else {
     </form>
 
 
-    <?php  }?>
+    <?php  } ?>
                 <!-- /.row -->
-
+<?php } ?>
             </div>
             <!-- /.container-fluid -->
 
