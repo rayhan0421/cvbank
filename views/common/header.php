@@ -193,17 +193,17 @@ if(!isset($_SESSION['userinfo'])){
                     <a href="javascript:;" data-toggle="collapse" data-target="#contacts"><i class="fa fa-newspaper-o" aria-hidden="true"></i> contacts <i class="fa fa-fw fa-caret-down"></i></a>
                     <ul id="contacts" class="collapse">
                         <li>
-                            <a href="#"><i class="fa fa-envelope"></i>  new  </a>
+                            <a href="http://localhost/cvbank/views/contact/create.php"><i class="fa fa-envelope"></i>  new  </a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-adjust"></i> trash</a>
+                            <a href="http://localhost/cvbank/views/contact/restore.php"><i class="fa fa-adjust"></i> trash</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
                         </li>
 
                         <li>
-                            <a href="#"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
+                            <a href="http://localhost/cvbank/views/contact/index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
                         </li>
                     </ul>
                 </li>

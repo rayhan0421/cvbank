@@ -3,7 +3,7 @@
 use App\Contact\Contact;
 $Contact= new Contact();
 $Contact->setdata($_SESSION['userinfo']);
-$Contact2 =$Contact->index();
+$Contact =$Contact->trashlist();
 
 
 ?>
@@ -50,15 +50,15 @@ $Contact2 =$Contact->index();
     <tbody>
 
 
-<?php if(is_array($Contact2)){ ?>
-    <?php foreach ($Contact2 as $value){ ?>
+<?php if(is_array($Contact)){ ?>
+    <?php foreach ($Contact as $value){ ?>
         <tr>
             <td> <?php echo $value['name']; ?></td>
-            <td><?php echo $value['cmail']; ?></td>
-            <td><<?php echo $value['message']; ?></td>
+            <td><?php echo $value['email']; ?></td>
+            <td><?php echo $value['message']; ?></td>
             <td><?php echo $value['phone']; ?></td>
-            <td> <a href="edit.php?id=<?php echo $value['cid'] ?>">Edit</a>/
-                <a href="trash.php?id=<?php echo $value['cid'] ?>" >delete</a> </td>
+
+            <td> <a href="restoreentry.php?id=<?php echo $value['id'] ?>" >restore</a> </td>
         </tr>
     <?php } ?>
 
