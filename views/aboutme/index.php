@@ -6,6 +6,11 @@ $ab= new aboutme();
 $ab->setdata($_SESSION['userinfo']);
 $ab =$ab->index();
 
+if($ab) {
+   //echo "<pre>";
+    //var_dump($ab);
+   // die();
+}
 ?>
                 <!-- Page Heading -->
                 <div class="row">
@@ -13,11 +18,7 @@ $ab =$ab->index();
                         <h1 class="page-header">
                             About Me <small> </small>
                         </h1>
-                        <ol class="breadcrumb">
-                            <li class="active">
-                                <i class="fa fa-dashboard"></i> About Me
-                            </li>
-                        </ol>
+
                     </div>
                 </div>
                 <!-- /.row -->
@@ -35,42 +36,57 @@ $ab =$ab->index();
 
 
 
-                </div>
-                    <div class="col-lg-8">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Transactions Panel</h3>
-                            </div>
-    <div class="table-responsive">
-    <table class="table table-bordered table-hover table-striped">
-    <thead>
-    <tr>
-        <th>Title</th>
-        <th>phone</th>
-        <th>bio</th>
-        <th>Action</th>
-    </tr>
-    </thead>
-    <tbody>
-
 
 <?php if(is_array($ab)){ ?>
-      <form action="update.php" method="post" enctype="multipart/form-data">
-        <tr>
-            <td><input type="text" name="title" value="<?php echo $ab['title']; ?>" />  </td>
-            <td> <input type="text" name="phone" value="<?php echo $ab['phone']; ?>"></td>
-            <td><input name="bio" value=" <?php echo $ab['bio']; ?>" type="text" > </td>
+      <form action="update.php" method="post">
 
-            <td> <a href="edit.php?id=<?php echo $ab['id'] ?>">Update</a>
 
+
+          <div class="form-group">
+              <label for="usr">Title:</label>
+              <input type="text" name="title" value="<?php echo $ab['title']; ?>"" class="form-control" id="usr">
+          </div>
+          <div class="form-group">
+              <label for="pwd">phone</label>
+              <input type="text"   name="phone"  value="<?php echo $ab['phone']; ?>" class="form-control" id="pwd">
+          </div>
+          <div class="form-group">
+              <label for="comment">Comment:</label>
+              <textarea class="form-control" rows="5" name="bio" id="comment"><?php echo $ab['bio']; ?></textarea>
+          </div>
+          <input type="hidden"   name="id"  value="<?php echo $ab['id']; ?>" class="form-control" id="pwd">
+
+
+          <button type="submit" class="btn btn-primary">Update</button>
       </form>
-<?php }else ?>
-    </tbody>
-    </table>
+<?php }
 
-                        </div>
-                    </div>
-                </div>
+else {
+ ?>
+    <form action="update.php" method="post">
+
+
+
+        <div class="form-group">
+            <label for="usr">Title:</label>
+            <input type="text" name="title" value="<?php echo $ab['title']; ?>"" class="form-control" id="usr">
+        </div>
+        <div class="form-group">
+            <label for="pwd">phone</label>
+            <input type="text"   name="phone"  value="<?php echo $ab['phone']; ?>" class="form-control" id="pwd">
+        </div>
+        <div class="form-group">
+            <label for="comment">Comment:</label>
+            <textarea class="form-control" rows="5" name="bio" id="comment"><?php echo $ab['bio']; ?></textarea>
+        </div>
+
+
+
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+
+
+    <?php  }?>
                 <!-- /.row -->
 
             </div>
