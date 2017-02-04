@@ -3,7 +3,6 @@ include ("vendor/autoload.php");
 session_start();
 use App\home\search\search;
 
-$search = new search();
 
 ?>
 
@@ -295,12 +294,20 @@ if(isset($_GET['keyword'])){
 
             <div class="container">
                 <?php if(isset($_GET['keyword'])) {?>
+                 <?php
+                    $search = new search();
+                    $search->setdata($_GET);
+                    $results = array();
+
+                    $results = $search->search();
+
+                    ?>
                 <hgroup class="mb20">
                     <h1>Search Results for <?php echo $_GET['keyword'] ?></h1>
 
                     <br/>
                 </hgroup>
-
+                <?php foreach ($results as $value) { ?>
                 <section class="col-xs-12 col-sm-6 col-md-12">
                     <article class="search-result row">
                         <div class="col-xs-12 col-sm-12 col-md-3">
@@ -314,17 +321,18 @@ if(isset($_GET['keyword'])){
                             </ul>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
-                            <h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>
-
+                            <h3><a href="#" title=""><?php echo $value['title'] ?></a></h3>
+                            <p> <?php echo $value['bio']; ?> </p>
                         </div>
                         <span class="clearfix borda"></span>
                     </article>
 
 
-          <?php  } ?>
+
 
                 </section>
+                  <?php  } ?>
+                <?php  } ?>
             </div>
             <?php if(!isset($_GET['keyword'])) {?>
             <div class="container">

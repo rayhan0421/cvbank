@@ -17,14 +17,23 @@ Class search extends model
             $this->keyword = $data['keyword'];
         }
 
-        filterdata();
+        $this->filterdata();
     }
 
     public function search(){
 
+        $queary = "SELECT  abouts.id as aboutid ,abouts.* FROM abouts JOIN users ON users.id = abouts.user_id WHERE users.user_role!=2";
+
+        $st = $this->pdo->prepare($queary);
+
+        $st->execute();
+
+        $stu= $st->fetchAll();
+
+        return $stu;
     }
 
-    public function filterdata(){
+    protected function filterdata(){
         $this->keyword= filter_var($this->keyword,FILTER_SANITIZE_STRIPPED);
     }
 }
