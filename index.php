@@ -1,9 +1,16 @@
 <?php
+include ("vendor/autoload.php");
+session_start();
+use App\home\search\search;
 
+$search = new search();
+
+?>
+
+<?php
 if(isset($_GET['keyword'])){
     $keyword=  filter_var($_GET['keyword'],FILTER_SANITIZE_STRIPPED);
 }
-
 
 ?>
 
