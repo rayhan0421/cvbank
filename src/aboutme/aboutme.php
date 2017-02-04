@@ -8,41 +8,33 @@ Class aboutme extends model{
 
  // if you use constructor here
   // use this parent::__construct();
-
+    public function setdata($data)
+    {
+        if (isset($data[0])) {
+            if (array_key_exists('id', $data[0])) {
+                $this->id = $data[0]['id'];
+            }
+        }
+    }
  public function index(){
 
-     $this->validate();
 
-    $queary = "select * from users";
+
+    $queary = "select * from abouts where abouts.user_id=$this->id";
 
      $st = $this->pdo->prepare($queary);
 
      $st->execute();
 
-     $stu= $st->fetchAll();
+
+     $stu= $st->fetch();
 
      return $stu;
 
 
   }
-    public function list(){
 
 
-        $_SESSION["msg"] = "suucessful validate about me now ";
-        $_SESSION["fail"] = "failed validation";
-
-        $queary = "select * from users";
-
-        $st = $this->pdo->prepare($queary);
-
-        $st->execute();
-
-        $stu= $st->fetchAll();
-
-        return $stu;
-
-
-    }
 
   protected function validate(){
 

@@ -1,5 +1,12 @@
 <?php include_once("../common/header.php"); ?>
+<?php
+use App\aboutme\aboutme;
 
+$ab= new aboutme();
+$ab->setdata($_SESSION['userinfo']);
+$ab =$ab->index();
+
+?>
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
@@ -26,97 +33,41 @@
 
                 <div class="row">
 
-                    <div class="col-lg-4">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Transactions Panel</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered table-hover table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Order #</th>
-                                                <th>Order Date</th>
-                                                <th>Order Time</th>
-                                                <th>Amount (USD)</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>3326</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:29 PM</td>
-                                                <td>$321.33</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3325</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:20 PM</td>
-                                                <td>$234.34</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3324</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:03 PM</td>
-                                                <td>$724.17</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3323</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:00 PM</td>
-                                                <td>$23.71</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3322</td>
-                                                <td>10/21/2013</td>
-                                                <td>2:49 PM</td>
-                                                <td>$8345.23</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3321</td>
-                                                <td>10/21/2013</td>
-                                                <td>2:23 PM</td>
-                                                <td>$245.12</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3320</td>
-                                                <td>10/21/2013</td>
-                                                <td>2:15 PM</td>
-                                                <td>$5663.54</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3319</td>
-                                                <td>10/21/2013</td>
-                                                <td>2:13 PM</td>
-                                                <td>$943.45</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="text-right">
-                                    <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+
+                </div>
                     <div class="col-lg-8">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Transactions Panel</h3>
                             </div>
-                           <?php
-                           use App\deshboard\deshboard;
-                           use App\aboutme\aboutme;
+    <div class="table-responsive">
+    <table class="table table-bordered table-hover table-striped">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>phone</th>
+        <th>bio</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
 
-                           $d= new aboutme();
-                           var_dump($d->list());
 
-                          // $dd= new deshboard();
+<?php if(is_array($ab)){ ?>
+      <form action="update.php" method="post" enctype="multipart/form-data">
+        <tr>
+            <td><input type="text" name="title" value="<?php echo $ab['title']; ?>" />  </td>
+            <td> <input type="text" name="phone" value="<?php echo $ab['phone']; ?>"></td>
+            <td><input name="bio" value=" <?php echo $ab['bio']; ?>" type="text" > </td>
 
-                          //var_dump($dd->list());
+            <td> <a href="edit.php?id=<?php echo $ab['id'] ?>">Update</a>
 
-                           ?>
+      </form>
+<?php }else ?>
+    </tbody>
+    </table>
+
                         </div>
                     </div>
                 </div>
