@@ -288,17 +288,17 @@ if(!isset($_SESSION['userinfo'])){
                     <a href="javascript:;" data-toggle="collapse" data-target="#hobbies"><i class="fa fa-newspaper-o" aria-hidden="true"></i> hobbies <i class="fa fa-fw fa-caret-down"></i></a>
                     <ul id="hobbies" class="collapse">
                         <li>
-                            <a href="#"><i class="fa fa-envelope"></i>  new  </a>
+                            <a href="http://localhost/cvbank/views/hobbies/create.php"><i class="fa fa-envelope"></i>  new  </a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-adjust"></i> trash</a>
+                            <a href="http://localhost/cvbank/views/hobbies/restore.php"><i class="fa fa-adjust"></i> trash</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
                         </li>
 
                         <li>
-                            <a href="#"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
+                            <a href="http://localhost/cvbank/views/hobbies/index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
                         </li>
                     </ul>
                 </li>
