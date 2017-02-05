@@ -2,8 +2,21 @@
 <?php
 use App\admin\resume;
 $resume= new resume();
+$sl=1;
+?>
+
+<?php
+if(isset($_SESSION['about'])){
+
 
 ?>
+    <script> alert("update seccesfully"); </script>
+ <?php
+
+}
+unset($_SESSION['about']);
+?>
+
 <?php
 
 if(!isset($_GET['id']) && !empty($_GET['id'])){
@@ -45,7 +58,7 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                        </a>
                    </h4>
                </div>
-               <div id="collapseOne" class="panel-collapse collapse <?php if(isset($_SESSION['about'])){ echo $_SESSION['about']; /*unset($_SESSION['about']);*/ } ?>" role="tabpanel" aria-labelledby="headingOne">
+               <div id="collapseOne" class="panel-collapse collapse <?php if(isset($_SESSION['about'])){ echo "in"; /*unset($_SESSION['about']); */ } ?>" role="tabpanel" aria-labelledby="headingOne">
                    <div class="panel-body">
                        <ul class="nav nav-pills">
                            <li class="active"><a data-toggle="pill" href="#about">views</a></li>
@@ -66,14 +79,14 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                              </tr>
                              <?php
                              $about = $resume->about();
-                             $sl=1;
+
                              if(is_array($about)){
 
                                  foreach ($about as $value){ ?>
                                        <tr>
                                            <td><?php echo $sl++; ?> </td>
                                            <td><?php echo $value['title']; ?> </td>
-                                            <td> <?php echo $value['phone']; ?></td>
+                                           <td> <?php echo $value['phone']; ?></td>
                                            <td> <?php echo $value['bio'] ;?></td>
                                        </tr>
 
@@ -109,7 +122,7 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                        </a>
                    </h4>
                </div>
-               <div id="collapseexp" class="panel-collapse collapse <?php if(isset($_SESSION['about'])){ echo $_SESSION['about']; unset($_SESSION['about']); } ?>" role="tabpanel" aria-labelledby="headingexpe">
+               <div id="collapseexp" class="panel-collapse collapse <?php if(isset($_SESSION['about'])){ echo "in"; /* unset($_SESSION['about']);*/ } ?>" role="tabpanel" aria-labelledby="headingexpe">
                    <div class="panel-body">
                        <ul class="nav nav-pills">
                            <li class="active"><a data-toggle="pill" href="#expe">views</a></li>
@@ -146,19 +159,15 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                        <ul class="nav nav-pills">
 
 
-                           <li><a data-toggle="pill" href="#skilladd">Add New</a></li>
-                           <li><a data-toggle="pill" href="#skilldelete">views</a></li>
 
+                           <li><a data-toggle="pill" href="#skilldelete">views</a></li>
+                           <li><a data-toggle="pill" href="#skilladd">Add New</a></li>
                        </ul>
 
                        <div class="tab-content">
 
 
-                           <div id="skilladd" class="tab-pane fade">
-                               <h3>add new</h3>
-                               <p> askill e omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                           </div>
-                           <div id="skilldelete" class="tab-pane fade">
+                           <div id="skilldelete" class="tab-pane fade in active">
                                <h3>views</h3>
                                <table class="table">
                                    <tr>
@@ -172,22 +181,27 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                                    </tr>
                                    <?php
                                    $skill = $resume->skill();
-                                   $sl=1;
+
                                    if(is_array($about)){
 
                                        foreach ($skill as $value){ ?>
-                                           <form action="update.php">
+                                           <form action="skills/update.php" method="post">
                                                <tr>
                                                    <td>  <?php echo $sl++; ?> </td>
                                                    <td> <input type="text" value=" <?php echo $value['title']; ?>" name="title" >  </td>
                                                    <td > <input type="text" value="<?php echo $value['description']; ?> " name="desc"></td>
-                                                   <td > <?php echo $value['experience'] ;?></td>
-                                                   <td > <?php echo $value['level'] ;?></td>
-                                                   <td > <?php echo $value['experience_area'];?></td>
-                                                   <input type="hidden" name="id" value="<?php echo $value['skillid']; ?>">
-                                                   <input type="hidden" name="user_id" value="<?php echo $value['user_id']; ?>">
-                                                   <td> <input type="submit" >
-                                                       <a href="delete.php?user_id=<?php echo $value['user_id']; ?> & id=<?php  echo $value['skillid']; ?>"> Delete </a> </td>
+                                                   <td ><input type="text" value="<?php echo $value['experience'] ;?>" name="experience" ></td>
+                                                   <td > <input type="text" value="<?php echo $value['level'] ;?>" name="level" ></td>
+                                                   <td > <input type="text" value="<?php echo $value['experience_area'];?>" name="area">
+
+
+                                                   </td>
+
+                                                   <td>
+                                                       <input  type="hidden" name="id" value="<?php echo $value['skillid']; ?>" />
+                                                       <input type="hidden" name="user_id" value="<?php echo $value['user_id']; ?>" />
+                                                       <input type="submit" >
+                                                       <a   href="skills/delete.php?user_id=<?php echo $value['user_id']; ?> & id=<?php  echo $value['skillid']; ?>"> Delete </a> </td>
                                                </tr>
                                            </form>
 
@@ -200,6 +214,15 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
 
                                    ?>
                                </table>
+                           </div>
+
+
+                           <div id="skilladd" class="tab-pane fade">
+                               <h3>add new</h3>
+                               <p>
+
+
+                                   askill e omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
                            </div>
 
                        </div>

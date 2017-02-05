@@ -1,5 +1,5 @@
 <?php
-namespace App\admin\skills;
+namespace App\admin\crud\skills;
 use App\model\model;
 Class skills extends model
 {
@@ -10,6 +10,7 @@ Class skills extends model
     protected $level='';
     protected $experience='';
     protected $area='';
+    protected $user_id= '';
 
 
     public function setdata($data)
@@ -17,6 +18,10 @@ Class skills extends model
 
         if (array_key_exists('id', $data)) {
            $this->id = $data['id'];
+        }
+
+        if (array_key_exists('user_id', $data)) {
+            $this->user_id = $data['user_id'];
         }
         if(array_key_exists('title',$data))  {
             $this->title= $data['title'];
@@ -40,24 +45,28 @@ Class skills extends model
 
     public function update(){
 
-        session_start();
-        try {
-            $query = "UPDATE skills SET title=:title,description=:desc WHERE id=:id";
+          var_dump($this);
+              die();
+         try {
+            $query = "UPDATE skills SET title=:title,description=:desc,level=:level,experience=:exp,experience_area=:area WHERE id=:id";
 
 
             $stmt = $this->pdo->prepare($query);
             $stmt->execute(
                 array(
-                    ':id' => $this->auto_id,
+                    ':id' => $this->id,
                     ':title' => $this->title,
-                    ':desc'=>$this->desc
+                    ':desc'=>$this->desc,
+                    ':exp' =>$this->experience,
+                    ':level'=>$this->level,
+                    ':area'=>$this->area
                 )
             );
             if($stmt){
 
                 $_SESSION['msg'] ="succesfully updated ";
 
-                header("location:http://localhost/cvbank/views/admin");
+                header("http://localhost/cvbank/views/admin/userdetails.php?id='$this->user_id'");
 
             }
         } catch (PDOException $e) {
