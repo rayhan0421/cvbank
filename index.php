@@ -255,6 +255,7 @@ if(isset($_GET['keyword'])){
         <div class="row row1">
             <ul class="largenav pull-right">
                 <li class="upper-links"><a class="links" href="http://localhost/cvbank/views/users">Login</a></li>
+                <li class="upper-links"><a class="links" href="http://localhost/cvbank/views/users">SignUp</a></li>
 
 
 
@@ -295,11 +296,14 @@ if(isset($_GET['keyword'])){
             <div class="container">
                 <?php if(isset($_GET['keyword'])) {?>
                  <?php
+
                     $search = new search();
                     $search->setdata($_GET);
                     $results = array();
 
                     $results = $search->search();
+
+                    $results = unique_multidim_array($results,'uid');
 
                     ?>
                 <hgroup class="mb20">
@@ -310,19 +314,10 @@ if(isset($_GET['keyword'])){
                 <?php foreach ($results as $value) { ?>
                 <section class="col-xs-12 col-sm-6 col-md-12">
                     <article class="search-result row">
-                        <div class="col-xs-12 col-sm-12 col-md-3">
-                            <a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/people" alt="Lorem ipsum" /></a>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-2">
-                            <ul class="meta-search">
-                                <li><i class="glyphicon glyphicon-calendar"></i> <span>part-time</span></li>
-                                <li><i class="glyphicon glyphicon-time"></i> <span>4:28 pm</span></li>
-                                <li><i class="glyphicon glyphicon-tags"></i> <span>skill</span></li>
-                            </ul>
-                        </div>
+
                         <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
-                            <h3><a href="#" title=""><?php echo $value['title'] ?></a></h3>
-                            <p> <?php echo $value['bio']; ?> </p>
+                            <h3><a href="http://localhost/cvbank/views/public/resume?id=<?php echo $value['uid']; ?> " title=""><?php echo $value['ab_title'] ?></a></h3>
+                            <p> <?php echo substr($value['ab_bio'],0,200); ?>.......<a href="http://localhost/cvbank/views/public/resume?id=<?php echo $value['uid']; ?> ">readmore</a> </p>
                         </div>
                         <span class="clearfix borda"></span>
                     </article>
@@ -356,3 +351,22 @@ if(isset($_GET['keyword'])){
 
 
 </html>
+
+<?php
+
+function unique_multidim_array($array, $key) {
+    $temp_array = array();
+    $i = 0;
+    $key_array = array();
+
+    foreach($array as $val) {
+        if (!in_array($val[$key], $key_array)) {
+            $key_array[$i] = $val[$key];
+            $temp_array[$i] = $val;
+        }
+        $i++;
+    }
+    return $temp_array;
+}
+
+?>

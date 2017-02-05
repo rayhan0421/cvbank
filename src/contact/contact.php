@@ -61,6 +61,20 @@ Class Contact extends model{
         return $stu;
 
     }
+    public function alert(){
+
+
+        $queary = "SELECT  contacts.id as cid, contacts.email as cmail, contacts.*, users.* FROM  contacts JOIN users ON users.id = contacts.user_id WHERE users.id=$this->id AND  contacts.deleted_at='0000-00-00 00:00:00' LIMIT 3";
+
+        $st = $this->pdo->prepare($queary);
+
+        $st->execute();
+
+        $stu= $st->fetchAll();
+
+        return $stu;
+
+    }
 
 
     public function store(){

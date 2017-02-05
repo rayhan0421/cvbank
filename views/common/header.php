@@ -1,6 +1,12 @@
 <?php
 include ("../../vendor/autoload.php");
 session_start();
+use App\Contact\Contact;
+
+$con = new Contact();
+$con->setdata($_SESSION['userinfo']);
+$con = $con->alert();
+
 
 if(!isset($_SESSION['userinfo'])){
 
@@ -59,83 +65,23 @@ if(!isset($_SESSION['userinfo'])){
         </div>
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
-                <ul class="dropdown-menu message-dropdown">
-                    <li class="message-preview">
-                        <a href="#">
-                            <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                <div class="media-body">
-                                    <h5 class="media-heading"><strong>John Smith</strong>
-                                    </h5>
-                                    <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="message-preview">
-                        <a href="#">
-                            <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                <div class="media-body">
-                                    <h5 class="media-heading"><strong>John Smith</strong>
-                                    </h5>
-                                    <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="message-preview">
-                        <a href="#">
-                            <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                <div class="media-body">
-                                    <h5 class="media-heading"><strong>John Smith</strong>
-                                    </h5>
-                                    <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="message-footer">
-                        <a href="#">Read All New Messages</a>
-                    </li>
-                </ul>
-            </li>
+
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
                 <ul class="dropdown-menu alert-dropdown">
+                   <?php
+                   if(!empty($con)){ ?>
+
+                    <?php foreach ($con as $value) { ?>
+
                     <li>
-                        <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                        <a href="http://localhost/cvbank/views/contact/index.php">Mail From<span class="label label-default">  <?php  echo $value['cmail']; ?> </span></a>
                     </li>
-                    <li>
-                        <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
-                    </li>
-                    <li>
-                        <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
-                    </li>
-                    <li>
-                        <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
-                    </li>
-                    <li>
-                        <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
-                    </li>
-                    <li>
-                        <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
-                    </li>
+                       <?php  } ?>
+                   <?php } ?>
                     <li class="divider"></li>
                     <li>
-                        <a href="#">View All</a>
+                        <a href="http://localhost/cvbank/views/contact/index.php">View All</a>
                     </li>
                 </ul>
             </li>
@@ -152,9 +98,7 @@ if(!isset($_SESSION['userinfo'])){
                     <li>
                         <a href="../users/index.php"><i class="fa fa-fw fa-user"></i> Profile</a>
                     </li>
-                    <li>
-                        <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-                    </li>
+
 
                     <li class="divider"></li>
                     <li>
@@ -265,24 +209,6 @@ if(!isset($_SESSION['userinfo'])){
                 </li>
 
 
-                <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#publication"><i class="fa fa-newspaper-o" aria-hidden="true"></i> publication <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="publication" class="collapse">
-                        <li>
-                            <a href="#"><i class="fa fa-envelope"></i>  new  </a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-adjust"></i> trash</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
-                        </li>
-
-                        <li>
-                            <a href="#"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
-                        </li>
-                    </ul>
-                </li>
 
                 <li>
                     <a href="javascript:;" data-toggle="collapse" data-target="#hobbies"><i class="fa fa-newspaper-o" aria-hidden="true"></i> hobbies <i class="fa fa-fw fa-caret-down"></i></a>
@@ -307,7 +233,7 @@ if(!isset($_SESSION['userinfo'])){
                     <a href="javascript:;" data-toggle="collapse" data-target="#posts"><i class="fa fa-newspaper-o" aria-hidden="true"></i> posts <i class="fa fa-fw fa-caret-down"></i></a>
                     <ul id="posts" class="collapse">
                         <li>
-                            <a href="http://localhost/cvbank/views/post/index.php"><i class="fa fa-envelope"></i>  new  </a>
+                            <a href="http://localhost/cvbank/views/post/create.php"><i class="fa fa-envelope"></i>  new  </a>
                         </li>
                         <li>
                             <a href="http://localhost/cvbank/views/post/restore.php"><i class="fa fa-adjust"></i> trash</a>
@@ -399,9 +325,7 @@ if(!isset($_SESSION['userinfo'])){
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-file"></i> Blank Page</a>
-                </li>
+
 
             </ul>
         </div>
