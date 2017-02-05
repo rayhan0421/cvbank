@@ -22,13 +22,13 @@ Class resume extends model{
     }
 
     public function about(){
-        $queary = "SELECT  abouts.id as aboutid ,abouts.* FROM abouts JOIN users ON users.id = abouts.user_id WHERE users.user_role!=2 AND user_id=$this->id AND abouts.deleted_at='0000-00-00 00:00:00' ORDER BY `abouts`.`id` DESC Limit 1";
+        $queary = "SELECT  abouts.id as aboutid ,abouts.* , users.email as umail FROM abouts JOIN users ON users.id = abouts.user_id WHERE users.user_role!=2 AND user_id=$this->id AND abouts.deleted_at='0000-00-00 00:00:00' ORDER BY `abouts`.`id` DESC Limit 1";
 
         $st = $this->pdo->prepare($queary);
 
         $st->execute();
 
-        $stu= $st->fetchAll();
+        $stu= $st->fetch();
 
         return $stu;
 
@@ -81,7 +81,7 @@ Class resume extends model{
         return $stu;
     }
     public function post(){
-        $queary = "SELECT  posts.id as postsid ,portfolios.* FROM posts JOIN users ON users.id = posts.user_id WHERE users.user_role!=2 AND user_id=$this->id AND posts.deleted_at='0000-00-00 00:00:00'";
+        $queary = "SELECT  posts.id as postsid ,posts.* FROM posts JOIN users ON users.id = posts.user_id WHERE users.user_role!=2 AND user_id=$this->id AND posts.deleted_at='0000-00-00 00:00:00'";
 
         $st = $this->pdo->prepare($queary);
 
@@ -98,7 +98,7 @@ Class resume extends model{
 
         $st->execute();
 
-        $stu= $st->fetchAll();
+        $stu= $st->fetch();
 
         return $stu;
     }

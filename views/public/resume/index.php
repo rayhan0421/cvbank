@@ -1,3 +1,40 @@
+<?php
+include ("../../../vendor/autoload.php");
+use App\admin\resume;
+
+$resume = new resume();
+
+$resume->setdata($_GET);
+
+if(!isset($_GET['id'])){
+header("location:http://localhost/cvbank");
+}
+
+
+?>
+
+<?php
+$setting = $resume->settings();
+$about = $resume->about();
+
+$hobby= $resume->hobbies();
+$facts = $resume->facts();
+$education = $resume->education();
+
+$award= $resume->award();
+
+$port =$resume->portfolio();
+
+$exp = $resume->experience();
+$skill = $resume->skill();
+
+$post = $resume->post();
+
+
+?>
+
+
+<?php//die(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,12 +96,12 @@
                 <a id="my-link" href="#my-panel"><i class="fa fa-bars"></i></a>
                 <a href="#" class="download"><i class="fa fa-cloud-download"></i></a>
                 <div class="img-wrap">
-                    <img src="../../../assets/public/resume/images/portrait.jpg" alt="" width="150" height="150" />
+                    <img src="http://localhost/cvbank/storage/images/<?php echo $setting['featured_img']; ?>" alt="" width="150" height="150" />
                 </div>
                 <div class="profile_info">
-                    <h1>Johnny smith</h1>
-                    <h4>PhD Computer Science</h4>
-                    <h6><span class="fa fa-location-arrow"></span>&nbsp;&nbsp;&nbsp;San Francisco , CA</h6>
+                    <h1><?php echo $setting['fullname']; ?></h1>
+                    <h4><?php echo $setting['title']; ?></h4>
+                    <h6><span class="fa fa-location-arrow"></span>&nbsp;&nbsp;&nbsp;<?php echo $setting['address']; ?></h6>
                 </div>
                 <div style="clear:both"></div>
             </div>
@@ -76,7 +113,7 @@
                 <a href="#section1"><span class="menu_name">ABOUT</span><span class="fa fa-home"></span> </a>
                 <a href="#section2"><span class="menu_name">RESUME</span><span class="fa fa-newspaper-o"></span> </a>
                 <a href="#section3"><span class="menu_name">PUBLICATIONS</span><span class="fa fa-pencil"></span> </a>
-                <a href="#section4"><span class="menu_name">RESEARCH</span><span class="fa fa-flask"></span> </a>
+
                 <a href="#section5"><span class="menu_name">TEACHING</span><span class="fa fa-book"></span> </a>
                 <a href="#section6"><span class="menu_name">SKILLS</span><span class="fa fa-diamond"></span> </a>
                 <a href="#section7"><span class="menu_name">WORKS</span><span class="fa fa-archive"></span> </a>
@@ -149,41 +186,26 @@
                         <span class="content-title">PERSONAL DETAILS</span>
                         <div class="aboutInfo-contanier">
                             <div class="about-card">
-                                <div class="face2 card-face">
-                                    <div id="cd-google-map">
-                                        <div id="google-container"></div>
-                                        <div id="cd-zoom-in"></div>
-                                        <div id="cd-zoom-out"></div>
-                                        <address>8690 Paul Street, San fransico</address>
-                                        <div class="back-cover" data-card-back="data-card-back"><i class="fa fa-long-arrow-left"></i>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="face1 card-face">
                                     <div class="about-cover card-face">
-                                        <a class="map-location" data-card-front="data-card-front"><img src="images/map-icon.png" alt="">
-                                        </a>
+
                                         <div class="about-details">
-                                            <div><span class="fa fa-inbox"></span><span class="detail">Yourmail@mail.com</span>
+                                            <div><span class="fa fa-inbox"></span><span class="detail"><?php echo $about['umail']; ?> </span>
                                             </div>
-                                            <div><span class="fa fa-phone"></span><span class="detail">00 123 456 789</span>
+                                            <div><span class="fa fa-phone"></span><span class="detail"><?php echo $about['phone']; ?></span>
                                             </div>
                                         </div>
 
                                         <div class="cover-content-wrapper">
-                                            <span class="about-description">Hello. I am a<span class="rw-words">
-                                                <span><strong>Designer</strong></span>
-                                            <span><strong>Researcher</strong></span>
-                                            <span><strong>Programmer</strong></span>
-                                            <span><strong>Dreamer</strong></span>
-                                            <span><strong>Leader</strong></span>
+                                            <span class="about-description">
+                                                <span class="rw-words">
+                                                    <?php echo substr($about['bio'],0,80); ?>
+
+
+                                                <span>
                                             </span>
-                                            <br>I am passionate about programming and coding
-                                            <br>Welcome to my Personal and Academic profile</span>
-                                            <span class="status">
-                                            <span class="fa fa-circle"></span>
-                                            <span class="text">Available as <strong>freelance</strong></span>
-                                            </span>
+
                                         </div>
                                     </div>
                                 </div>
@@ -206,86 +228,35 @@
                                         <div class="tab-pane fade in active" id="bio">
                                             <h3>BIO</h3>
                                             <h4>ABOUT ME</h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo.Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo.Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo.</p>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo.Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non .</p>
-                                        </div>
+                                      <p><?php echo $about['bio']; ?></p>
+                                         </div>
                                         <div class="tab-pane fade" id="hobbies">
                                             <h3>HOBBIES</h3>
                                             <h4>INTERESTS</h4>
+                                            <?php foreach ($hobby as $value) { ?>
                                             <div class="hobbie-wrapper row">
-                                                <div class="hobbie-icon col-md-3"><i class="li_lab"></i>
+                                                <div class=" col-md-3" style="color: #761c19">
+                                                    <?php echo $value['title'] ?>
                                                 </div>
                                                 <div class="hobbie-description col-md-9">
-
-                                                    <p>Duis eu finibus urna. Pellentesque facilisis tellus vel leo accumsan, a tristique est luctus. Morbi quis euismod nulla. Sed eu nibh eros.</p>
+                                          <?php echo $value['description'] ?>
                                                 </div>
                                                 <div style="clear:both;"></div>
                                             </div>
-                                            <div class="hobbie-wrapper row">
-                                                <div class="hobbie-icon col-md-3"><i class="li_pen"></i>
-                                                </div>
-                                                <div class="hobbie-description col-md-9">
-
-                                                    <p>Duis eu finibus urna. Pellentesque facilisis tellus vel leo accumsan, a tristique est luctus. Morbi quis euismod nulla. Sed eu nibh eros.</p>
-                                                </div>
-                                            </div>
-                                            <div class="hobbie-wrapper row">
-                                                <div class="hobbie-icon col-md-3"><i class="li_tv"></i>
-                                                </div>
-                                                <div class="hobbie-description col-md-9">
-
-                                                    <p>Duis eu finibus urna. Pellentesque facilisis tellus vel leo accumsan, a tristique est luctus. Morbi quis euismod nulla. Sed eu nibh eros.</p>
-                                                </div>
-                                            </div>
-                                            <div class="hobbie-wrapper row">
-                                                <div class="hobbie-icon col-md-3"><i class="li_shop"></i>
-                                                </div>
-                                                <div class="hobbie-description col-md-9">
-
-                                                    <p>Duis eu finibus urna. Pellentesque facilisis tellus vel leo accumsan, a tristique est luctus. Morbi quis euismod nulla. Sed eu nibh eros.</p>
-                                                </div>
-                                            </div>
+                                        <?php } ?>
                                             <div style="clear:both;"></div>
                                         </div>
                                         <div class="tab-pane fade" id="facts">
                                             <h3>FACTS</h3>
                                             <h4>NUMBERS ABOUT ME</h4>
-                                            <div class="facts-wrapper col-md-6">
-                                                <div class="facts-icon"><i class=" li_cup"></i>
-                                                </div>
-                                                <div class="facts-number">920</div>
-                                                <div class="facts-description">CUPS OF COFFEE</div>
-                                            </div>
+                                            <?php foreach ($facts as $value){  ?>
                                             <div class="facts-wrapper col-md-6">
                                                 <div class="facts-icon"><i class="li_bulb"></i>
                                                 </div>
-                                                <div class="facts-number">65</div>
-                                                <div class="facts-description">PROJECTS COMPLETED</div>
+                                                <div class="facts-number"><?php echo $value['no_of_items'] ?></div>
+                                                <div class="facts-description"><?php echo $value['title'] ?></div>
                                             </div>
-                                            <div class="facts-wrapper col-md-6">
-                                                <div class="facts-icon"><i class="li_clock"></i>
-                                                </div>
-                                                <div class="facts-number">2965</div>
-                                                <div class="facts-description">HOURS OF CODING</div>
-                                            </div>
-                                            <div class="facts-wrapper col-md-6">
-                                                <div class="facts-icon"><i class="li_t-shirt"></i>
-                                                </div>
-                                                <div class="facts-number">35</div>
-                                                <div class="facts-description">WORKSHOPS</div>
-                                            </div>
-                                            <div class="facts-wrapper col-md-6">
-                                                <div class="facts-icon"><i class="li_display"></i>
-                                                </div>
-                                                <div class="facts-number">2M</div>
-                                                <div class="facts-description">LINES OF CODE</div>
-                                            </div>
-                                            <div class="facts-wrapper col-md-6">
-                                                <div class="facts-icon"><i class=" li_like"></i>
-                                                </div>
-                                                <div class="facts-number">100</div>
-                                                <div class="facts-description">SATISFIED CUSTOMERS</div>
-                                            </div>
+                                            <?php } ?>
                                             <div style="clear:both;"></div>
                                         </div>
                                     </div>
@@ -310,138 +281,54 @@
                                 <li class="time-label">
                                     <span class="content-title">EDUCATION</span>
                                 </li>
-                                <li>
-                                    <div class="resume-tag">
-                                        <span class="fa fa-graduation-cap"></span>
-                                        <div class="resume-date">
-                                            <span>2008</span>
-                                            <div class="separator"></div>
-                                            <span>2010</span>
-                                        </div>
-                                    </div>
-                                    <div class="timeline-item">
-                                        <span class="timeline-location"><i class="fa fa-map-marker"></i>San fransico</span>
-                                        <h3 class="timeline-header">COMPUTER ENGINEERING - PHD</h3>
-                                        <div class="timeline-body">
-                                            <h4>UNIVERSITY OF CALIFORNIA</h4>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem.</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="resume-tag">
-                                        <span class="fa fa-graduation-cap"></span>
-                                        <div class="resume-date">
-                                            <span>2004</span>
-                                            <div class="separator"></div>
-                                            <span>2008</span>
-                                        </div>
-                                    </div>
-                                    <div class="timeline-item">
-                                        <span class="timeline-location"><i class="fa fa-map-marker"></i>San fransico</span>
-                                        <h3 class="timeline-header">ELECTRONICS ENGINEERING</h3>
-                                        <div class="timeline-body">
-                                            <h4>UNIVERSITY OF CALIFORNIA</h4>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem.</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="time-label">
-                                    <span class="content-title">ACADEMIC AND PROFESSIONAL POSITIONS</span>
-                                </li>
+
+
+                              <?php foreach ($education as $value ) { ?>
+
                                 <li>
                                     <div class="resume-tag">
                                         <span class="fa fa-university"></span>
                                         <div class="resume-date">
-                                            <span>2009</span>
+                                            <span><?php echo explode('-',$value['passing_year'])[0]; ?></span>
                                             <div class="separator"></div>
-                                            <span>2010</span>
+                                            <span><?php echo $value['course_duration'] ?></span>
                                         </div>
                                     </div>
                                     <div class="timeline-item">
-                                        <span class="timeline-location"><i class="fa fa-map-marker"></i>San fransico</span>
-                                        <h3 class="timeline-header">GRADUATE STUDENT RESEARCHER</h3>
+                                        <span class="timeline-location"><i class="fa fa-map-marker"></i><?php echo $value['education_board'] ?></span>
+                                        <h3 class="timeline-header"><?php echo $value['main_subject'] ?></h3>
                                         <div class="timeline-body">
-                                            <h4>OXFORD UNIVERSITY COMPUTING LABORATORY</h4>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem.</span>
+                                            <h4><?php echo $value['institute'] ?></h4>
+                                            <span>
+                                                Title:  <?php echo $value['title'] ?>
+                                                RESULT: <?php echo $value['result'] ?>
+                                            </span>
                                         </div>
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="resume-tag">
-                                        <span class="fa fa-university"></span>
-                                        <div class="resume-date">
-                                            <span>2009</span>
-                                            <div class="separator"></div>
-                                            <span>2010</span>
-                                        </div>
-                                    </div>
-                                    <div class="timeline-item">
-                                        <span class="timeline-location"><i class="fa fa-map-marker"></i>San fransico</span>
-                                        <h3 class="timeline-header">LAB ASSISTANT</h3>
-                                        <div class="timeline-body">
-                                            <h4>OXFORD UNIVERSITY COMPUTING LABORATORY</h4>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem.</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="resume-tag">
-                                        <span class="fa fa-university"></span>
-                                        <div class="resume-date">
-                                            <span>2008</span>
-                                            <div class="separator"></div>
-                                            <span>2009</span>
-                                        </div>
-                                    </div>
-                                    <div class="timeline-item">
-                                        <span class="timeline-location"><i class="fa fa-map-marker"></i>San fransico</span>
-                                        <h3 class="timeline-header">RESEARCH ASSISTANT</h3>
-                                        <div class="timeline-body">
-                                            <h4>UNIVERSITY OF NANTES</h4>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem.</span>
-                                        </div>
-                                    </div>
-                                </li>
+                                <?php } ?>
                                 <li class="time-label">
                                     <span class="content-title">HONORS AND AWARDS</span>
                                 </li>
+                              <?php foreach ($award as $value){ ?>
                                 <li>
                                     <div class="resume-tag">
                                         <span class="fa fa-star-o"></span>
                                         <div class="resume-date">
-                                            <span>2009</span>
-                                            <div class="separator"></div>
-                                            <span>2010</span>
+                                            <span><?php echo explode('-',$value['year'])[0]; ?></span>
+
                                         </div>
                                     </div>
                                     <div class="timeline-item">
-                                        <span class="timeline-location"><i class="fa fa-map-marker"></i>San fransico</span>
-                                        <h3 class="timeline-header">MELLON GRANT</h3>
+                                        <span class="timeline-location"><i class="fa fa-map-marker"></i><?php echo $value['location'] ?></span>
+                                        <h3 class="timeline-header"><?php echo $value['title'] ?></h3>
                                         <div class="timeline-body">
-                                            <h4>COMPETITIVE AWARD FOR ACADEMIC EXCELLENCE</h4>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem.</span>
-                                        </div>
+                                            <h4><?php echo $value['organization'] ?></h4>
+                                            <span><?php echo $value['description'] ?></span>
+                                             </div>
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="resume-tag">
-                                        <span class="fa fa-star-o"></span>
-                                        <div class="resume-date">
-                                            <span>2008</span>
-                                            <div class="separator"></div>
-                                            <span>2009</span>
-                                        </div>
-                                    </div>
-                                    <div class="timeline-item">
-                                        <span class="timeline-location"><i class="fa fa-map-marker"></i>San fransico</span>
-                                        <h3 class="timeline-header">TRITON AWARD</h3>
-                                        <div class="timeline-body">
-                                            <h4>COMPETITIVE AWARD FOR ACADEMIC EXCELLENCE</h4>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem.</span>
-                                        </div>
-                                    </div>
-                                </li>
+                                <?php } ?>
                                 <!-- End Resume timeline -->
                             </ul>
                         </div>
@@ -458,43 +345,7 @@
                         <h2>PUBLICATIONS</h2>
                         <!-- Filter/Sort Menu -->
                         <span class="content-title">PUBLICATIONS LIST</span>
-                        <div class="row publication-form">
-                            <div class="col-md-6 publication-filter">
-                                <div class="card-drop">
-                                    <a class='toggle'>
-                                        <i class='icon-suitcase'></i>
-                                        <span class='label-active'>ALL</span>
-                                    </a>
-                                    <ul id="filter">
-                                        <li class='active'><a data-label="ALL" data-group="all">ALL</a>
-                                        </li>
-                                        <li><a data-label="JOURNAL PAPERS" data-group="JOURNAL PAPERS">JOURNAL PAPERS</a>
-                                        </li>
-                                        <li><a data-label="CONFERENCES" data-group="CONFERENCES">CONFERENCES</a>
-                                        </li>
-                                        <li><a data-label="DEMONSTRATIONS" data-group="DEMONSTRATIONS">DEMONSTRATIONS</a>
-                                        </li>
-                                        <li><a data-label="THESES" data-group="THESES">THESES</a>
-                                        </li>
-                                        <li><a data-label="BOOK CHAPTERS" data-group="BOOK CHAPTERS">BOOK CHAPTERS</a>
-                                        </li>
-                                        <li><a data-label="BOOK" data-group="BOOK">BOOK</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-6 publication-sort">
-                                <div class="sorting-button">
-                                    <span>SORTING BY DATE</span>
-                                    <button class="desc"><i class="fa fa-sort-numeric-desc"></i>
-                                    </button>
-                                    <button class="asc"><i class="fa fa-sort-numeric-asc"></i>
-                                    </button>
-                                </div>
 
-
-                            </div>
-                        </div>
                         <!-- End Filter/Sort Menu -->
 
                         <!-- publication wrapper -->
@@ -974,161 +825,7 @@
                 <!-- End Publication Section -->
 
                 <!-- Research Section -->
-                <article class="hs-content research-section" id="section4">
-                    <span class="sec-icon fa fa-flask"></span>
-                    <div class="hs-inner">
-                        <span class="before-title">.04</span>
-                        <h2>RESEARCH</h2>
-                        <span class="content-title">LABORATORY TEAM</span>
-                        <div class="team_wrapper">
-                            <div class="team-card-container">
-                                <div class="card">
-                                    <div class="front team1">
-                                        <div class="front-detail">
-                                            <h4>JOHN DOE</h4>
-                                            <h3>RESEARCH ASSISTANT</h3>
-                                        </div>
-                                    </div>
-                                    <div class="back">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo tortor Vivam.</p>
-                                        <div class="social-icons">
-                                            <a href="#"><i class="fa fa-facebook"></i></a>
-                                            <a href="#"><i class="fa fa-twitter"></i></a>
-                                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                                            <a href="#"><i class="fa fa fa-dribbble"></i></a>
-                                            <a href="#"><i class="fa fa fa-github"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="team-card-container">
-                                <div class="card">
-                                    <div class="front team2">
-                                        <div class="front-detail">
-                                            <h4>JENNIFER DOE</h4>
-                                            <h3>ASSOCIATE PROFESSOR</h3>
-                                        </div>
-                                    </div>
-                                    <div class="back">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo tortor Vivam.</p>
-                                        <div class="social-icons">
-                                            <a href="#"><i class="fa fa-facebook"></i></a>
-                                            <a href="#"><i class="fa fa-twitter"></i></a>
-                                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                                            <a href="#"><i class="fa fa fa-dribbble"></i></a>
-                                            <a href="#"><i class="fa fa fa-github"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="team-card-container">
-                                <div class="card">
-                                    <div class="front team3">
-                                        <div class="front-detail">
-                                            <h4>JOHNATAN DOE</h4>
-                                            <h3>SENIOR RESEARCH TECHNICIAN</h3>
-                                        </div>
-                                    </div>
-                                    <div class="back">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo tortor Vivam.</p>
-                                        <div class="social-icons">
-                                            <a href="#"><i class="fa fa-facebook"></i></a>
-                                            <a href="#"><i class="fa fa-twitter"></i></a>
-                                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                                            <a href="#"><i class="fa fa fa-dribbble"></i></a>
-                                            <a href="#"><i class="fa fa fa-github"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="team-card-container">
-                                <div class="card">
-                                    <div class="front team4">
-                                        <div class="front-detail">
-                                            <h4>CATHERINE DOE</h4>
-                                            <h3>RESEARCH FELLOW</h3>
-                                        </div>
-                                    </div>
-                                    <!--end front panel-->
-                                    <div class="back">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo tortor Vivam.</p>
-                                        <div class="social-icons">
-                                            <a href="#"><i class="fa fa-facebook"></i></a>
-                                            <a href="#"><i class="fa fa-twitter"></i></a>
-                                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                                            <a href="#"><i class="fa fa fa-dribbble"></i></a>
-                                            <a href="#"><i class="fa fa fa-github"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <span class="content-title">RESEARCH PROJECTS</span>
-                        <div class="slide-wrapper">
-                            <nav>
-                                <a class="fa fa-angle-left" id="btn-prev"></a>
-                                <a class="fa fa-angle-right" id="btn-next"></a>
 
-                            </nav>
-                            <div class="slider-details">
-                                <span class="slide-counter"></span>
-                                <span class="slide-date"><i class="li_calendar"></i></span>
-                            </div>
-
-                            <div class="slide active" data-date="2006/2007">
-                                <div class="slide-header">
-                                    <h3>PROJECT TITLE</h3>
-                                    <h4>DESCRIPTION OF THE PROJECT</h4>
-                                </div>
-                                <div class="slide-content">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo.Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo.Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo.</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo.Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non .</p>
-                                </div>
-                            </div>
-                            <div class="slide" data-date="2008/2009">
-                                <div class="slide-header">
-                                    <h3>PROJECT TITLE</h3>
-                                    <h4>DESCRIPTION OF THE PROJECT</h4>
-                                </div>
-                                <div class="slide-content">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo.Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo.Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo.</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo.Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non .</p>
-                                </div>
-                            </div>
-                            <div class="slide" data-date="2004/2005">
-                                <div class="slide-header">
-                                    <h3>PROJECT TITLE</h3>
-                                    <h4>DESCRIPTION OF THE PROJECT</h4>
-                                </div>
-                                <div class="slide-content">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo.Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo.Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo.</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo.Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non .</p>
-                                </div>
-                            </div>
-                            <div class="slide" data-date="2010/2011">
-                                <div class="slide-header">
-                                    <h3>PROJECT TITLE</h3>
-                                    <h4>DESCRIPTION OF THE PROJECT</h4>
-                                </div>
-                                <div class="slide-content">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo.Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo.Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo.</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo.Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non .</p>
-                                </div>
-                            </div>
-                            <div class="slide" data-date="2011/2012">
-                                <div class="slide-header">
-                                    <h3>PROJECT TITLE</h3>
-                                    <h4>DESCRIPTION OF THE PROJECT</h4>
-                                </div>
-                                <div class="slide-content">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo.Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo.Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo.</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo.Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non .</p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </article>
                 <!-- End Research Section -->
 
                 <!-- Teaching Section -->
@@ -1136,100 +833,31 @@
                     <span class="sec-icon fa fa-book"></span>
                     <div class="hs-inner">
                         <span class="before-title">.05</span>
-                        <h2>TEACHING</h2>
+                        <h2>Experience</h2>
                         <div class="teaching-wrapper">
                             <ul class="teaching">
-                                <li class="time-label">
-                                    <span class="content-title">CURRENT</span>
-                                </li>
+
+                             <?php foreach ($exp as $value) { ?>
+
                                 <li>
                                     <div class="teaching-tag">
                                         <span class="fa fa-suitcase"></span>
                                         <div class="teaching-date">
-                                            <span>NOW</span>
+                                            <span><?php echo explode('-',$value['start_date'])[0]; ?></span>
                                             <div class="separator"></div>
-                                            <span>2010</span>
+                                            <span><?php echo  explode('-',$value['end_date'])[0]; ?></span>
                                         </div>
                                     </div>
                                     <div class="timeline-item">
-                                        <h3 class="timeline-header">ASSISTANT PROFESSOR</h3>
+                                        <h3 class="timeline-header"><?php echo $value['designation']; ?></h3>
                                         <div class="timeline-body">
-                                            <h4>UNIVERSITY OF CALIFORNIA</h4>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem.</span>
-                                        </div>
+                                            <h4><?php echo $value['company_name']; ?></h4>
+                                          <span><?php echo $value['company_location']; ?></span>
+                                         </div>
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="teaching-tag">
-                                        <span class="fa fa-suitcase"></span>
-                                        <div class="teaching-date">
-                                            <span>NOW</span>
-                                            <div class="separator"></div>
-                                            <span>2008</span>
-                                        </div>
-                                    </div>
-                                    <div class="timeline-item">
-                                        <h3 class="timeline-header">TEACHING ASSISTANT</h3>
-                                        <div class="timeline-body">
-                                            <h4>UNIVERSITY OF CALIFORNIA</h4>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem.</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="time-label">
-                                    <span class="content-title">TEACHING HISTORY</span>
-                                </li>
-                                <li>
-                                    <div class="teaching-tag">
-                                        <span class="fa fa-suitcase"></span>
-                                        <div class="teaching-date">
-                                            <span>2009</span>
-                                            <div class="separator"></div>
-                                            <span>2010</span>
-                                        </div>
-                                    </div>
-                                    <div class="timeline-item">
-                                        <h3 class="timeline-header">ADJUNCT PROFESSOR</h3>
-                                        <div class="timeline-body">
-                                            <h4>OXFORD UNIVERSITY COMPUTING LABORATORY</h4>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem.</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="teaching-tag">
-                                        <span class="fa fa-suitcase"></span>
-                                        <div class="teaching-date">
-                                            <span>2009</span>
-                                            <div class="separator"></div>
-                                            <span>2010</span>
-                                        </div>
-                                    </div>
-                                    <div class="timeline-item">
-                                        <h3 class="timeline-header">TEACHING ASSISTANT</h3>
-                                        <div class="timeline-body">
-                                            <h4>OXFORD UNIVERSITY COMPUTING LABORATORY</h4>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem.</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="teaching-tag">
-                                        <span class="fa fa-suitcase"></span>
-                                        <div class="teaching-date">
-                                            <span>2008</span>
-                                            <div class="separator"></div>
-                                            <span>2009</span>
-                                        </div>
-                                    </div>
-                                    <div class="timeline-item">
-                                        <h3 class="timeline-header">TEACHING ASSISTANT</h3>
-                                        <div class="timeline-body">
-                                            <h4>UNIVERSITY OF NANTES</h4>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem.</span>
-                                        </div>
-                                    </div>
-                                </li>
+
+                            <?php } ?>
                             </ul>
                         </div>
                     </div>
@@ -1242,68 +870,21 @@
                     <div class="hs-inner">
                         <span class="before-title">.06</span>
                         <h2>SKILLS</h2>
-                        <span class="content-title">PROGRAMMING SKIILLS</span>
+                        <?php foreach ($skill as $value) {?>
+                        <span class="content-title"><?php echo $value['title']; ?></span>
                         <div class="skolls">
-                            <span class="skill-description">Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo tortor Vivam.</span>
+                            <span class="skill-description"><?php echo $value['description']; ?></span>
                             <div class="bar-main-container">
                                 <div class="wrap">
-                                    <div class="bar-percentage" data-percentage="60"></div>
-                                    <span class="skill-detail"><i class="fa fa-bar-chart"></i>LEVEL : INTERMEDIATE</span><span class="skill-detail"><i class="fa fa-binoculars"></i>EXPERIENCE : 3 YEARS</span>
-                                    <div class="bar-container">
-                                        <div class="bar"></div>
-                                    </div>
-                                    <span class="label">Php</span><span class="label">Asp</span><span class="label">Wordpress</span>
-                                    <div style="clear:both;"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <span class="content-title">DESIGN SKILLS</span>
-                        <div class="skolls">
 
-                            <span class="skill-description">Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo tortor Vivam.</span>
-                            <div class="bar-main-container">
-                                <div class="wrap">
-                                    <div class="bar-percentage" data-percentage="80"></div>
-                                    <span class="skill-detail"><i class="fa fa-bar-chart"></i>LEVEL : INTERMEDIATE</span><span class="skill-detail"><i class="fa fa-binoculars"></i>EXPERIENCE : 4 YEARS</span>
-                                    <div class="bar-container">
-                                        <div class="bar"></div>
-                                    </div>
-                                    <span class="label">Photoshop</span><span class="label">Illustrator</span>
-                                    <div style="clear:both;"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <span class="content-title">OFFICE SKILLS</span>
-                        <div class="skolls">
+                                    <span class="skill-detail"><i class="fa fa-bar-chart"></i>LEVEL : <?php echo $value['level']; ?></span><span class="skill-detail"><i class="fa fa-binoculars"></i>EXPERIENCE : <?php echo $value['experience']; ?></span>
 
-                            <span class="skill-description">Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo tortor Vivam.</span>
-                            <div class="bar-main-container">
-                                <div class="wrap">
-                                    <div class="bar-percentage" data-percentage="40"></div>
-                                    <span class="skill-detail"><i class="fa fa-bar-chart"></i>LEVEL : ADVANCED</span><span class="skill-detail"><i class="fa fa-binoculars"></i>EXPERIENCE : 5 YEARS</span>
-                                    <div class="bar-container">
-                                        <div class="bar"></div>
-                                    </div>
-                                    <span class="label">Ms excel</span><span class="label">Ms word</span><span class="label">Ms powerpoint</span>
-                                    <div style="clear:both;"></div>
+
+
                                 </div>
                             </div>
                         </div>
-                        <span class="content-title">SOCIAL SKILLS</span>
-                        <div class="skolls">
-                            <span class="skill-description">Lorem ipsum dolor sit amet, consectetur adipiscingVivam sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo tortor Vivam.</span>
-                            <div class="bar-main-container">
-                                <div class="wrap">
-                                    <div class="bar-percentage" data-percentage="90"></div>
-                                    <span class="skill-detail"><i class="fa fa-bar-chart"></i>LEVEL : EXPERT</span><span class="skill-detail"><i class="fa fa-binoculars"></i>EXPERIENCE : 6 YEARS</span>
-                                    <div class="bar-container">
-                                        <div class="bar"></div>
-                                    </div>
-                                    <span class="label">Event production</span><span class="label">Media relation</span>
-                                    <div style="clear:both;"></div>
-                                </div>
-                            </div>
-                        </div>
+                      <?php } ?>
                     </div>
                 </article>
                 <!-- End Skills Section -->
@@ -1316,196 +897,38 @@
                         <h2>WORKS</h2>
                         <div class="portfolio">
                             <!-- Portfolio Item -->
-                            <figure class="effect-milo">
-                                <img src="http://placehold.it/280x222" alt="img11" width="282" height="222" />
-                                <figcaption>
-                                    <span class="label">Logo Design</span>
-                                    <div class="portfolio_button">
-                                        <h3>Project Title</h3>
-                                        <a href=".work1" class="open_popup" data-effect="mfp-zoom-out">
-                                            <i class="hovicon effect-9 sub-b"><i class="fa fa-search"></i></i>
-                                        </a>
-                                    </div>
-                                    <div class="mfp-hide mfp-with-anim work_desc work1">
-                                        <div class="col-md-6">
-                                            <div class="image_work">
-                                                <img src="http://placehold.it/560x420" alt="img" width="560" height="420">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="project_content">
-                                                <h2 class="project_title">Project title</h2>
-                                                <p class="project_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a auctor sem. Suspendisse egestas nulla eget nunc commodo, et blandit ante tristique. Aliquam dignissim nulla tellus, sed pellentesque libero pellentesque et. Donec nec sem mattis, suscipit ligula id, porttitor tortor. Maecenas sed egestas odio, vitae euismod nulla. Duis viverra blandit mi quis rhoncus. Aenean vitae turpis et tortor elementum blandit.
-                                                    <br>
-                                                    <br>dignissim nulla tellus, sed pellentesque libero pellentesque et. Donec nec sem mattis, suscipit ligula id, porttitor tortor. Maecenas sed egestas odio, vitae euismod nulla. Duis viverra blandit mi quis rhoncus. Aenean vitae turpis et tortor elementum blandit.</p>
-                                            </div>
-                                        </div>
-                                        <a class="ext_link" href="#"><i class="fa fa-external-link"></i></a>
-                                        <div style="clear:both"></div>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                            <!-- End Portfolio Item -->
 
+                            <?php foreach ($port as $value) { ?>
                             <!-- Portfolio Item -->
                             <figure class="effect-milo">
-                                <img src="http://placehold.it/280x222" alt="img11" width="282" height="222" />
+                                <img src="http://localhost/cvbank/storage/images/<?php echo $value['img']; ?>" alt="img11" width="282" height="222" />
                                 <figcaption>
-                                    <span class="label">web design</span>
+                                    <span class="label"><?php echo $value['category']; ?></span>
                                     <div class="portfolio_button">
-                                        <h3>Project Title</h3>
-                                        <a href=".work2" class="open_popup" data-effect="mfp-zoom-out">
+                                        <h3><?php echo $value['title']; ?></h3>
+                                        <a href=".work" class="open_popup" data-effect="mfp-zoom-out">
                                             <i class="hovicon effect-9 sub-b"><i class="fa fa-search"></i></i>
                                         </a>
                                     </div>
-                                    <div class="mfp-hide mfp-with-anim work_desc work2">
+                                    <div class="mfp-hide mfp-with-anim work_desc work">
                                         <div class="col-md-6">
                                             <div class="image_work">
-                                                <img src="http://placehold.it/560x420" alt="img" width="560" height="420">
+                                                <img src="http://localhost/cvbank/storage/images/<?php echo $value['img']; ?>" alt="img" width="560" height="420">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="project_content">
-                                                <h2 class="project_title">Project title</h2>
-                                                <p class="project_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a auctor sem. Suspendisse egestas nulla eget nunc commodo, et blandit ante tristique. Aliquam dignissim nulla tellus, sed pellentesque libero pellentesque et. Donec nec sem mattis, suscipit ligula id, porttitor tortor. Maecenas sed egestas odio, vitae euismod nulla. Duis viverra blandit mi quis rhoncus. Aenean vitae turpis et tortor elementum blandit.
-                                                    <br>
-                                                    <br>dignissim nulla tellus, sed pellentesque libero pellentesque et. Donec nec sem mattis, suscipit ligula id, porttitor tortor. Maecenas sed egestas odio, vitae euismod nulla. Duis viverra blandit mi quis rhoncus. Aenean vitae turpis et tortor elementum blandit.</p>
-                                            </div>
+                                                <h2 class="project_title">
+                                                    <?php echo $value['description']; ?>
+                                                             </div>
                                         </div>
                                         <a class="ext_link" href="#"><i class="fa fa-external-link"></i></a>
                                         <div style="clear:both"></div>
                                     </div>
                                 </figcaption>
                             </figure>
-                            <!-- End Portfolio Item -->
 
-                            <!-- Portfolio Item -->
-                            <figure class="effect-milo">
-                                <img src="http://placehold.it/280x222" alt="img11" width="282" height="222" />
-                                <figcaption>
-                                    <span class="label">Mobile app</span>
-                                    <div class="portfolio_button">
-                                        <h3>Project Title</h3>
-                                        <a href=".work3" class="open_popup" data-effect="mfp-zoom-out">
-                                            <i class="hovicon effect-9 sub-b"><i class="fa fa-search"></i></i>
-                                        </a>
-                                    </div>
-                                    <div class="mfp-hide mfp-with-anim work_desc work3">
-                                        <div class="col-md-6">
-                                            <div class="image_work">
-                                                <img src="http://placehold.it/560x420" alt="img" width="560" height="420">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="project_content">
-                                                <h2 class="project_title">Project title</h2>
-                                                <p class="project_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a auctor sem. Suspendisse egestas nulla eget nunc commodo, et blandit ante tristique. Aliquam dignissim nulla tellus, sed pellentesque libero pellentesque et. Donec nec sem mattis, suscipit ligula id, porttitor tortor. Maecenas sed egestas odio, vitae euismod nulla. Duis viverra blandit mi quis rhoncus. Aenean vitae turpis et tortor elementum blandit.
-                                                    <br>
-                                                    <br>dignissim nulla tellus, sed pellentesque libero pellentesque et. Donec nec sem mattis, suscipit ligula id, porttitor tortor. Maecenas sed egestas odio, vitae euismod nulla. Duis viverra blandit mi quis rhoncus. Aenean vitae turpis et tortor elementum blandit.</p>
-
-                                            </div>
-                                        </div>
-                                        <a class="ext_link" href="#"><i class="fa fa-external-link"></i></a>
-                                        <div style="clear:both"></div>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                            <!-- End Portfolio Item -->
-
-                            <!-- Portfolio Item -->
-                            <figure class="effect-milo">
-                                <img src="http://placehold.it/280x222" alt="img11" width="282" height="222" />
-                                <figcaption>
-                                    <span class="label">web design</span>
-                                    <div class="portfolio_button">
-                                        <h3>Project Title</h3>
-                                        <a href=".work4" class="open_popup" data-effect="mfp-zoom-out">
-                                            <i class="hovicon effect-9 sub-b"><i class="fa fa-search"></i></i>
-                                        </a>
-                                    </div>
-                                    <div class="mfp-hide mfp-with-anim work_desc work4">
-                                        <div class="col-md-6">
-                                            <div class="image_work">
-                                                <img src="http://placehold.it/560x420" alt="img" width="560" height="420">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="project_content">
-                                                <h2 class="project_title">Project title</h2>
-                                                <p class="project_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a auctor sem. Suspendisse egestas nulla eget nunc commodo, et blandit ante tristique. Aliquam dignissim nulla tellus, sed pellentesque libero pellentesque et. Donec nec sem mattis, suscipit ligula id, porttitor tortor. Maecenas sed egestas odio, vitae euismod nulla. Duis viverra blandit mi quis rhoncus. Aenean vitae turpis et tortor elementum blandit.
-                                                    <br>
-                                                    <br>dignissim nulla tellus, sed pellentesque libero pellentesque et. Donec nec sem mattis, suscipit ligula id, porttitor tortor. Maecenas sed egestas odio, vitae euismod nulla. Duis viverra blandit mi quis rhoncus. Aenean vitae turpis et tortor elementum blandit.</p>
-                                            </div>
-                                        </div>
-                                        <a class="ext_link" href="#"><i class="fa fa-external-link"></i></a>
-                                        <div style="clear:both"></div>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                            <!-- End Portfolio Item -->
-
-                            <!-- Portfolio Item -->
-                            <figure class="effect-milo">
-                                <img src="http://placehold.it/280x222" alt="img11" width="282" height="222" />
-                                <figcaption>
-                                    <span class="label">Mobile app</span>
-                                    <div class="portfolio_button">
-                                        <h3>Project Title</h3>
-                                        <a href=".work5" class="open_popup" data-effect="mfp-zoom-out">
-                                            <i class="hovicon effect-9 sub-b"><i class="fa fa-search"></i></i>
-                                        </a>
-                                    </div>
-                                    <div class="mfp-hide mfp-with-anim work_desc work5">
-                                        <div class="col-md-6">
-                                            <div class="image_work">
-                                                <img src="http://placehold.it/560x420" alt="img" width="560" height="420">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="project_content">
-                                                <h2 class="project_title">Project title</h2>
-                                                <p class="project_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a auctor sem. Suspendisse egestas nulla eget nunc commodo, et blandit ante tristique. Aliquam dignissim nulla tellus, sed pellentesque libero pellentesque et. Donec nec sem mattis, suscipit ligula id, porttitor tortor. Maecenas sed egestas odio, vitae euismod nulla. Duis viverra blandit mi quis rhoncus. Aenean vitae turpis et tortor elementum blandit.
-                                                    <br>
-                                                    <br>dignissim nulla tellus, sed pellentesque libero pellentesque et. Donec nec sem mattis, suscipit ligula id, porttitor tortor. Maecenas sed egestas odio, vitae euismod nulla. Duis viverra blandit mi quis rhoncus. Aenean vitae turpis et tortor elementum blandit.</p>
-                                            </div>
-                                        </div>
-                                        <a class="ext_link" href="#"><i class="fa fa-external-link"></i></a>
-                                        <div style="clear:both"></div>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                            <!-- End Portfolio Item -->
-
-                            <!-- Portfolio Item -->
-                            <figure class="effect-milo">
-                                <img src="http://placehold.it/280x222" alt="img11" width="282" height="222" />
-                                <figcaption>
-                                    <span class="label">Logo Design</span>
-                                    <div class="portfolio_button">
-                                        <h3>Project Title</h3>
-                                        <a href=".work6" class="open_popup" data-effect="mfp-zoom-out">
-                                            <i class="hovicon effect-9 sub-b"><i class="fa fa-search"></i></i>
-                                        </a>
-                                    </div>
-                                    <div class="mfp-hide mfp-with-anim work_desc work6">
-                                        <div class="col-md-6">
-                                            <div class="image_work">
-                                                <img src="http://placehold.it/560x420" alt="img" width="560" height="420">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="project_content">
-                                                <h2 class="project_title">Project title</h2>
-                                                <p class="project_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a auctor sem. Suspendisse egestas nulla eget nunc commodo, et blandit ante tristique. Aliquam dignissim nulla tellus, sed pellentesque libero pellentesque et. Donec nec sem mattis, suscipit ligula id, porttitor tortor. Maecenas sed egestas odio, vitae euismod nulla. Duis viverra blandit mi quis rhoncus. Aenean vitae turpis et tortor elementum blandit.
-                                                    <br>
-                                                    <br>dignissim nulla tellus, sed pellentesque libero pellentesque et. Donec nec sem mattis, suscipit ligula id, porttitor tortor. Maecenas sed egestas odio, vitae euismod nulla. Duis viverra blandit mi quis rhoncus. Aenean vitae turpis et tortor elementum blandit.</p>
-                                            </div>
-                                        </div>
-                                        <a class="ext_link" href="#"><i class="fa fa-external-link"></i></a>
-                                        <div style="clear:both"></div>
-                                    </div>
-                                </figcaption>
-                            </figure>
+                            <?PHP  } ?>
                             <!-- End Portfolio Item -->
                         </div>
                         <!-- End Portfolio Wrapper -->
@@ -1528,13 +951,17 @@
                             <hr>
                         </div>
                         <!-- Contact Form -->
+                        <form action="../../admin/contacts/store.php" method="post">
                         <fieldset id="contact_form">
                             <div id="result"></div>
                             <input type="text" name="name" id="name" placeholder="NAME" />
                             <input type="email" name="email" id="email" placeholder="EMAIL" />
                             <textarea name="message" id="message" placeholder="MESSAGE"></textarea>
-                            <span class="submit_btn" id="submit_btn">SEND MESSAGE</span>
+
+                            <input type="hidden" name="user_id"  value="<?php echo $_GET['id']; ?>" />
+                            <input type="submit" class="submit_btn" id="submit_btn" value="Send" />
                         </fieldset>
+                        </form>
                         <!-- End Contact Form -->
                     </div>
                 </article>
