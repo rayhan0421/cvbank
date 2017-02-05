@@ -269,7 +269,7 @@ if(isset($_GET['keyword'])){
             <div class="flipkart-navbar-search smallsearch col-sm-8 col-xs-11">
               <form action="" method="get">
                   <div class="row">
-                      <input  class="flipkart-navbar-input col-xs-11" style="color:black" type="text" placeholder="Search for employee, cv and resume" name="keyword">
+                      <input  class="flipkart-navbar-input col-xs-11" style="color:black" type="search" placeholder="Search for employee, cv and resume" autosave="saved-searches" name="keyword">
 
                       <button class="flipkart-navbar-button col-xs-1">
                           <svg width="15px" height="15px">

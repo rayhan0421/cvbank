@@ -36,16 +36,16 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
 
     <div class="row">
    <div class="col-lg-12">
-       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="false">
            <div class="panel panel-default">
                <div class="panel-heading" role="tab" id="headingOne">
                    <h4 class="panel-title">
-                       <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                       <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                            About #1
                        </a>
                    </h4>
                </div>
-               <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+               <div id="collapseOne" class="panel-collapse collapse <?php if(isset($_SESSION['about'])){ echo $_SESSION['about']; /*unset($_SESSION['about']);*/ } ?>" role="tabpanel" aria-labelledby="headingOne">
                    <div class="panel-body">
                        <ul class="nav nav-pills">
                            <li class="active"><a data-toggle="pill" href="#about">views</a></li>
@@ -104,12 +104,12 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
            <div class="panel panel-default">
                <div class="panel-heading" role="tab" id="headingexpe">
                    <h4 class="panel-title">
-                       <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseexp" aria-expanded="false" aria-controls="collapseexp">
+                       <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseexp" aria-expanded="true" aria-controls="collapseexp">
                           experience #2
                        </a>
                    </h4>
                </div>
-               <div id="collapseexp" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingexpe">
+               <div id="collapseexp" class="panel-collapse collapse <?php if(isset($_SESSION['about'])){ echo $_SESSION['about']; unset($_SESSION['about']); } ?>" role="tabpanel" aria-labelledby="headingexpe">
                    <div class="panel-body">
                        <ul class="nav nav-pills">
                            <li class="active"><a data-toggle="pill" href="#expe">views</a></li>
@@ -136,7 +136,7 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
            <div class="panel panel-default">
                <div class="panel-heading" role="tab" id="headingskill">
                    <h4 class="panel-title">
-                       <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseskill" aria-expanded="false" aria-controls="collapseskill">
+                       <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseskill" aria-expanded="true" aria-controls="collapseskill">
                            skill #3
                        </a>
                    </h4>
