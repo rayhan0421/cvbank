@@ -3,7 +3,7 @@
 use App\education\education;
 $education= new education();
 $education->setdata($_SESSION['userinfo']);
-$education =$education->index();
+$education =$education->trashlist();
 
 
 ?>
@@ -11,7 +11,7 @@ $education =$education->index();
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Education <small>Statistics Overview</small>
+                Skills <small>Statistics Overview</small>
             </h1>
 
         </div>
@@ -45,8 +45,7 @@ $education =$education->index();
         <th>Result</th>
         <th>Passing_year</th>
         <th>Main_subject</th>
-        <th>Education_board</th>
-        <th>Course_duration</th>
+        <th>course_duration</th>
         <th>Action</th>
     </tr>
     </thead>
@@ -61,10 +60,10 @@ $education =$education->index();
             <td><?php echo $value['result']; ?></td>
             <td><?php echo $value['passing_year']; ?></td>
             <td><?php echo $value['main_subject']; ?></td>
-            <td><?php echo $value['education_board']; ?></td>
-            <td><?php echo $value['course_duration']; ?></td>
-            <td> <a href="edit.php?id=<?php echo $value['eduid'] ?>">Edit</a>/
-                <a href="trash.php?id=<?php echo $value['eduid'] ?>" >delete</a> </td>
+            <td> <?php echo $value['education_board']; ?></td>
+            <td> <?php echo $value['course_duration']; ?></td>
+
+            <td> <a href="restoreentry.php?id=<?php echo $value['id'] ?>" >restore</a> </td>
         </tr>
     <?php } ?>
 
