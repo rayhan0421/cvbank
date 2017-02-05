@@ -149,18 +149,36 @@ Class hobbies extends model
     public function update(){
 
         try {
-            $query = "UPDATE hobbies SET title=:title,description=:item,img=:img WHERE id=:id";
+
+            if(empty($this->img)){
+                $query = "UPDATE hobbies SET title=:title,description=:item WHERE id=:id";
 
 
-            $stmt = $this->pdo->prepare($query);
-            $stmt->execute(
-                array(
-                    ':id' => $this->auto_id,
-                    ':title' => $this->title,
-                    ':item'=>$this->description,
-                    ':img'=>$this->img
-                )
-            );
+                $stmt = $this->pdo->prepare($query);
+                $stmt->execute(
+                    array(
+                        ':id' => $this->auto_id,
+                        ':title' => $this->title,
+                        ':item'=>$this->description,
+
+                    )
+                );
+
+            }else{
+                $query = "UPDATE hobbies SET title=:title,description=:item,img=:img WHERE id=:id";
+
+
+                $stmt = $this->pdo->prepare($query);
+                $stmt->execute(
+                    array(
+                        ':id' => $this->auto_id,
+                        ':title' => $this->title,
+                        ':item'=>$this->description,
+                        ':img'=>$this->img
+                    )
+                );
+
+            }
 
 
             if($stmt){

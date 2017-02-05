@@ -47,7 +47,8 @@ if ($_FILES['img']['error'] == 0) {
 
 
 }else{
-    echo "error image";
+    $hobbies->setdata($_POST);
+    $hobbies->update();
 }
 ?>
 
