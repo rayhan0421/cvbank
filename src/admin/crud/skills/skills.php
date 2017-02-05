@@ -43,6 +43,51 @@ Class skills extends model
         }
     }
 
+    public function store(){
+
+        try{
+            $queary = "INSERT INTO `skills` (`id`, `user_id`,`title`,`description`,`level`,`experience`,`experience_area`,`created_at`) VALUES (:a,:h,:b,:cc,:d,:e,:f,:g);";
+
+            $st = $this->pdo->prepare($queary);
+
+            $st->execute(
+                array(
+                    ':a'=>null,
+                    ':h'=>$this->id,
+                    ':b'=>$this->title,
+                    ':cc'=>$this->desc,
+                    ':d'=>$this->level,
+                    ':e'=>$this->experience,
+                    ':f'=>$this->area,
+                    ':g'=>date('Y-m-d h:m:s')
+
+                )
+            );
+
+
+
+
+
+
+            if($st){
+
+                $_SESSION['msg']= "Successfully added skill";
+                header("location:http://localhost/cvbank/views/admin/userdetails.php?id=$this->id");
+            }else{
+
+                $_SESSION['msg']= "skill creation failed";
+
+                header("location:http://localhost/cvbank/views/admin/userdetails.php?id=$this->id");
+
+            }
+
+        }catch (\PDOException $e){
+
+            echo "Error: ". $e->getTrace();
+        }
+
+    }
+
     public function update(){
 
 

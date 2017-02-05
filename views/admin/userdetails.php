@@ -309,11 +309,44 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
 
                            <div id="skilladd" class="tab-pane fade">
                                <h3>add new</h3>
-                               <p>
+<p>
+                               <div class="table-responsive">
+                                   <form role="form" action="skills/store.php" method="post">
 
+                                       <div class="form-group">
+                                           <label>Title</label>
+                                           <input name="title" class="form-control">
 
-                                   askill e omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                           </div>
+                                       </div>
+                                       <div class="form-group">
+                                           <label>desc</label>
+                                           <input name="desc" class="form-control">
+
+                                       </div>
+
+                                       <div class="form-group">
+                                           <label>lavel</label>
+                                           <input name="lavel" class="form-control">
+
+                                       </div>
+                                       <div class="form-group">
+                                           <label>experienc</label>
+                                           <input name="experience" class="form-control">
+
+                                       </div>
+                                       <div class="form-group">
+                                           <label>area</label>
+                                           <input name="area" class="form-control">
+
+                                       </div>
+                                       <input name="id" type="hidden" value="<?php echo $_GET['id']; ?>" class="form-control">
+                                       <button type="submit" class="btn btn-default">Save</button>
+
+                                   </form>
+
+</p>
+
+                                 </div>
 
                        </div>
                    </div>
@@ -421,25 +454,23 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                                        <td>SL</td>
                                        <td>Title </td>
                                        <td>desc</td>
-                                       <td>experience</td>
-                                       <td>level</td>
-                                       <td>area</td>
+                                       <td>img</td>
+                                       <td>category</td>
                                        <td> action </td>
                                    </tr>
                                    <?php
-                                   $skill = $resume->skill();
+                                   $portfolio = $resume->portfolio();
 
-                                   if(is_array($about)){
+                                   if(is_array($portfolio)){
 
-                                       foreach ($skill as $value){ ?>
-                                           <form action="skills/update.php" method="post">
+                                       foreach ($portfolio as $value){ ?>
+                                           <form action="portfolios/update.php" method="post">
                                                <tr>
                                                    <td>  <?php echo $sl++; ?> </td>
                                                    <td> <input type="text" value=" <?php echo $value['title']; ?>" name="title" >  </td>
                                                    <td > <input type="text" value="<?php echo $value['description']; ?> " name="desc"></td>
-                                                   <td ><input type="text" value="<?php echo $value['experience'] ;?>" name="experience" ></td>
-                                                   <td > <input type="text" value="<?php echo $value['level'] ;?>" name="level" ></td>
-                                                   <td > <input type="text" value="<?php echo $value['experience_area'];?>" name="area">
+                                                   <td ><input type="text" value="<?php echo $value['img'] ;?>" name="experience" ></td>
+                                                   <td > <input type="text" value="<?php echo $value['category'] ;?>" name="level" ></td>
 
 
                                                    </td>

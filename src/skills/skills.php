@@ -94,13 +94,13 @@ Class skills extends model{
             );
 
 
-            session_start();
-            if($st){
-
-                $_SESSION['msg']= "Successfully added skill";
 
 
-                header("location:http://localhost/cvbank/views/skills/create.php");
+                session_start();
+                if($st){
+
+                    $_SESSION['msg']= "Successfully added skill";
+                    header("location:http://localhost/cvbank/views/skills/create.php");
             }else{
 
                 $_SESSION['msg']= "skill creation failed";
