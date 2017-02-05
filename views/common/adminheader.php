@@ -71,86 +71,8 @@ if(!isset($_SESSION['userinfo'])){
         </div>
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
-                <ul class="dropdown-menu message-dropdown">
-                    <li class="message-preview">
-                        <a href="#">
-                            <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                <div class="media-body">
-                                    <h5 class="media-heading"><strong>John Smith</strong>
-                                    </h5>
-                                    <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="message-preview">
-                        <a href="#">
-                            <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                <div class="media-body">
-                                    <h5 class="media-heading"><strong>John Smith</strong>
-                                    </h5>
-                                    <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="message-preview">
-                        <a href="#">
-                            <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                <div class="media-body">
-                                    <h5 class="media-heading"><strong>John Smith</strong>
-                                    </h5>
-                                    <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="message-footer">
-                        <a href="#">Read All New Messages</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-                <ul class="dropdown-menu alert-dropdown">
-                    <li>
-                        <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
-                    </li>
-                    <li>
-                        <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
-                    </li>
-                    <li>
-                        <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
-                    </li>
-                    <li>
-                        <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
-                    </li>
-                    <li>
-                        <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
-                    </li>
-                    <li>
-                        <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">View All</a>
-                    </li>
-                </ul>
-            </li>
+
+
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php if(array_key_exists('userinfo', $_SESSION)){
                       echo $name = $_SESSION['userinfo'][0]['username'];
@@ -184,70 +106,8 @@ if(!isset($_SESSION['userinfo'])){
                     <a href="http://localhost/cvbank/views/deshboard/"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                 </li>
 
-                <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#publication"><i class="fa fa-newspaper-o" aria-hidden="true"></i> publication <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="publication" class="collapse">
-                        <li>
-                               <a href="#"><i class="fa fa-envelope"></i>  new  </a>
-                        </li>
-                        <li>
-                            <a href="#">trash</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
-                        </li>
-
-                        <li>
-                            <a href="#"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#AboutMe"><i class="fa fa-book "></i> About Me <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="AboutMe" class="collapse">
-                        <li>
-                            <a href="#">new</a>
-                        </li>
-                        <li>
-                            <a href="#">trash</a>
-                        </li>
-                        <li>
-                            <a href="../aboutme/index.php">list</a>
-                        </li>
-                    </ul>
-                </li>
 
 
-                <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#skill"><i class="fa fa-envelope"></i> skill <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="skill" class="collapse">
-                        <li>
-                            <a href="#">new</a>
-                        </li>
-                        <li>
-                            <a href="#">trash</a>
-                        </li>
-                        <li>
-                            <a href="#">list</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-
-                <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#facts"><i class="fa fa-envelope"></i> facts <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="facts" class="collapse">
-                        <li>
-                            <a  href="#">new</a>
-                        </li>
-                        <li>
-                            <a href="#">trash</a>
-                        </li>
-                        <li>
-                            <a href="#">list</a>
-                        </li>
-                    </ul>
-                </li>
                 <li>
                     <a href="resume.php"><i class="fa fa-book"></i> Resume </a>
                 </li>

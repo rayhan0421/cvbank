@@ -1,9 +1,9 @@
 
 <?php
 include_once ("../../../vendor/autoload.php");
-use App\admin\crud\skills\skills;
+use App\admin\crud\hobbies\hobbies;
 session_start();
-$sk = new skills();
+$sk = new hobbies();
 $sk->setdata($_GET);
 $sk->delete();
 

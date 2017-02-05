@@ -193,35 +193,7 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                                    <?php
                                    $skill = $resume->skill();
 
-                                   if(is_array($about)){
 
-                                       foreach ($skill as $value){ ?>
-                                           <form action="skills/update.php" method="post">
-                                               <tr>
-                                                   <td>  <?php echo $sl++; ?> </td>
-                                                   <td> <input type="text" value=" <?php echo $value['title']; ?>" name="title" >  </td>
-                                                   <td > <input type="text" value="<?php echo $value['description']; ?> " name="desc"></td>
-                                                   <td ><input type="text" value="<?php echo $value['experience'] ;?>" name="experience" ></td>
-                                                   <td > <input type="text" value="<?php echo $value['level'] ;?>" name="level" ></td>
-                                                   <td > <input type="text" value="<?php echo $value['experience_area'];?>" name="area">
-
-
-                                                   </td>
-
-                                                   <td>
-                                                       <input  type="hidden" name="id" value="<?php echo $value['skillid']; ?>" />
-                                                       <input type="hidden" name="user_id" value="<?php echo $value['user_id']; ?>" />
-                                                       <input type="submit" >
-                                                       <a   href="skills/delete.php?user_id=<?php echo $value['user_id']; ?> & id=<?php  echo $value['skillid']; ?>"> Delete </a> </td>
-                                               </tr>
-                                           </form>
-
-
-
-                                           <?php
-
-                                       }
-                                   }
 
                                    ?>
                                </table>
@@ -229,7 +201,40 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
 
                            <div id="expeadd" class="tab-pane fade">
                                <h3>add new</h3>
-                               <p> aexpe add Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                               <div class="table-responsive">
+                                   <form role="form" action="experiences/store.php" method="post">
+
+                                       <div class="form-group">
+                                           <label>Designation</label>
+                                           <input name="designation" class="form-control">
+
+                                       </div>
+                                       <div class="form-group">
+                                           <label>Company_name</label>
+                                           <input name="company_name" class="form-control">
+
+                                       </div>
+
+                                       <div class="form-group">
+                                           <label>Start_date</label>
+                                           <input name="start_date" class="form-control"  type="date">
+
+                                       </div>
+                                       <div class="form-group">
+                                           <label>End_date</label>
+                                           <input name="end_date" class="form-control"  type="date">
+
+                                       </div>
+                                       <div class="form-group">
+                                           <label>Company_location</label>
+                                           <input name="company_location" class="form-control">
+
+                                       </div>
+                                       <input  type="hidden" name="user_id" value="<?php echo $_GET['id']; ?>" class="form-control">
+                                       <button type="submit" class="btn btn-default">Save</button>
+
+                                   </form>
+                               </div>
                            </div>
 
                        </div>
@@ -259,7 +264,7 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
 
                            <div id="skilldelete" class="tab-pane fade in active">
                                <h3>views</h3>
-                               <table class="table">
+                               <table class="table-responsive">
                                    <tr>
                                        <td>SL</td>
                                        <td>Title </td>
@@ -421,7 +426,50 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
 
                            <div id="educationadd" class="tab-pane fade">
                                <h3>add new</h3>
-                               <p> education e omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                               <div class="table-responsive">
+                                   <form role="form" action="educations/store.php" method="post">
+
+                                       <div class="form-group">
+                                           <label>Title</label>
+                                           <input name="title" class="form-control">
+
+                                       </div>
+                                       <div class="form-group">
+                                           <label>Institute</label>
+                                           <input name="institute" class="form-control">
+
+                                       </div>
+
+                                       <div class="form-group">
+                                           <label>Result</label>
+                                           <input name="result" class="form-control">
+
+                                       </div>
+                                       <div class="form-group">
+                                           <label>Passing_year</label>
+                                           <input name="passing_year" class="form-control" type="date">
+
+                                       </div>
+                                       <div class="form-group">
+                                           <label>Main_subject</label>
+                                           <input name="main_subject" class="form-control">
+
+                                       </div>
+                                       <div class="form-group">
+                                           <label>Education_board</label>
+                                           <input name="education_board" class="form-control">
+
+                                       </div>
+                                       <div class="form-group">
+                                           <label>Course_duration</label>
+                                           <input name="course_duration" class="form-control">
+
+                                       </div>
+                                       <input name="id" type="hidden" value="<?php echo $_GET['id']; ?>" class="form-control">
+                                       <button type="submit" class="btn btn-default">Save</button>
+
+                                   </form>
+                               </div>
                            </div>
 
                        </div>
@@ -464,7 +512,7 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                                    if(is_array($portfolio)){
 
                                        foreach ($portfolio as $value){ ?>
-                                           <form action="portfolios/update.php" method="post">
+                                           <form action="portfolios/update.php" method="post" enctype="multipart/form-data">
                                                <tr>
                                                    <td>  <?php echo $sl++; ?> </td>
                                                    <td> <input type="text" value=" <?php echo $value['title']; ?>" name="title" >  </td>
@@ -476,10 +524,10 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                                                    </td>
 
                                                    <td>
-                                                       <input  type="hidden" name="id" value="<?php echo $value['skillid']; ?>" />
+                                                       <input  type="hidden" name="id" value="<?php echo $value['portfoliosid']; ?>" />
                                                        <input type="hidden" name="user_id" value="<?php echo $value['user_id']; ?>" />
                                                        <input type="submit" >
-                                                       <a   href="skills/delete.php?user_id=<?php echo $value['user_id']; ?> & id=<?php  echo $value['skillid']; ?>"> Delete </a> </td>
+                                                       <a   href="portfolios/delete.php?user_id=<?php echo $value['user_id']; ?> & id=<?php  echo $value['portfoliosid']; ?>"> Delete </a> </td>
                                                </tr>
                                            </form>
 
@@ -496,7 +544,37 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
 
                            <div id="portfolioadd" class="tab-pane fade">
                                <h3>add new</h3>
-                               <p> portfolio e omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                               <div class="table-responsive">
+                                   <form role="form" action="portfolios/store.php" method="post" enctype="multipart/form-data">
+
+                                       <div class="form-group">
+                                           <label>Title</label>
+                                           <input name="title" class="form-control">
+
+                                       </div>
+                                       <div class="form-group">
+                                           <label>Description</label>
+                                           <input name="description" class="form-control">
+
+                                       </div>
+
+                                       <div class="form-group">
+                                           <label>Image</label>
+                                           <input type="file" name="img" class="form-control">
+
+                                       </div>
+                                       <div class="form-group">
+                                           <label>Category</label>
+                                           <input name="category" class="form-control">
+
+                                       </div>
+                                       <input name="user_id" type="hidden" value="<?php echo $_GET['id']; ?>" class="form-control">
+
+
+                                       <button type="submit" class="btn btn-default">Save</button>
+
+                                   </form>
+                               </div>
                            </div>
 
                        </div>
@@ -712,7 +790,32 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
 
                            <div id="hobbiesadd" class="tab-pane fade">
                                <h3>add new</h3>
-                               <p>hobbies e omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                               <div class="table-responsive">
+                                   <form role="form" action="hobbies/store.php" method="post" enctype="multipart/form-data">
+
+                                       <div class="form-group">
+                                           <label>Title</label>
+                                           <input name="title" class="form-control">
+
+                                       </div>
+                                       <div class="form-group">
+                                           <label>description</label>
+                                           <input type="text" name="description" class="form-control"> </input>
+
+                                       </div>
+
+                                       <div class="form-group">
+                                           <label>img</label>
+                                           <input type="file" name="img" class="form-control">
+
+                                       </div>
+                                       <input name="user_id" type="hidden" value="<?php echo $_GET['id']; ?>" class="form-control">
+
+
+                                       <button type="submit" class="btn btn-default">Save</button>
+
+                                   </form>
+                               </div>
                            </div>
 
                        </div>
@@ -788,7 +891,38 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
 
                            <div id="postadd" class="tab-pane fade">
                                <h3>add new</h3>
-                               <p>post e omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                               <div class="table-responsive">
+                                   <form role="form" action="posts/store.php" method="post">
+
+                                       <div class="form-group">
+                                           <label>Title</label>
+                                           <input name="title" class="form-control">
+
+                                       </div>
+                                       <div class="form-group">
+                                           <label>desc</label>
+                                           <input name="desc" class="form-control">
+
+                                       </div>
+
+                                       <div class="form-group">
+                                           <label>tags</label>
+                                           <input name="tags" class="form-control">
+
+                                       </div>
+                                       <div class="form-group">
+                                           <label>	categories</label>
+                                           <input name="categories" class="form-control">
+                                           <input type="hidden" name="user_id" value="<?php echo $_GET['id']; ?>" class="form-control"> </input>
+
+
+                                       </div>
+
+
+                                       <button type="submit" class="btn btn-default">Save</button>
+
+                                   </form>
+                               </div>
                            </div>
 
                        </div>

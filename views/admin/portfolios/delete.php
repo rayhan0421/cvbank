@@ -1,9 +1,9 @@
 
 <?php
 include_once ("../../../vendor/autoload.php");
-use App\admin\crud\skills\skills;
+use App\admin\crud\portfolios\portfolios;
 session_start();
-$sk = new skills();
+$sk = new portfolios();
 $sk->setdata($_GET);
 $sk->delete();
 
