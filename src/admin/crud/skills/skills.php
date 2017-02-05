@@ -45,10 +45,9 @@ Class skills extends model
 
     public function update(){
 
-          var_dump($this);
-              die();
+
          try {
-            $query = "UPDATE skills SET title=:title,description=:desc,level=:level,experience=:exp,experience_area=:area WHERE id=:id";
+            $query = "UPDATE skills SET title=:title,description=:desc,level=:levell,experience=:exp,experience_area=:area WHERE id=:id";
 
 
             $stmt = $this->pdo->prepare($query);
@@ -58,7 +57,7 @@ Class skills extends model
                     ':title' => $this->title,
                     ':desc'=>$this->desc,
                     ':exp' =>$this->experience,
-                    ':level'=>$this->level,
+                    ':levell'=>$this->level,
                     ':area'=>$this->area
                 )
             );
@@ -66,11 +65,13 @@ Class skills extends model
 
                 $_SESSION['msg'] ="succesfully updated ";
 
-                header("http://localhost/cvbank/views/admin/userdetails.php?id='$this->user_id'");
+
+                header("location:http://localhost/cvbank/views/admin/userdetails.php?id=$this->user_id");
 
             }
         } catch (PDOException $e) {
-            echo 'Error: ' . $e->getMessage();
+             $_SESSION['msg'] ="faield to updated ";
+             header("location:http://localhost/cvbank/views/admin/userdetails.php?id=$this->user_id");
         }
 
 
@@ -84,17 +85,18 @@ Class skills extends model
             $stmt = $this->pdo->prepare($query);
             $stmt->execute(
                 array(
-                    ':id' => $this->auto_id,
+                    ':id' => $this->id,
                     ':datetme' => date('y-m-d h:m:s'),
                 )
             );
             if($stmt){
-                session_start();
+
                 $_SESSION['msg'] ="succesfully deleted ";
-                header("location:http://localhost/cvbank/views/admin/index.php");
+                header("location:http://localhost/cvbank/views/admin/userdetails.php?id=$this->user_id");
             }
         } catch (PDOException $e) {
-            echo 'Error: ' . $e->getMessage();
+            $_SESSION['msg'] ="failed to deleted ";
+            header("location:http://localhost/cvbank/views/admin/userdetails.php?id=$this->user_id");
         }
     }
 }

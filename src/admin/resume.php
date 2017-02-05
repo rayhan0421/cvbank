@@ -22,7 +22,7 @@ Class resume extends model{
     }
 
     public function about(){
-        $queary = "SELECT  abouts.id as aboutid ,abouts.* FROM abouts JOIN users ON users.id = abouts.user_id WHERE users.user_role!=2 AND user_id=$this->id";
+        $queary = "SELECT  abouts.id as aboutid ,abouts.* FROM abouts JOIN users ON users.id = abouts.user_id WHERE users.user_role!=2 AND user_id=$this->id AND abouts.deleted_at='0000-00-00 00:00:00'";
 
         $st = $this->pdo->prepare($queary);
 
@@ -35,7 +35,7 @@ Class resume extends model{
 
     }
     public function skill(){
-        $queary = "SELECT  skills.id as skillid ,skills.* FROM skills JOIN users ON users.id =skills.user_id WHERE users.user_role!=2 AND user_id=$this->id";
+        $queary = "SELECT  skills.id as skillid ,skills.* FROM skills JOIN users ON users.id =skills.user_id WHERE users.user_role!=2 AND user_id=$this->id AND skills.deleted_at='0000-00-00 00:00:00'";
 
         $st = $this->pdo->prepare($queary);
 
@@ -46,37 +46,108 @@ Class resume extends model{
         return $stu;
     }
     public function hobbies(){
-        return $this->id ;
+
+      $queary = "SELECT  hobbies.id as hobbiesid ,hobbies.* FROM hobbies JOIN users ON users.id = hobbies.user_id WHERE users.user_role!=2 AND user_id=$this->id AND hobbies.deleted_at='0000-00-00 00:00:00'";
+
+        $st = $this->pdo->prepare($queary);
+
+        $st->execute();
+
+        $stu= $st->fetchAll();
+
+        return $stu;
     }
     public function facts(){
-        return $this->id ;
+        $queary = "SELECT  facts.id as factsid ,facts.* FROM facts JOIN users ON users.id = facts.user_id WHERE users.user_role!=2 AND user_id=$this->id AND facts.deleted_at='0000-00-00 00:00:00'";
+
+        $st = $this->pdo->prepare($queary);
+
+        $st->execute();
+
+        $stu= $st->fetchAll();
+
+        return $stu;
     }
-    public function publication(){
-        return $this->id ;
-    }
+
     public function portfolio(){
-        return $this->id ;
+        $queary = "SELECT  portfolios.id as portfoliosid ,portfolios.* FROM portfolios JOIN users ON users.id = portfolios.user_id WHERE users.user_role!=2 AND user_id=$this->id AND portfolios.deleted_at='0000-00-00 00:00:00'";
+
+        $st = $this->pdo->prepare($queary);
+
+        $st->execute();
+
+        $stu= $st->fetchAll();
+
+        return $stu;
     }
     public function post(){
-        return $this->id ;
+        $queary = "SELECT  posts.id as postsid ,portfolios.* FROM posts JOIN users ON users.id = posts.user_id WHERE users.user_role!=2 AND user_id=$this->id AND posts.deleted_at='0000-00-00 00:00:00'";
+
+        $st = $this->pdo->prepare($queary);
+
+        $st->execute();
+
+        $stu= $st->fetchAll();
+
+        return $stu;
     }
     public function settings(){
-        return $this->id ;
+
     }
     public function service(){
-        return $this->id ;
+        $queary = "SELECT  services.id as servicesid ,services.* FROM services JOIN users ON users.id = services.user_id WHERE users.user_role!=2 AND user_id=$this->id AND services.deleted_at='0000-00-00 00:00:00'";
+
+        $st = $this->pdo->prepare($queary);
+
+        $st->execute();
+
+        $stu= $st->fetchAll();
+
+        return $stu;
     }
     public function experience(){
-        return $this->id ;
+        $queary = "SELECT  experiences.id as experiencesid ,experiences.* FROM experiences JOIN users ON users.id = experiences.user_id WHERE users.user_role!=2 AND user_id=$this->id AND experiences.deleted_at='0000-00-00 00:00:00'";
+
+        $st = $this->pdo->prepare($queary);
+
+        $st->execute();
+
+        $stu= $st->fetchAll();
+
+        return $stu;
     }
     public function award(){
-        return $this->id ;
+        $queary = "SELECT  awards.id as awardsid ,awards.* FROM awards JOIN users ON users.id = awards.user_id WHERE users.user_role!=2 AND user_id=$this->id AND awards.deleted_at='0000-00-00 00:00:00'";
+
+        $st = $this->pdo->prepare($queary);
+
+        $st->execute();
+
+        $stu= $st->fetchAll();
+
+        return $stu;
     }
     public function education(){
-        return $this->id ;
+        $queary = "SELECT  educations.id as educationsid ,educations.* FROM educations JOIN users ON users.id = educations.user_id WHERE users.user_role!=2 AND user_id=$this->id AND educations.deleted_at='0000-00-00 00:00:00'";
+
+        $st = $this->pdo->prepare($queary);
+
+        $st->execute();
+
+        $stu= $st->fetchAll();
+
+        return $stu;
     }
     public function contact(){
-        return $this->id ;
+        $queary = "SELECT  contacts.id as contactsid ,contacts.* FROM contacts JOIN users ON users.id = contacts.user_id WHERE users.user_role!=2 AND user_id=$this->id AND contacts.deleted_at='0000-00-00 00:00:00'";
+
+        $st = $this->pdo->prepare($queary);
+
+        $st->execute();
+
+        $stu= $st->fetchAll();
+
+        return $stu;
     }
 
 

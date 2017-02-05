@@ -117,18 +117,34 @@ Class Portfolio extends model{
 
         session_start();
         try {
-            $query = "UPDATE Portfolios SET title=:title,description=:description, category=:category WHERE id=:id";
+          if(empty($this->img)){
+              $query = "UPDATE Portfolios SET title=:title,description=:description, category=:category WHERE id=:id";
 
 
-            $stmt = $this->pdo->prepare($query);
-            $stmt->execute(
-                array(
-                    ':id' => $this->auto_id,
-                    ':title' => $this->title,
-                    ':description'=>$this->description,
-                    ':category'=>$this->category
-                )
-            );
+              $stmt = $this->pdo->prepare($query);
+              $stmt->execute(
+                  array(
+                      ':id' => $this->auto_id,
+                      ':title' => $this->title,
+                      ':description'=>$this->description,
+                      ':category'=>$this->category
+                  )
+              );
+          }else{
+              $query = "UPDATE Portfolios SET title=:title,description=:description, category=:category,img=:img WHERE id=:id";
+
+
+              $stmt = $this->pdo->prepare($query);
+              $stmt->execute(
+                  array(
+                      ':id' => $this->auto_id,
+                      ':title' => $this->title,
+                      ':description'=>$this->description,
+                      ':category'=>$this->category,
+                      ':img'=>$this->img
+                  )
+              );
+          }
             if($stmt){
 
                 $_SESSION['msg'] ="succesfully updated ";

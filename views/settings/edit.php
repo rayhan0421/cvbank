@@ -39,7 +39,7 @@ $value= $settings->show();
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <form role="form" action="update.php" method="post">
+                        <form role="form" action="update.php" method="post" enctype="multipart/form-data">
 
                             <div class="form-group">
                                 <label>Title</label>
@@ -64,7 +64,7 @@ $value= $settings->show();
 
                             <div class="form-group">
                                 <label>Image</label>
-                                <input type="file" name="img" value="<?php echo $value['featured_img']; ?>" class="form-control">
+                                <input type="file" name="featured_img" value="<?php echo $value['featured_img']; ?>" class="form-control">
                                 <img height="150" width="150" src="http://localhost/cvbank/storage/images/<?php echo $value['featured_img']; ?>" />
 
                             </div>

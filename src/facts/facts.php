@@ -151,18 +151,33 @@ Class facts extends model
 
         session_start();
         try {
-            $query = "UPDATE facts SET title=:title,no_of_items=:item,img=:img WHERE id=:id";
+            if(empty($this->img)){
+                $query = "UPDATE facts SET title=:title,no_of_items=:item WHERE id=:id";
+                $stmt = $this->pdo->prepare($query);
+                $stmt->execute(
+                    array(
+                        ':id' => $this->auto_id,
+                        ':title' => $this->title,
+                        ':item'=>$this->none_of_item
+
+                    )
+                );
+            }else{
+                $query = "UPDATE facts SET title=:title,no_of_items=:item,img=:img WHERE id=:id";
+                $stmt = $this->pdo->prepare($query);
+                $stmt->execute(
+                    array(
+                        ':id' => $this->auto_id,
+                        ':title' => $this->title,
+                        ':item'=>$this->none_of_item,
+                        ':img'=>$this->img
+                    )
+                );
+            }
 
 
-            $stmt = $this->pdo->prepare($query);
-            $stmt->execute(
-                array(
-                    ':id' => $this->auto_id,
-                    ':title' => $this->title,
-                    ':item'=>$this->none_of_item,
-                    ':img'=>$this->img
-                )
-            );
+
+
 
 //            var_dump($stmt);
 //                die();
