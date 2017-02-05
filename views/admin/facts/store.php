@@ -1,14 +1,10 @@
+
 <?php
 include_once ("../../../vendor/autoload.php");
 use App\admin\crud\facts\facts;
 session_start();
 $sk = new facts();
-
-
-
 $_SESSION['facts']="in";
-
-
 
 if ($_FILES['img']['error'] == 0) {
 
@@ -20,6 +16,7 @@ if ($_FILES['img']['error'] == 0) {
         $file_type = $_FILES['img']['type'];
         $file_ext = explode('.',$file_name);
         $file_ext = end($file_ext);
+
         $expensions = array("jpeg", "jpg", "png");
 
         if (in_array($file_ext, $expensions) === false) {
@@ -43,16 +40,14 @@ if ($_FILES['img']['error'] == 0) {
 
         $_POST['img'] = $file_name;
         $sk->setdata($_POST);
-        $sk->update();
-
+        $sk->store();
     } else {
 
-        $_SESSION['msg'] = " please upload your service image";
+        $_SESSION['msg'] = " please upload your facts image";
     }
 
 
 }else{
     $sk->setdata($_POST);
-    $sk->update();
-
+    $sk->store();
 }

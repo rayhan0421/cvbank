@@ -6,13 +6,7 @@ session_start();
 $_SESSION['service']="in";
 
 
-if(strlen($_POST['title'])<3 && strlen($_POST['description'])<5){
 
-    $_SESSION['msg']=" please fill the field";
-
-    header("location:create.php");
-
-}else {
     if ($_FILES['img']['error'] == 0) {
 
         if (isset($_FILES['img'])) {
@@ -55,7 +49,7 @@ if(strlen($_POST['title'])<3 && strlen($_POST['description'])<5){
 
 
     }
-}
+
 
 
 

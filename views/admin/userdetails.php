@@ -513,7 +513,7 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                        </a>
                    </h4>
                </div>
-               <div id="collapsefacts" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingfacts">
+               <div id="collapsefacts" class="panel-collapse collapse <?php if(isset($_SESSION['facts'])){ echo "in" ; unset($_SESSION['facts']); } ?>" role="tabpanel" aria-labelledby="headingfacts">
                    <div class="panel-body">
                        <ul class="nav nav-pills">
                            <li class="active"><a data-toggle="pill" href="#factsnew">views</a></li>
@@ -529,35 +529,41 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                                    <tr>
                                        <td>SL</td>
                                        <td>Title </td>
-                                       <td>desc</td>
-                                       <td>experience</td>
-                                       <td>level</td>
-                                       <td>area</td>
+
+                                       <td>no_of_items</td>
+                                       <td>imges</td>
+
                                        <td> action </td>
                                    </tr>
                                    <?php
-                                   $skill = $resume->skill();
+                                   $facts = $resume->facts();
 
-                                   if(is_array($about)){
+                                   if(is_array($facts)){
 
-                                       foreach ($skill as $value){ ?>
-                                           <form action="skills/update.php" method="post">
+                                       foreach ($facts as $value){ ?>
+                                           <form action="facts/update.php" method="post" enctype="multipart/form-data">
                                                <tr>
                                                    <td>  <?php echo $sl++; ?> </td>
                                                    <td> <input type="text" value=" <?php echo $value['title']; ?>" name="title" >  </td>
-                                                   <td > <input type="text" value="<?php echo $value['description']; ?> " name="desc"></td>
-                                                   <td ><input type="text" value="<?php echo $value['experience'] ;?>" name="experience" ></td>
-                                                   <td > <input type="text" value="<?php echo $value['level'] ;?>" name="level" ></td>
-                                                   <td > <input type="text" value="<?php echo $value['experience_area'];?>" name="area">
+
+                                                   <td ><input type="text" value="<?php echo $value['no_of_items'] ;?>" name="no_of_items" ></td>
+                                                   <td >
+                                                       <input type="file" value="<?php echo $value['img'] ;?>" name="img" >
+                                                       <?php if(!empty($value['img'])) { ?>
+
+                                                       <img height="150" width="150" src="http://localhost/cvbank/storage/images/<?php echo $value['img']; ?>" />
+                                                  <?php } ?>
+                                                   </td>
+
 
 
                                                    </td>
 
                                                    <td>
-                                                       <input  type="hidden" name="id" value="<?php echo $value['skillid']; ?>" />
+                                                       <input  type="hidden" name="id" value="<?php echo $value['factsid']; ?>" />
                                                        <input type="hidden" name="user_id" value="<?php echo $value['user_id']; ?>" />
-                                                       <input type="submit" >
-                                                       <a   href="skills/delete.php?user_id=<?php echo $value['user_id']; ?> & id=<?php  echo $value['skillid']; ?>"> Delete </a> </td>
+                                                       <input type="submit" value="Update">
+                                                       <a   href="facts/delete.php?user_id=<?php echo $value['user_id']; ?> & id=<?php  echo $value['factsid']; ?>"> Delete </a> </td>
                                                </tr>
                                            </form>
 
@@ -574,8 +580,33 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
 
                            <div id="factsadd" class="tab-pane fade">
                                <h3>add new</h3>
-                               <p>facts publication e omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                           </div>
+                               <div class="table-responsive">
+                                   <form role="form" action="facts/store.php" method="post" enctype="multipart/form-data">
+
+                                       <div class="form-group">
+                                           <label>Title</label>
+                                           <input name="title" class="form-control">
+
+                                       </div>
+                                       <div class="form-group">
+                                           <label>No of items</label>
+                                           <input type="number" name="no_of_items" class="form-control"> </input>
+                                           <input type="hidden" name="user_id" value="<?php echo $_GET['id']; ?>" class="form-control"> </input>
+
+                                       </div>
+
+                                       <div class="form-group">
+                                           <label>image</label>
+                                           <input type="file" name="img" class="form-control">
+
+                                       </div>
+
+
+                                       <button type="submit" class="btn btn-default">Save</button>
+
+                                   </form>
+                               </div>
+                                </div>
 
                        </div>
                    </div>
