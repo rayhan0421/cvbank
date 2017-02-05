@@ -6,10 +6,10 @@ Class skills extends model
 
     protected $id = '';
     protected $title='';
+    protected $oraganization='';
     protected $desc='';
-    protected $level='';
-    protected $experience='';
-    protected $area='';
+    protected $location='';
+    protected $year='';
     protected $user_id= '';
 
 

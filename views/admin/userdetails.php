@@ -71,33 +71,49 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                            <div id="about" class="tab-pane fade in active">
                                <h3>views</h3>
                                <table class="table">
-                             <tr>
-                             <td>SL</td>
-                              <td>Title </td>
-                               <td>phone</td>
-                                 <td>bio</td>
-                             </tr>
-                             <?php
-                             $about = $resume->about();
+                                   <tr>
+                                       <td>SL</td>
+                                       <td>Title </td>
+                                       <td>desc</td>
+                                       <td>experience</td>
+                                       <td>level</td>
+                                       <td>area</td>
+                                       <td> action </td>
+                                   </tr>
+                                   <?php
+                                   $skill = $resume->skill();
 
-                             if(is_array($about)){
+                                   if(is_array($skill)){
 
-                                 foreach ($about as $value){ ?>
-                                       <tr>
-                                           <td><?php echo $sl++; ?> </td>
-                                           <td><?php echo $value['title']; ?> </td>
-                                           <td> <?php echo $value['phone']; ?></td>
-                                           <td> <?php echo $value['bio'] ;?></td>
-                                       </tr>
+                                       foreach ($skill as $value){ ?>
+                                           <form action="skills/update.php" method="post">
+                                               <tr>
+                                                   <td>  <?php echo $sl++; ?> </td>
+                                                   <td> <input type="text" value=" <?php echo $value['title']; ?>" name="title" >  </td>
+                                                   <td > <input type="text" value="<?php echo $value['description']; ?> " name="desc"></td>
+                                                   <td ><input type="text" value="<?php echo $value['experience'] ;?>" name="experience" ></td>
+                                                   <td > <input type="text" value="<?php echo $value['level'] ;?>" name="level" ></td>
+                                                   <td > <input type="text" value="<?php echo $value['experience_area'];?>" name="area">
+
+
+                                                   </td>
+
+                                                   <td>
+                                                       <input  type="hidden" name="id" value="<?php echo $value['skillid']; ?>" />
+                                                       <input type="hidden" name="user_id" value="<?php echo $value['user_id']; ?>" />
+                                                       <input type="submit" >
+                                                       <a   href="skills/delete.php?user_id=<?php echo $value['user_id']; ?> & id=<?php  echo $value['skillid']; ?>"> Delete </a> </td>
+                                               </tr>
+                                           </form>
 
 
 
-                                     <?php
+                                           <?php
 
-                                 }
-                             }
+                                       }
+                                   }
 
-                             ?>
+                                   ?>
                                </table>
                            </div>
 
@@ -134,7 +150,51 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                        <div class="tab-content">
                            <div id="expe" class="tab-pane fade in active">
                                <h3>views</h3>
-                               <p> expe Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                               <table class="table">
+                                   <tr>
+                                       <td>SL</td>
+                                       <td>Title </td>
+                                       <td>desc</td>
+                                       <td>experience</td>
+                                       <td>level</td>
+                                       <td>area</td>
+                                       <td> action </td>
+                                   </tr>
+                                   <?php
+                                   $skill = $resume->skill();
+
+                                   if(is_array($about)){
+
+                                       foreach ($skill as $value){ ?>
+                                           <form action="skills/update.php" method="post">
+                                               <tr>
+                                                   <td>  <?php echo $sl++; ?> </td>
+                                                   <td> <input type="text" value=" <?php echo $value['title']; ?>" name="title" >  </td>
+                                                   <td > <input type="text" value="<?php echo $value['description']; ?> " name="desc"></td>
+                                                   <td ><input type="text" value="<?php echo $value['experience'] ;?>" name="experience" ></td>
+                                                   <td > <input type="text" value="<?php echo $value['level'] ;?>" name="level" ></td>
+                                                   <td > <input type="text" value="<?php echo $value['experience_area'];?>" name="area">
+
+
+                                                   </td>
+
+                                                   <td>
+                                                       <input  type="hidden" name="id" value="<?php echo $value['skillid']; ?>" />
+                                                       <input type="hidden" name="user_id" value="<?php echo $value['user_id']; ?>" />
+                                                       <input type="submit" >
+                                                       <a   href="skills/delete.php?user_id=<?php echo $value['user_id']; ?> & id=<?php  echo $value['skillid']; ?>"> Delete </a> </td>
+                                               </tr>
+                                           </form>
+
+
+
+                                           <?php
+
+                                       }
+                                   }
+
+                                   ?>
+                               </table>
                            </div>
 
                            <div id="expeadd" class="tab-pane fade">
@@ -249,7 +309,51 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                        <div class="tab-content">
                            <div id="education" class="tab-pane fade in active">
                                <h3>views</h3>
-                               <p>education ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                               <table class="table">
+                                   <tr>
+                                       <td>SL</td>
+                                       <td>Title </td>
+                                       <td>desc</td>
+                                       <td>experience</td>
+                                       <td>level</td>
+                                       <td>area</td>
+                                       <td> action </td>
+                                   </tr>
+                                   <?php
+                                   $skill = $resume->skill();
+
+                                   if(is_array($about)){
+
+                                       foreach ($skill as $value){ ?>
+                                           <form action="skills/update.php" method="post">
+                                               <tr>
+                                                   <td>  <?php echo $sl++; ?> </td>
+                                                   <td> <input type="text" value=" <?php echo $value['title']; ?>" name="title" >  </td>
+                                                   <td > <input type="text" value="<?php echo $value['description']; ?> " name="desc"></td>
+                                                   <td ><input type="text" value="<?php echo $value['experience'] ;?>" name="experience" ></td>
+                                                   <td > <input type="text" value="<?php echo $value['level'] ;?>" name="level" ></td>
+                                                   <td > <input type="text" value="<?php echo $value['experience_area'];?>" name="area">
+
+
+                                                   </td>
+
+                                                   <td>
+                                                       <input  type="hidden" name="id" value="<?php echo $value['skillid']; ?>" />
+                                                       <input type="hidden" name="user_id" value="<?php echo $value['user_id']; ?>" />
+                                                       <input type="submit" >
+                                                       <a   href="skills/delete.php?user_id=<?php echo $value['user_id']; ?> & id=<?php  echo $value['skillid']; ?>"> Delete </a> </td>
+                                               </tr>
+                                           </form>
+
+
+
+                                           <?php
+
+                                       }
+                                   }
+
+                                   ?>
+                               </table>
                            </div>
 
                            <div id="educationadd" class="tab-pane fade">
@@ -281,7 +385,52 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                        <div class="tab-content">
                            <div id="portfolio" class="tab-pane fade in active">
                                <h3>views</h3>
-                               <p>portfolio ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+                               <table class="table">
+                                   <tr>
+                                       <td>SL</td>
+                                       <td>Title </td>
+                                       <td>desc</td>
+                                       <td>experience</td>
+                                       <td>level</td>
+                                       <td>area</td>
+                                       <td> action </td>
+                                   </tr>
+                                   <?php
+                                   $skill = $resume->skill();
+
+                                   if(is_array($about)){
+
+                                       foreach ($skill as $value){ ?>
+                                           <form action="skills/update.php" method="post">
+                                               <tr>
+                                                   <td>  <?php echo $sl++; ?> </td>
+                                                   <td> <input type="text" value=" <?php echo $value['title']; ?>" name="title" >  </td>
+                                                   <td > <input type="text" value="<?php echo $value['description']; ?> " name="desc"></td>
+                                                   <td ><input type="text" value="<?php echo $value['experience'] ;?>" name="experience" ></td>
+                                                   <td > <input type="text" value="<?php echo $value['level'] ;?>" name="level" ></td>
+                                                   <td > <input type="text" value="<?php echo $value['experience_area'];?>" name="area">
+
+
+                                                   </td>
+
+                                                   <td>
+                                                       <input  type="hidden" name="id" value="<?php echo $value['skillid']; ?>" />
+                                                       <input type="hidden" name="user_id" value="<?php echo $value['user_id']; ?>" />
+                                                       <input type="submit" >
+                                                       <a   href="skills/delete.php?user_id=<?php echo $value['user_id']; ?> & id=<?php  echo $value['skillid']; ?>"> Delete </a> </td>
+                                               </tr>
+                                           </form>
+
+
+
+                                           <?php
+
+                                       }
+                                   }
+
+                                   ?>
+                               </table>
                            </div>
 
                            <div id="portfolioadd" class="tab-pane fade">
@@ -346,8 +495,52 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                        <div class="tab-content">
                            <div id="factsnew" class="tab-pane fade in active">
                                <h3>views</h3>
-                               <p> facts publication ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                           </div>
+                               <table class="table">
+                                   <tr>
+                                       <td>SL</td>
+                                       <td>Title </td>
+                                       <td>desc</td>
+                                       <td>experience</td>
+                                       <td>level</td>
+                                       <td>area</td>
+                                       <td> action </td>
+                                   </tr>
+                                   <?php
+                                   $skill = $resume->skill();
+
+                                   if(is_array($about)){
+
+                                       foreach ($skill as $value){ ?>
+                                           <form action="skills/update.php" method="post">
+                                               <tr>
+                                                   <td>  <?php echo $sl++; ?> </td>
+                                                   <td> <input type="text" value=" <?php echo $value['title']; ?>" name="title" >  </td>
+                                                   <td > <input type="text" value="<?php echo $value['description']; ?> " name="desc"></td>
+                                                   <td ><input type="text" value="<?php echo $value['experience'] ;?>" name="experience" ></td>
+                                                   <td > <input type="text" value="<?php echo $value['level'] ;?>" name="level" ></td>
+                                                   <td > <input type="text" value="<?php echo $value['experience_area'];?>" name="area">
+
+
+                                                   </td>
+
+                                                   <td>
+                                                       <input  type="hidden" name="id" value="<?php echo $value['skillid']; ?>" />
+                                                       <input type="hidden" name="user_id" value="<?php echo $value['user_id']; ?>" />
+                                                       <input type="submit" >
+                                                       <a   href="skills/delete.php?user_id=<?php echo $value['user_id']; ?> & id=<?php  echo $value['skillid']; ?>"> Delete </a> </td>
+                                               </tr>
+                                           </form>
+
+
+
+                                           <?php
+
+                                       }
+                                   }
+
+                                   ?>
+                               </table>
+                            </div>
 
                            <div id="factsadd" class="tab-pane fade">
                                <h3>add new</h3>
@@ -378,7 +571,51 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                        <div class="tab-content">
                            <div id="hobbiesnew" class="tab-pane fade in active">
                                <h3>views</h3>
-                               <p>hobbies publication ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                               <table class="table">
+                                   <tr>
+                                       <td>SL</td>
+                                       <td>Title </td>
+                                       <td>desc</td>
+                                       <td>experience</td>
+                                       <td>level</td>
+                                       <td>area</td>
+                                       <td> action </td>
+                                   </tr>
+                                   <?php
+                                   $skill = $resume->skill();
+
+                                   if(is_array($about)){
+
+                                       foreach ($skill as $value){ ?>
+                                           <form action="skills/update.php" method="post">
+                                               <tr>
+                                                   <td>  <?php echo $sl++; ?> </td>
+                                                   <td> <input type="text" value=" <?php echo $value['title']; ?>" name="title" >  </td>
+                                                   <td > <input type="text" value="<?php echo $value['description']; ?> " name="desc"></td>
+                                                   <td ><input type="text" value="<?php echo $value['experience'] ;?>" name="experience" ></td>
+                                                   <td > <input type="text" value="<?php echo $value['level'] ;?>" name="level" ></td>
+                                                   <td > <input type="text" value="<?php echo $value['experience_area'];?>" name="area">
+
+
+                                                   </td>
+
+                                                   <td>
+                                                       <input  type="hidden" name="id" value="<?php echo $value['skillid']; ?>" />
+                                                       <input type="hidden" name="user_id" value="<?php echo $value['user_id']; ?>" />
+                                                       <input type="submit" >
+                                                       <a   href="skills/delete.php?user_id=<?php echo $value['user_id']; ?> & id=<?php  echo $value['skillid']; ?>"> Delete </a> </td>
+                                               </tr>
+                                           </form>
+
+
+
+                                           <?php
+
+                                       }
+                                   }
+
+                                   ?>
+                               </table>
                            </div>
 
                            <div id="hobbiesadd" class="tab-pane fade">
@@ -410,7 +647,51 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                        <div class="tab-content">
                            <div id="postnew" class="tab-pane fade in active">
                                <h3>views</h3>
-                               <p>post publication ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                               <table class="table">
+                                   <tr>
+                                       <td>SL</td>
+                                       <td>Title </td>
+                                       <td>desc</td>
+                                       <td>experience</td>
+                                       <td>level</td>
+                                       <td>area</td>
+                                       <td> action </td>
+                                   </tr>
+                                   <?php
+                                   $skill = $resume->skill();
+
+                                   if(is_array($about)){
+
+                                       foreach ($skill as $value){ ?>
+                                           <form action="skills/update.php" method="post">
+                                               <tr>
+                                                   <td>  <?php echo $sl++; ?> </td>
+                                                   <td> <input type="text" value=" <?php echo $value['title']; ?>" name="title" >  </td>
+                                                   <td > <input type="text" value="<?php echo $value['description']; ?> " name="desc"></td>
+                                                   <td ><input type="text" value="<?php echo $value['experience'] ;?>" name="experience" ></td>
+                                                   <td > <input type="text" value="<?php echo $value['level'] ;?>" name="level" ></td>
+                                                   <td > <input type="text" value="<?php echo $value['experience_area'];?>" name="area">
+
+
+                                                   </td>
+
+                                                   <td>
+                                                       <input  type="hidden" name="id" value="<?php echo $value['skillid']; ?>" />
+                                                       <input type="hidden" name="user_id" value="<?php echo $value['user_id']; ?>" />
+                                                       <input type="submit" >
+                                                       <a   href="skills/delete.php?user_id=<?php echo $value['user_id']; ?> & id=<?php  echo $value['skillid']; ?>"> Delete </a> </td>
+                                               </tr>
+                                           </form>
+
+
+
+                                           <?php
+
+                                       }
+                                   }
+
+                                   ?>
+                               </table>
                            </div>
 
                            <div id="postadd" class="tab-pane fade">
@@ -442,7 +723,52 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                        <div class="tab-content">
                            <div id="awardnew" class="tab-pane fade in active">
                                <h3>views</h3>
-                               <p>award ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                               <table class="table">
+                                   <tr>
+                                       <td>SL</td>
+                                       <td>Title </td>
+                                       <td>desc</td>
+                                       <td>experience</td>
+                                       <td>level</td>
+                                       <td>area</td>
+                                       <td> action </td>
+                                   </tr>
+                                   <?php
+                                   $skill = $resume->skill();
+
+                                   if(is_array($about)){
+
+                                       foreach ($skill as $value){ ?>
+                                           <form action="skills/update.php" method="post">
+                                               <tr>
+                                                   <td>  <?php echo $sl++; ?> </td>
+                                                   <td> <input type="text" value=" <?php echo $value['title']; ?>" name="title" >  </td>
+                                                   <td > <input type="text" value="<?php echo $value['description']; ?> " name="desc"></td>
+                                                   <td ><input type="text" value="<?php echo $value['experience'] ;?>" name="experience" ></td>
+                                                   <td > <input type="text" value="<?php echo $value['level'] ;?>" name="level" ></td>
+                                                   <td > <input type="text" value="<?php echo $value['experience_area'];?>" name="area">
+
+
+                                                   </td>
+
+                                                   <td>
+                                                       <input  type="hidden" name="id" value="<?php echo $value['skillid']; ?>" />
+                                                       <input type="hidden" name="user_id" value="<?php echo $value['user_id']; ?>" />
+                                                       <input type="submit" >
+                                                       <a   href="skills/delete.php?user_id=<?php echo $value['user_id']; ?> & id=<?php  echo $value['skillid']; ?>"> Delete </a> </td>
+                                               </tr>
+                                           </form>
+
+
+
+                                           <?php
+
+                                       }
+                                   }
+
+                                   ?>
+                               </table>
+
                            </div>
 
                            <div id="awardadd" class="tab-pane fade">
@@ -474,7 +800,51 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                        <div class="tab-content">
                            <div id="servicenew" class="tab-pane fade in active">
                                <h3>views</h3>
-                               <p>service ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                               <table class="table">
+                                   <tr>
+                                       <td>SL</td>
+                                       <td>Title </td>
+                                       <td>desc</td>
+                                       <td>experience</td>
+                                       <td>level</td>
+                                       <td>area</td>
+                                       <td> action </td>
+                                   </tr>
+                                   <?php
+                                   $skill = $resume->skill();
+
+                                   if(is_array($about)){
+
+                                       foreach ($skill as $value){ ?>
+                                           <form action="skills/update.php" method="post">
+                                               <tr>
+                                                   <td>  <?php echo $sl++; ?> </td>
+                                                   <td> <input type="text" value=" <?php echo $value['title']; ?>" name="title" >  </td>
+                                                   <td > <input type="text" value="<?php echo $value['description']; ?> " name="desc"></td>
+                                                   <td ><input type="text" value="<?php echo $value['experience'] ;?>" name="experience" ></td>
+                                                   <td > <input type="text" value="<?php echo $value['level'] ;?>" name="level" ></td>
+                                                   <td > <input type="text" value="<?php echo $value['experience_area'];?>" name="area">
+
+
+                                                   </td>
+
+                                                   <td>
+                                                       <input  type="hidden" name="id" value="<?php echo $value['skillid']; ?>" />
+                                                       <input type="hidden" name="user_id" value="<?php echo $value['user_id']; ?>" />
+                                                       <input type="submit" >
+                                                       <a   href="skills/delete.php?user_id=<?php echo $value['user_id']; ?> & id=<?php  echo $value['skillid']; ?>"> Delete </a> </td>
+                                               </tr>
+                                           </form>
+
+
+
+                                           <?php
+
+                                       }
+                                   }
+
+                                   ?>
+                               </table>
                            </div>
 
                            <div id="serviceadd" class="tab-pane fade">
@@ -506,12 +876,101 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                        <div class="tab-content">
                            <div id="settingnew" class="tab-pane fade in active">
                                <h3>views</h3>
-                               <p><?php echo $resume->contact(); ?></p>
+                               <table class="table">
+                                   <tr>
+                                       <td>SL</td>
+                                       <td>Title </td>
+                                       <td>desc</td>
+                                       <td>experience</td>
+                                       <td>level</td>
+                                       <td>area</td>
+                                       <td> action </td>
+                                   </tr>
+                                   <?php
+                                   $skill = $resume->skill();
+
+                                   if(is_array($about)){
+
+                                       foreach ($skill as $value){ ?>
+                                           <form action="skills/update.php" method="post">
+                                               <tr>
+                                                   <td>  <?php echo $sl++; ?> </td>
+                                                   <td> <input type="text" value=" <?php echo $value['title']; ?>" name="title" >  </td>
+                                                   <td > <input type="text" value="<?php echo $value['description']; ?> " name="desc"></td>
+                                                   <td ><input type="text" value="<?php echo $value['experience'] ;?>" name="experience" ></td>
+                                                   <td > <input type="text" value="<?php echo $value['level'] ;?>" name="level" ></td>
+                                                   <td > <input type="text" value="<?php echo $value['experience_area'];?>" name="area">
+
+
+                                                   </td>
+
+                                                   <td>
+                                                       <input  type="hidden" name="id" value="<?php echo $value['skillid']; ?>" />
+                                                       <input type="hidden" name="user_id" value="<?php echo $value['user_id']; ?>" />
+                                                       <input type="submit" >
+                                                       <a   href="skills/delete.php?user_id=<?php echo $value['user_id']; ?> & id=<?php  echo $value['skillid']; ?>"> Delete </a> </td>
+                                               </tr>
+                                           </form>
+
+
+
+                                           <?php
+
+                                       }
+                                   }
+
+                                   ?>
+                               </table>
                            </div>
 
                            <div id="settingadd" class="tab-pane fade">
                                <h3>add new</h3>
-                               <p>setting e omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+
+                               <table class="table">
+                                   <tr>
+                                       <td>SL</td>
+                                       <td>Title </td>
+                                       <td>desc</td>
+                                       <td>experience</td>
+                                       <td>level</td>
+                                       <td>area</td>
+                                       <td> action </td>
+                                   </tr>
+                                   <?php
+                                   $skill = $resume->skill();
+
+                                   if(is_array($about)){
+
+                                       foreach ($skill as $value){ ?>
+                                           <form action="skills/update.php" method="post">
+                                               <tr>
+                                                   <td>  <?php echo $sl++; ?> </td>
+                                                   <td> <input type="text" value=" <?php echo $value['title']; ?>" name="title" >  </td>
+                                                   <td > <input type="text" value="<?php echo $value['description']; ?> " name="desc"></td>
+                                                   <td ><input type="text" value="<?php echo $value['experience'] ;?>" name="experience" ></td>
+                                                   <td > <input type="text" value="<?php echo $value['level'] ;?>" name="level" ></td>
+                                                   <td > <input type="text" value="<?php echo $value['experience_area'];?>" name="area">
+
+
+                                                   </td>
+
+                                                   <td>
+                                                       <input  type="hidden" name="id" value="<?php echo $value['skillid']; ?>" />
+                                                       <input type="hidden" name="user_id" value="<?php echo $value['user_id']; ?>" />
+                                                       <input type="submit" >
+                                                       <a   href="skills/delete.php?user_id=<?php echo $value['user_id']; ?> & id=<?php  echo $value['skillid']; ?>"> Delete </a> </td>
+                                               </tr>
+                                           </form>
+
+
+
+                                           <?php
+
+                                       }
+                                   }
+
+                                   ?>
+                               </table>
                            </div>
 
                        </div>

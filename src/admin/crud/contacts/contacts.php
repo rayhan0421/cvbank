@@ -1,15 +1,15 @@
 <?php
-namespace App\admin\crud\skills;
+namespace App\admin\crud\contacts;
 use App\model\model;
-Class skills extends model
+Class contacts extends model
 {
 
     protected $id = '';
     protected $title='';
-    protected $desc='';
-    protected $level='';
-    protected $experience='';
-    protected $area='';
+    protected $name='';
+    protected $email='';
+    protected $message='';
+    protected $phone='';
     protected $user_id= '';
 
 
@@ -47,7 +47,7 @@ Class skills extends model
 
 
          try {
-            $query = "UPDATE skills SET title=:title,description=:desc,level=:levell,experience=:exp,experience_area=:area WHERE id=:id";
+            $query = "UPDATE contacts SET title=:title,description=:desc,level=:levell,experience=:exp,experience_area=:area WHERE id=:id";
 
 
             $stmt = $this->pdo->prepare($query);
@@ -79,7 +79,7 @@ Class skills extends model
 
     public function delete(){
         try {
-            $query = "UPDATE skills SET deleted_at=:datetme WHERE id=:id";
+            $query = "UPDATE contacts SET deleted_at=:datetme WHERE id=:id";
 
 
             $stmt = $this->pdo->prepare($query);

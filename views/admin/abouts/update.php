@@ -1,7 +1,7 @@
 <?php
 include_once ("../../../vendor/autoload.php");
-use App\admin\crud\skills\skills;
+use App\admin\crud\abouts\abouts;
 session_start();
-$sk = new skills();
+$sk = new abouts();
 $sk->setdata($_POST);
 $sk->update();

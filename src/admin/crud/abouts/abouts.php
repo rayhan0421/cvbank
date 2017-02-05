@@ -1,15 +1,14 @@
 <?php
-namespace App\admin\crud\skills;
+namespace App\admin\crud\hobbies;
 use App\model\model;
-Class skills extends model
+Class hobbies extends model
 {
 
     protected $id = '';
     protected $title='';
-    protected $desc='';
-    protected $level='';
-    protected $experience='';
-    protected $area='';
+    protected $phone='';
+    protected $bio='';
+
     protected $user_id= '';
 
 
@@ -17,7 +16,7 @@ Class skills extends model
     {
 
         if (array_key_exists('id', $data)) {
-           $this->id = $data['id'];
+            $this->id = $data['id'];
         }
 
         if (array_key_exists('user_id', $data)) {
@@ -46,8 +45,8 @@ Class skills extends model
     public function update(){
 
 
-         try {
-            $query = "UPDATE skills SET title=:title,description=:desc,level=:levell,experience=:exp,experience_area=:area WHERE id=:id";
+        try {
+            $query = "UPDATE hobbies SET title=:title,description=:desc,level=:levell,experience=:exp,experience_area=:area WHERE id=:id";
 
 
             $stmt = $this->pdo->prepare($query);
@@ -70,8 +69,8 @@ Class skills extends model
 
             }
         } catch (PDOException $e) {
-             $_SESSION['msg'] ="faield to updated ";
-             header("location:http://localhost/cvbank/views/admin/userdetails.php?id=$this->user_id");
+            $_SESSION['msg'] ="faield to updated ";
+            header("location:http://localhost/cvbank/views/admin/userdetails.php?id=$this->user_id");
         }
 
 
@@ -79,7 +78,7 @@ Class skills extends model
 
     public function delete(){
         try {
-            $query = "UPDATE skills SET deleted_at=:datetme WHERE id=:id";
+            $query = "UPDATE hobbies SET deleted_at=:datetme WHERE id=:id";
 
 
             $stmt = $this->pdo->prepare($query);
