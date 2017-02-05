@@ -22,7 +22,7 @@ Class resume extends model{
     }
 
     public function about(){
-        $queary = "SELECT  abouts.id as aboutid ,abouts.* FROM abouts JOIN users ON users.id = abouts.user_id WHERE users.user_role!=2 AND user_id=$this->id AND abouts.deleted_at='0000-00-00 00:00:00'";
+        $queary = "SELECT  abouts.id as aboutid ,abouts.* FROM abouts JOIN users ON users.id = abouts.user_id WHERE users.user_role!=2 AND user_id=$this->id AND abouts.deleted_at='0000-00-00 00:00:00' ORDER BY `abouts`.`id` DESC Limit 1";
 
         $st = $this->pdo->prepare($queary);
 
@@ -92,7 +92,15 @@ Class resume extends model{
         return $stu;
     }
     public function settings(){
+        $queary = "SELECT  settings.id as settingsid ,settings.* FROM settings JOIN users ON users.id = settings.user_id WHERE users.user_role!=2 AND user_id=$this->id AND settings.deleted_at='0000-00-00 00:00:00' ORDER BY `settings`.`id` DESC limit 1";
 
+        $st = $this->pdo->prepare($queary);
+
+        $st->execute();
+
+        $stu= $st->fetchAll();
+
+        return $stu;
     }
     public function service(){
         $queary = "SELECT  services.id as servicesid ,services.* FROM services JOIN users ON users.id = services.user_id WHERE users.user_role!=2 AND user_id=$this->id AND services.deleted_at='0000-00-00 00:00:00'";
