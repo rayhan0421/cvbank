@@ -1,11 +1,11 @@
 <?php include_once("../common/header.php"); ?>
 <?php
-use App\experiance\experiance;
-$experiance= new experiance();
-$experiance->setdata($_GET);
+use App\experience\experience;
+$experience= new experience();
+$experience->setdata($_GET);
 
 
-$value= $experiance->show();
+$value= $experience->show();
 
 
 
@@ -14,7 +14,7 @@ $value= $experiance->show();
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Experiance <small>update</small>
+                Experience <small>update</small>
             </h1>
 
         </div>

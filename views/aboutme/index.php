@@ -35,11 +35,23 @@ if($ab) {
                 <div class="row">
 
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
+>>>>>>> 608d69a63a084caff6cf761069c8c1c1c9c80719
 
 
 <?php if(is_array($ab)){ ?>
       <form action="update.php" method="post">
 
+=======
+
+
+<?php if(is_array($ab)){ ?>
+      <form action="update.php" method="post">
+
+>>>>>>> a2876a67feb3f3f278b88695378810c999114492
 
 
           <div class="form-group">

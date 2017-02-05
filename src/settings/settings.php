@@ -120,11 +120,11 @@ Class settings extends model
 
     public function update(){
 
-
+//var_dump($_POST);
         session_start();
         try {
-            $query = "UPDATE settings SET title=:title,fullname=:fullname,description=:description,address=:address,featured_img=:featured_img WHERE id=:id";
-
+        $query = "UPDATE settings SET title=:title,fullname=:fullname,description=:description,address=:address,featured_img=:featured_img WHERE id=:id";;id
+//$query="UPDATE `settings` SET `title`=:title,`fullname`=:fullname,`description`=:description,`address`=:address,`featured_img`=featured_img, WHERE id=:id";
 
             $stmt = $this->pdo->prepare($query);
             $stmt->execute(
@@ -141,7 +141,7 @@ Class settings extends model
 
                 $_SESSION['msg'] ="succesfully updated ";
 
-                header("location:http://localhost/cvbank/views/settings");
+       header("location:http://localhost/cvbank/views/settings");
 
             }
         } catch (PDOException $e) {

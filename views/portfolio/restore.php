@@ -1,9 +1,9 @@
 <?php include_once("../common/header.php"); ?>
 <?php
-use App\experience\experience;
-$experience= new experience();
-$experience->setdata($_SESSION['userinfo']);
-$experience =$experience->trashlist();
+use App\Portfolio\Portfolio;
+$Portfolio= new Portfolio();
+$Portfolio->setdata($_SESSION['userinfo']);
+$Portfolio =$Portfolio->trashlist();
 
 
 ?>
@@ -11,7 +11,7 @@ $experience =$experience->trashlist();
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Experience <small>Statistics Overview</small>
+                Portfolio <small>Statistics Overview</small>
             </h1>
 
         </div>
@@ -40,25 +40,23 @@ $experience =$experience->trashlist();
     <table class="table table-bordered table-hover table-striped">
     <thead>
     <tr>
-        <th>Designation</th>
-        <th>Company_name</th>
-        <th>Start_date</th>
-        <th>End_date</th>
-        <th> Company_location</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Image</th>
+        <th>Category</th>
         <th>Action</th>
     </tr>
     </thead>
     <tbody>
 
 
-<?php if(is_array($experience)){ ?>
-    <?php foreach ($experience as $value){ ?>
+<?php if(is_array($Portfolio)){ ?>
+    <?php foreach ($Portfolio as $value){ ?>
         <tr>
-            <td> <?php echo $value['designation']; ?></td>
-            <td><?php echo $value['company_name']; ?></td>
-            <td><?php echo $value['start_date']; ?></td>
-            <td><?php echo $value['end_date']; ?></td>
-            <td><?php echo $value['company_location']; ?></td>
+            <td> <?php echo $value['title']; ?></td>
+            <td><?php echo $value['description']; ?></td>
+            <td><?php echo $value['img']; ?></td>
+            <td><?php echo $value['category']; ?></td>
 
             <td> <a href="restoreentry.php?id=<?php echo $value['id'] ?>" >restore</a> </td>
         </tr>

@@ -5,7 +5,7 @@ $d= new service();
 session_start();
 $_POST['user_id']=$_SESSION['userinfo'][0]['id'];
 
-if(strlen($_POST['title'])<3 && strlen($_POST['desc'])<5){
+if(strlen($_POST['title'])<3 && strlen($_POST['description'])<5){
 
  $_SESSION['msg']=" please fill the field";
 

@@ -1,6 +1,6 @@
 <?php
 include("../../vendor/autoload.php");
-use App\experiance\experiance;
-$experiance= new experiance();
-$experiance->setdata($_GET);
-$experiance =$experiance->restore();
+use App\experience\experience;
+$experience= new experience();
+$experience->setdata($_GET);
+$experience =$experience->restore();

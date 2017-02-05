@@ -1,7 +1,7 @@
 <?php
 include("../../vendor/autoload.php");
-use App\experiance\experiance;
-$obj= new experiance();
+use App\experience\experience;
+$obj= new experience();
 session_start();
 //var_dump($obj);
 //die();

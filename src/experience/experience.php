@@ -136,7 +136,7 @@ public function index(){
 
                 $_SESSION['msg'] ="succesfully updated ";
 
-                header("location:http://localhost/cvbank/experience");
+                header("location:http://localhost/cvbank/views/experience");
 
             }
         } catch (PDOException $e) {
