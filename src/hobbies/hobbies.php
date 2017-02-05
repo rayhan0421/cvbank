@@ -162,7 +162,7 @@ Class hobbies extends model
                 )
             );
 
-     
+
             if($stmt){
 
                 $_SESSION['msg'] ="succesfully updated ";
