@@ -55,6 +55,9 @@ if(strlen($_POST['title'])<3 && strlen($_POST['description'])<5){
         }
 
 
+    }else{
+        $d->setdata($_POST);
+        $d->update($_POST);
     }
 }
 
