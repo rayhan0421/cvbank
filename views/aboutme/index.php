@@ -59,8 +59,8 @@ if($ab) {
               <input type="text"   name="phone"  value="<?php echo $ab['phone']; ?>" class="form-control" id="pwd">
           </div>
           <div class="form-group">
-              <label for="comment">Comment:</label>
-              <textarea class="form-control" rows="5" name="bio" id="comment"><?php echo $ab['bio']; ?></textarea>
+              <label for="bio">bio</label>
+              <textarea class="form-control" rows="5" name="bio" id="bio"><?php echo $ab['bio']; ?></textarea>
           </div>
           <input type="hidden"   name="id"  value="<?php echo $ab['id']; ?>" class="form-control" id="pwd">
 
@@ -84,7 +84,7 @@ else {
             <input type="text"   name="phone"  value="<?php echo $ab['phone']; ?>" class="form-control" id="pwd">
         </div>
         <div class="form-group">
-            <label for="comment">bio</label>
+            <label for="bio">bio</label>
             <textarea class="form-control" rows="5" name="bio" id="bio"><?php echo $ab['bio']; ?></textarea>
         </div>
 
