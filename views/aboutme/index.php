@@ -1,7 +1,7 @@
 <?php include_once("../common/header.php"); ?>
 <?php
 use App\aboutme\aboutme;
-
+;
 $ab= new aboutme();
 $ab->setdata($_SESSION['userinfo']);
 $ab =$ab->index();
