@@ -39,21 +39,27 @@ if(!isset($_SESSION['userinfo'])){
     <link href="../../assets/deshboard/css/sb-admin.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link href="../../assets/deshboard/css/plugins/morris.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
+    <link href="../../assets/css/jquery.dataTables.min.css" rel="stylesheet">
+   <!-- Custom Fonts -->
     <link href="../../assets/deshboard/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
+
+
+
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <script src="../../assets/deshboard/js/jquery.js"></script>
+    <script src="../../assets/js/jquery.dataTables.min.js"></script>
+    <script src="../../assets/js/buttons.print.min.js"></script>
+    <script src="../../assets/js/pdfmake.min.js"></script>
 </head>
 
 <body>
+
 
 <div id="wrapper">
 
@@ -84,14 +90,12 @@ if(!isset($_SESSION['userinfo'])){
                     } ?> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-                    </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                        <a href="../users/index.php"><i class="fa fa-fw fa-user"></i> Profile</a>
                     </li>
-                    <li>
-                        <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+
                     </li>
+
                     <li class="divider"></li>
                     <li>
                         <a href="http://localhost/cvbank/views/login/logout.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
@@ -103,7 +107,7 @@ if(!isset($_SESSION['userinfo'])){
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
                 <li class="active">
-                    <a href="http://localhost/cvbank/views/deshboard/"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    <a href="http://localhost/cvbank/views/admin/"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                 </li>
 
 

@@ -41,6 +41,7 @@ if(!isset($_SESSION['userinfo'])){
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
+    <script src="../../assets/deshboard/js/jquery.js"></script>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
@@ -96,7 +97,7 @@ if(!isset($_SESSION['userinfo'])){
                     } ?> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href="../users/index.php"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        <a href="http://localhost/cvbank/views/users/"><i class="fa fa-fw fa-user"></i> Profile</a>
                     </li>
 
 
@@ -108,6 +109,8 @@ if(!isset($_SESSION['userinfo'])){
             </li>
         </ul>
         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+
+          <?php if($_SESSION['userinfo'][0]['user_role']==1) {?>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
                 <li class="active">
@@ -329,6 +332,18 @@ if(!isset($_SESSION['userinfo'])){
 
             </ul>
         </div>
+   <?php  }else {?>
+              <div class="collapse navbar-collapse navbar-ex1-collapse">
+                  <ul class="nav navbar-nav side-nav">
+                      <li class="active">
+                          <a href="http://localhost/cvbank/views/admin/"><i class="fa fa-fw fa-dashboard"></i>Admin Dashboard</a>
+                      </li>
+
+
+                  </ul>
+              </div>
+
+        <?php }?>
         <!-- /.navbar-collapse -->
     </nav>
 

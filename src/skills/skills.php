@@ -121,7 +121,7 @@ Class skills extends model{
 
       session_start();
        try {
-           $query = "UPDATE skills SET title=:title,description=:desc WHERE id=:id";
+           $query = "UPDATE skills SET title=:title,description=:desc,level=:level,experience=:experience,experience_area=:experience_area WHERE id=:id";
 
 
            $stmt = $this->pdo->prepare($query);
@@ -129,7 +129,10 @@ Class skills extends model{
                array(
                    ':id' => $this->auto_id,
                    ':title' => $this->title,
-                   ':desc'=>$this->desc
+                   ':desc'=>$this->desc,
+                   ':level' => $this->level,
+                   ':experience'=>$this->experience,
+                   ':experience_area'=>$this->area
                )
            );
            if($stmt){

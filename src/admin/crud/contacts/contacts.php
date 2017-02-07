@@ -16,33 +16,75 @@ Class contacts extends model
     public function setdata($data)
     {
 
-        if (array_key_exists('id', $data)) {
-           $this->id = $data['id'];
+        if(array_key_exists('id',$data))  {
+            $this->auto= $data['id'];
         }
 
-        if (array_key_exists('user_id', $data)) {
-            $this->user_id = $data['user_id'];
-        }
-        if(array_key_exists('title',$data))  {
-            $this->title= $data['title'];
-        }
-        if(array_key_exists('desc',$data))  {
-            $this->desc= $data['desc'];
+        if(array_key_exists('user_id',$data))  {
+            $this->user_id= $data['user_id'];
         }
 
-        if(array_key_exists('level',$data))  {
-            $this->level= $data['level'];
+        if(array_key_exists('name',$data))  {
+            $this->name= $data['name'];
+        }
+        if(array_key_exists('email',$data))  {
+            $this->email= $data['email'];
         }
 
-        if(array_key_exists('experience',$data))  {
-            $this->experience= $data['experience'];
+        if(array_key_exists('message',$data))  {
+            $this->message= $data['message'];
         }
 
-        if(array_key_exists('area',$data))  {
-            $this->area= $data['area'];
+        if(array_key_exists('phone',$data))  {
+            $this->phone= $data['phone'];
         }
     }
+    public function store(){
 
+
+
+        try{
+            $queary = "INSERT INTO `contacts` (`id`, `user_id`,`name`,`email`,`message`,`phone`,`created_at`) VALUES (:a,:h,:b,:c,:d,:e,:g);";
+
+            $st = $this->pdo->prepare($queary);
+
+            $st->execute(
+                array(
+                    ':a'=>null,
+                    ':h'=>$this->user_id,
+                    ':b'=>$this->name,
+                    ':c'=>$this->email,
+                    ':d'=>$this->message,
+                    ':e'=>$this->phone,
+                    ':g'=>date('Y-m-d h:m:s')
+
+                )
+            );
+
+            // mail();
+            ob_start();
+            if($st){
+
+                $_SESSION['msg']= "Successfully added Contact";
+
+
+                header("location:http://localhost/cvbank/views/public/resume?id=$this->user_id");
+            }else{
+
+                $_SESSION['msg']= "skill creation failed";
+
+                header("location:http://localhost/cvbank/views/public/resume?id=$this->user_id");
+ob_end_flush();
+            }
+
+
+        }catch (\PDOException $e){
+
+            echo "Error: ". $e->getTrace();
+        }
+
+
+    }
     public function update(){
 
 

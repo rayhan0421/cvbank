@@ -17,34 +17,88 @@ Class educations extends model
 
     public function setdata($data)
     {
-
-        if (array_key_exists('id', $data)) {
-           $this->id = $data['id'];
+        if(array_key_exists('id',$data))  {
+            $this->id= $data['id'];
         }
 
-        if (array_key_exists('user_id', $data)) {
-            $this->user_id = $data['user_id'];
+        if(array_key_exists('user_id',$data))  {
+            $this->user_id= $data['user_id'];
         }
+
         if(array_key_exists('title',$data))  {
             $this->title= $data['title'];
         }
-        if(array_key_exists('desc',$data))  {
-            $this->desc= $data['desc'];
+        if(array_key_exists('institute',$data))  {
+            $this->institute= $data['institute'];
         }
 
-        if(array_key_exists('level',$data))  {
-            $this->level= $data['level'];
+        if(array_key_exists('result',$data))  {
+            $this->result= $data['result'];
         }
 
-        if(array_key_exists('experience',$data))  {
-            $this->experience= $data['experience'];
+        if(array_key_exists('passing_year',$data))  {
+            $this->passing_year= $data['passing_year'];
         }
 
-        if(array_key_exists('area',$data))  {
-            $this->area= $data['area'];
+        if(array_key_exists('main_subject',$data))  {
+            $this->main_subject= $data['main_subject'];
+        }
+        if(array_key_exists('education_board',$data))  {
+            $this->education_board= $data['education_board'];
+        }
+        if(array_key_exists('course_duration',$data))  {
+            $this->course_duration= $data['course_duration'];
         }
     }
+    public function store(){
 
+
+        try{
+            $queary = "INSERT INTO `educations` (`id`, `user_id`,`title`,`institute`,`result`,`passing_year`,`main_subject`,`education_board`,`course_duration`,`created_at`) VALUES (:a,:h,:b,:c,:d,:e,:f,:g,:i,:j);";
+
+            $st = $this->pdo->prepare($queary);
+
+            $st->execute(
+                array(
+                    ':a'=>null,
+                    ':h'=>$this->id,
+                    ':b'=>$this->title,
+                    ':c'=>$this->institute,
+                    ':d'=>$this->result,
+                    ':e'=>$this->passing_year,
+                    ':f'=>$this->main_subject,
+                    ':g'=>$this->education_board,
+                    ':i'=>$this->course_duration,
+                    ':j'=>date('Y-m-d h:m:s')
+
+                )
+            );
+
+
+            session_start();
+            if($st){
+
+                $_SESSION['msg']= "Successfully added edication";
+
+
+
+                header("location:http://localhost/cvbank/views/admin/userdetails.php?id=$this->id");
+            }else{
+
+                $_SESSION['msg']= "education creation failed";
+
+
+                header("location:http://localhost/cvbank/views/admin/userdetails.php?id=$this->id");
+
+            }
+
+        }catch (\PDOException $e){
+
+            echo "Error: ". $e->getTrace();
+        }
+
+
+    }
     public function update(){
 
 

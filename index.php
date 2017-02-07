@@ -4,6 +4,7 @@ session_start();
 use App\home\search\search;
 
 
+
 ?>
 
 <?php
@@ -296,14 +297,15 @@ if(isset($_GET['keyword'])){
             <div class="container">
                 <?php if(isset($_GET['keyword'])) {?>
                  <?php
-
+                    $results=array();
                     $search = new search();
-                    $search->setdata($_GET);
-                    $results = array();
+                    if(!empty($_GET['keyword'])){
+                        $search->setdata($_GET);
+                        $results = array();
+                        $results = $search->search();
+                    }
 
-                    $results = $search->search();
 
-                    $results = unique_multidim_array($results,'uid');
 
                     ?>
                 <hgroup class="mb20">
@@ -311,13 +313,24 @@ if(isset($_GET['keyword'])){
 
                     <br/>
                 </hgroup>
-                <?php foreach ($results as $value) { ?>
+                 <?php if(!empty($_GET['keyword'])){
+
+                     ?>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox1" value="option1"> Skill
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox2" value="option2"> Experience
+                        </label>
+                    
+
+                        <?php foreach ($results as $value) { ?>
                 <section class="col-xs-12 col-sm-6 col-md-12">
                     <article class="search-result row">
 
                         <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
-                            <h3><a href="http://localhost/cvbank/views/public/resume?id=<?php echo $value['uid']; ?> " title=""><?php echo $value['ab_title'] ?></a></h3>
-                            <p> <?php echo substr($value['ab_bio'],0,200); ?>.......<a href="http://localhost/cvbank/views/public/resume?id=<?php echo $value['uid']; ?> ">readmore</a> </p>
+                            <h3><a href="http://localhost/cvbank/views/public/resume?id=<?php echo $value['uid']; ?> " title=""><?php echo $value['abtitle'] ?></a></h3>
+                            <p> <?php echo substr($value['abbio'],0,200); ?>.......<a href="http://localhost/cvbank/views/public/resume?id=<?php echo $value['uid']; ?> ">readmore</a> </p>
                         </div>
                         <span class="clearfix borda"></span>
                     </article>
@@ -326,6 +339,7 @@ if(isset($_GET['keyword'])){
 
 
                 </section>
+                 <?php } ?>
                   <?php  } ?>
                 <?php  } ?>
             </div>
@@ -333,7 +347,7 @@ if(isset($_GET['keyword'])){
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <center>  <h1>Resume Category </h1> </center>
+
 
                     </div>
 
@@ -351,22 +365,3 @@ if(isset($_GET['keyword'])){
 
 
 </html>
-
-<?php
-
-function unique_multidim_array($array, $key) {
-    $temp_array = array();
-    $i = 0;
-    $key_array = array();
-
-    foreach($array as $val) {
-        if (!in_array($val[$key], $key_array)) {
-            $key_array[$i] = $val[$key];
-            $temp_array[$i] = $val;
-        }
-        $i++;
-    }
-    return $temp_array;
-}
-
-?>

@@ -85,6 +85,7 @@ $post = $resume->post();
         <div class="aside1">
             <a class="contact-button"><i class="fa fa-paper-plane"></i></a>
             <a class="download-button"><i class="fa fa-cloud-download"></i></a>
+            <a class="download-button" href="../../../index.php"><i class="fa fa-search"></i></a>
             <div class="aside-content"><span class="part1">CVBANK</span><span class="part2">Professional Vcard</span>
             </div>
         </div>
@@ -112,7 +113,7 @@ $post = $resume->post();
             <nav>
                 <a href="#section1"><span class="menu_name">ABOUT</span><span class="fa fa-home"></span> </a>
                 <a href="#section2"><span class="menu_name">RESUME</span><span class="fa fa-newspaper-o"></span> </a>
-                <a href="#section3"><span class="menu_name">PUBLICATIONS</span><span class="fa fa-pencil"></span> </a>
+                <a href="#section3"><span class="menu_name">posts</span><span class="fa fa-pencil"></span> </a>
 
                 <a href="#section5"><span class="menu_name">TEACHING</span><span class="fa fa-book"></span> </a>
                 <a href="#section6"><span class="menu_name">SKILLS</span><span class="fa fa-diamond"></span> </a>
@@ -148,28 +149,7 @@ $post = $resume->post();
                     <div><a href="" class="next-page arrow"><i class="fa fa-angle-right"></i></a>
                     </div>
                     <!-- News scroll -->
-                    <div class="news-scroll">
-                        <span><i class="fa fa-line-chart"></i>RECENT ACTIVITY : </span>
-                        <ul id="marquee" class="marquee">
-                            <li>
-                                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Fusce tincidunt adipiscing,massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Fusce tincidunt adipiscing,massa.</li>
-                            <li>
-                                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Fusce tincidunt adipiscing,massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Fusce tincidunt adipiscing,massa.
-                            </li>
-                            <li>
-                                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Fusce tincidunt adipiscing,massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Fusce tincidunt adipiscing,massa.
-                            </li>
-                            <li>
-                                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Fusce tincidunt adipiscing,massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Fusce tincidunt adipiscing,massa.
-                            </li>
-                            <li>
-                                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Fusce tincidunt adipiscing,massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Fusce tincidunt adipiscing,massa.
-                            </li>
-                            <li>
-                                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Fusce tincidunt adipiscing,massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Fusce tincidunt adipiscing,massa.
-                            </li>
-                        </ul>
-                    </div>
+
                     <!-- End News scroll -->
                 </div>
             </div>
@@ -897,7 +877,7 @@ $post = $resume->post();
                         <h2>WORKS</h2>
                         <div class="portfolio">
                             <!-- Portfolio Item -->
-
+                             <?php $i=0; $arr= array("work1","work2","work3","work4","work5","work6","work7","work8")?>
                             <?php foreach ($port as $value) { ?>
                             <!-- Portfolio Item -->
                             <figure class="effect-milo">
@@ -910,7 +890,7 @@ $post = $resume->post();
                                             <i class="hovicon effect-9 sub-b"><i class="fa fa-search"></i></i>
                                         </a>
                                     </div>
-                                    <div class="mfp-hide mfp-with-anim work_desc work">
+                                    <div class="mfp-hide mfp-with-anim work_desc <?php echo $arr[$i++]; ?>">
                                         <div class="col-md-6">
                                             <div class="image_work">
                                                 <img src="http://localhost/cvbank/storage/images/<?php echo $value['img']; ?>" alt="img" width="560" height="420">

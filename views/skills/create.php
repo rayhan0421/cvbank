@@ -50,10 +50,16 @@ $skills =$skills->index($_SESSION['userinfo']);
 
             </div>
 
-            <div class="form-group">
-                <label>lavel</label>
-                <input name="lavel" class="form-control">
 
+            <div class="form-group">
+                <label for="sel1">Select Level:</label>
+                <select   class="form-control" name="level">
+                    <option value="entry">entry</option>
+                    <option value="junior">junior</option>
+                    <option value="senior">seneior</option>
+                    <option value="manager"> manager</option>
+
+                </select>
             </div>
             <div class="form-group">
                 <label>experienc</label>

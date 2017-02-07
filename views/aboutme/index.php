@@ -6,11 +6,7 @@ $ab= new aboutme();
 $ab->setdata($_SESSION['userinfo']);
 $ab =$ab->index();
 
-if($ab) {
-   //echo "<pre>";
-    //var_dump($ab);
-   // die();
-}
+
 ?>
                 <!-- Page Heading -->
                 <div class="row">
@@ -38,13 +34,11 @@ if($ab) {
 
 
 
-<?php if(is_array($ab)){ ?>
-      <form action="update.php" method="post">
 
 
 
 
-<?php if(is_array($ab)){ ?>
+<?php if($ab){ ?>
       <form action="update.php" method="post">
 
 
@@ -95,8 +89,7 @@ else {
 
 
     <?php  } ?>
-                <!-- /.row -->
-<?php } ?>
+
             </div>
             <!-- /.container-fluid -->
 

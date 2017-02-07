@@ -1,4 +1,5 @@
 <?php include_once("../common/adminheader.php"); ?>
+
 <?php
 use App\admin\admin;
 $admin= new admin();
@@ -16,6 +17,12 @@ $sl= 1;
 
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+
+        </div>
+    </div>
     <!-- /.row -->
 
 
@@ -29,9 +36,9 @@ $sl= 1;
           <thead>
           <tr>
               <th>SL</th>
-              <th>name</th>
+              <th>username</th>
               <th>title</th>
-              <th>desc</th>
+              <th>bio</th>
               <th>active</th>
               <th>action</th>
           </tr>

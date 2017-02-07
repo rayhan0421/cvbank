@@ -46,25 +46,47 @@ Class settings extends model
 
     public function store(){
 
+
+
         try{
-            $queary = "INSERT INTO `settings` (`id`, `user_id`,`title`,`fullname`,`description`,`address`,`featured_img`,`created_at`) VALUES (:a,:h,:b,:c,:d,:e,:f,:g)";
+            if(empty($this->img)){
+                $queary = "INSERT INTO `settings` (`id`, `user_id`,`title`,`fullname`,`description`,`address`,`created_at`) VALUES (:a,:h,:b,:c,:d,:e,:g)";
 
-            $st = $this->pdo->prepare($queary);
+                $st = $this->pdo->prepare($queary);
 
-            $st->execute(
-                array(
-                    ':a'=>null,
-                    ':h'=>$this->user_id,
-                    ':b'=>$this->title,
-                    ':c'=>$this->fullname,
-                    ':d'=>$this->desc,
-                    ':e'=>$this->address,
-                    ':f'=>$this->img,
-                    ':g'=>date('Y-m-d h:m:s')
+                $st->execute(
+                    array(
+                        ':a'=>null,
+                        ':h'=>$this->user_id,
+                        ':b'=>$this->title,
+                        ':c'=>$this->fullname,
+                        ':d'=>$this->desc,
+                        ':e'=>$this->address,
 
-                )
-            );
+                        ':g'=>date('Y-m-d h:m:s')
 
+                    )
+                );
+            }else{
+                $queary = "INSERT INTO `settings` (`id`, `user_id`,`title`,`fullname`,`description`,`address`,`featured_img`,`created_at`) VALUES (:a,:h,:b,:c,:d,:e,:f,:g)";
+
+                $st = $this->pdo->prepare($queary);
+
+                $st->execute(
+                    array(
+                        ':a'=>null,
+                        ':h'=>$this->user_id,
+                        ':b'=>$this->title,
+                        ':c'=>$this->fullname,
+                        ':d'=>$this->desc,
+                        ':e'=>$this->address,
+                        ':f'=>$this->img,
+                        ':g'=>date('Y-m-d h:m:s')
+
+                    )
+                );
+
+            }
 
 
             if($st){

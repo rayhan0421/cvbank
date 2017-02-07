@@ -53,10 +53,17 @@ $value= $skills->show();
 
                             </div>
 
-                            <div class="form-group">
-                                <label>lavel</label>
-                                <input name="lavel" value="<?php echo $value['level']; ?>" class="form-control">
 
+                            <div class="form-group">
+                                <label for="sel1">Select Level:</label>
+                                <select    class="form-control" name="level">
+
+                                    <option  value="entry" <?php if($value['level']=="entry") {echo "selected";} ?> >entry</option>
+                                    <option value="junior" <?php if($value['level']=="junior") {echo "selected";}?> >junior</option>
+                                    <option value="senior" <?php if($value['level']=="senior") {echo "selected";}?> >seneior</option>
+                                    <option value="manager" <?php if($value['level']=="manager") {echo "selected";}?> > manager</option>
+
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label>experienc</label>
