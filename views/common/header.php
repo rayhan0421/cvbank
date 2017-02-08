@@ -117,7 +117,8 @@ if(!isset($_SESSION['userinfo'])){
                 </li>
                 <li>
                     <a href="javascript:;" data-toggle="collapse" data-target="#settings"><i class="fa fa-wrench" aria-hidden="true"></i> Settings <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="settings" class="collapse">
+
+                    <ul id="settings" class="collapse <?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'settings' ? 'in' : '';?>">
                         <li>
                             <a href="http://localhost/cvbank/views/settings"><i class="fa fa-envelope"></i>  veiw settings  </a>
                         </li>
@@ -135,7 +136,7 @@ if(!isset($_SESSION['userinfo'])){
                 </li>
                 <li class="<?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'aboutme' ? 'active' : '';?>">
                     <a href="javascript:;" data-toggle="collapse" data-target="#AboutMe"><i class="fa fa-fighter-jet" aria-hidden="true"></i> About<i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="AboutMe" class="collapse">
+                    <ul id="AboutMe" class="collapse <?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'aboutme' ? 'in' : '';?>">
                         <li>
                             <a href="http://localhost/cvbank/views/aboutme/"><i class="fa fa-envelope"></i> About me  </a>
                         </li>
@@ -144,7 +145,7 @@ if(!isset($_SESSION['userinfo'])){
                 </li>
                 <li class="<?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'education' ? 'active' : '';?>">
                     <a href="javascript:;" data-toggle="collapse" data-target="#education"><i class="fa fa-institution" aria-hidden="true"></i>Education <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="education" class="collapse">
+                    <ul id="education" class="collapse <?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'education' ? 'in' : '';?>">
                         <li>
                             <a href="http://localhost/cvbank/views/education/create.php"><i class="fa fa-envelope"></i>  new  </a>
                         </li>
@@ -162,7 +163,7 @@ if(!isset($_SESSION['userinfo'])){
                 </li>
                 <li class="<?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'skills' ? 'active' : '';?>">
                     <a href="javascript:;" data-toggle="collapse" data-target="#skill"><i class="fa fa-paperclip" aria-hidden="true"></i> Skill <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="skill" class="collapse">
+                    <ul id="skill" class="collapse <?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'skills' ? 'in' : '';?>">
                         <li>
                             <a href="http://localhost/cvbank/views/skills/create.php"><i class="fa fa-envelope"></i> new</a>
                         </li>
@@ -176,7 +177,7 @@ if(!isset($_SESSION['userinfo'])){
                 </li>
                 <li class="<?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'experience' ? 'active' : '';?>">
                     <a href="javascript:;" data-toggle="collapse" data-target="#experiences"><i class="fa fa-empire" aria-hidden="true"></i> Experiences <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="experiences" class="collapse">
+                    <ul id="experiences" class="collapse <?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'experience' ? 'in' : '';?>">
                         <li>
                             <a href="http://localhost/cvbank/views/experience/create.php"><i class="fa fa-envelope"></i>  new  </a>
                         </li>
@@ -192,7 +193,7 @@ if(!isset($_SESSION['userinfo'])){
                 </li>
                 <li class="<?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'Portfolio' ? 'active' : '';?>">
                     <a href="javascript:;" data-toggle="collapse" data-target="#portfolios"><i class="fa fa-windows" aria-hidden="true"></i> Portfolios <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="portfolios" class="collapse">
+                    <ul id="portfolios" class="collapse <?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'portfolio' ? 'in' : '';?>">
                         <li>
                             <a href="http://localhost/cvbank/views/Portfolio/create.php"><i class="fa fa-envelope"></i>  new  </a>
                         </li>
@@ -225,7 +226,7 @@ if(!isset($_SESSION['userinfo'])){
                     </ul>
                 </li>
                 <li class="<?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'service' ? 'active' : '';?>">
-                    <a href="javascript:;" data-toggle="collapse" data-target="#services"><i class="fa fa-shield" aria-hidden="true"></i> Services <i class="fa fa-fw fa-caret-down"></i></a>
+                    <a href="javascript:;" data-toggle="collapse " data-target="#services"><i class="fa fa-shield" aria-hidden="true"></i> Services <i class="fa fa-fw fa-caret-down"></i></a>
                     <ul id="services" class="collapse <?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'service' ? 'in' : '';?>">
                         <li>
                             <a href="http://localhost/cvbank/views/service/create.php"><i class="fa fa-envelope"></i>  new  </a>
@@ -242,7 +243,7 @@ if(!isset($_SESSION['userinfo'])){
                 </li>
                 <li class="<?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'facts' ? 'active' : '';?>">
                     <a href="javascript:;" data-toggle="collapse" data-target="#facts"><i class="fa fa-cc-discover" aria-hidden="true"></i> Facts <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="facts" class="collapse">
+                    <ul id="facts" class="collapse <?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'facts' ? 'in' : '';?>">
                         <li>
                             <a href="http://localhost/cvbank/views/facts/create.php"><i class="fa fa-envelope"></i>  new  </a>
                         </li>
@@ -256,7 +257,7 @@ if(!isset($_SESSION['userinfo'])){
                 </li>
                 <li class="<?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'hobbies' ? 'active' : '';?>">
                     <a href="javascript:;" data-toggle="collapse" data-target="#hobbies"><i class="fa fa-gamepad" aria-hidden="true"></i> Hobbies <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="hobbies" class="collapse">
+                    <ul id="hobbies" class="collapse <?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'hobbies' ? 'in' : '';?>">
                         <li>
                             <a href="http://localhost/cvbank/views/hobbies/create.php"><i class="fa fa-envelope"></i>  new  </a>
                         </li>
@@ -276,7 +277,7 @@ if(!isset($_SESSION['userinfo'])){
 
                 <li class="<?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'award' ? 'active' : '';?>">
                     <a href="javascript:;" data-toggle="collapse" data-target="#awards"><i class="fa fa-floppy-o" aria-hidden="true"></i> Awards <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="awards" class="collapse">
+                    <ul id="awards" class="collapse <?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'award' ? 'in' : '';?>">
                         <li>
                             <a href="http://localhost/cvbank/views/award/create.php"><i class="fa fa-envelope"></i>  new  </a>
                         </li>
@@ -295,7 +296,7 @@ if(!isset($_SESSION['userinfo'])){
 
                 <li class="<?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'contact' ? 'active' : '';?>">
                     <a href="javascript:;" data-toggle="collapse" data-target="#contacts"><i class="fa fa-mail-reply" aria-hidden="true"></i> Contacts <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="contacts" class="collapse">
+                    <ul id="contacts" class="collapse <?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'contact' ? 'in' : '';?>">
                         <li>
                             <a href="http://localhost/cvbank/views/contact/create.php"><i class="fa fa-envelope"></i>  new  </a>
                         </li>
