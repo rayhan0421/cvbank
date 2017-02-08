@@ -73,7 +73,7 @@ if(!isset($_SESSION['userinfo'])){
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html"><i class="fa fa-eye-slash" aria-hidden="true"></i> CVBANK</a>
+            <a href="http://localhost/cvbank/views/deshboard/"><img height="50" width="80" src="../../assets/logo.png" /></a>
         </div>
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">

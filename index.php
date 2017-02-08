@@ -318,12 +318,12 @@ if(isset($_GET['keyword'])){
                   <div class="row">
                       <label class="checkbox-inline">
 
-                          <input type="checkbox" id="skill" onclick="expr2()" name="skill" value="skill" <?php if(array_key_exists('skill',$_SESSION)){
-                         echo "checked";  } ?> > Skill
+                          <input type="checkbox" id="skill"  name="skill" value="skill" <?php if(array_key_exists('skill',$_SESSION)){
+                         /*echo "checked";*/  } ?> > Skill
                       </label>
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox2" onclick="expr()" name="experienc" value="experienc"  <?php if(array_key_exists('experienc',$_SESSION)){
-                              echo "checked";  } ?> > Experience
+                          <input type="checkbox" id="inlineCheckbox2"  name="experienc" value="experienc"  <?php if(array_key_exists('experienc',$_SESSION)){
+                             /* echo "checked";*/  } ?> > Experience
                       </label>
                       <input  class="flipkart-navbar-input col-xs-11" style="color:black" type="search" placeholder="Search for employee, cv and resume" autosave="saved-searches" name="keyword">
 
@@ -353,7 +353,8 @@ if(isset($_GET['keyword'])){
                  <?php
                     $results=array();
                     $search = new search();
-                    $search->sktitle = "active";
+
+                    $search->sktitle = "";
                     if(!empty($_GET['keyword'])){
                         $search->setdata($_GET);
                         $results = array();

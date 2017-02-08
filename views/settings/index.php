@@ -1,92 +1,124 @@
 <?php include_once("../common/header.php"); ?>
 <?php
 use App\settings\settings;
-$settings= new settings();
 
-$settings->setdata($_SESSION['userinfo']);
-$settings =$settings->index();
+$ab= new settings();
+$ab->setdata($_SESSION['userinfo']);
+$ab =$ab->index();
+
 
 
 ?>
-    <!-- Page Heading -->
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">
-                Settings <small>Statistics Overview</small>
-            </h1>
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                           Settings <small> </small>
+                        </h1>
+
+                    </div>
+                </div>
+                <!-- /.row -->
+
+
+                <!-- /.row -->
+
+
+                <!-- /.row -->
+
+
+                <!-- /.row -->
+
+                <div class="row">
+
+
+
+
+
+
+
+
+
+<?php if($ab){ ?>
+      <form action="update.php" method="post" enctype="multipart/form-data">
+
+
+
+
+          <div class="form-group">
+              <label for="usr">Title:</label>
+              <input type="text" name="title" value="<?php echo $ab['title']; ?>"" class="form-control" id="usr">
+          </div>
+          <div class="form-group">
+              <label for="pwd">Fullname</label>
+              <input type="text"   name="fullname"  value="<?php echo $ab['fullname']; ?>" class="form-control" id="pwd">
+          </div>
+          <div class="form-group">
+              <label for="bio">Description</label>
+              <textarea class="form-control" rows="5" name="description" id="bio"><?php echo $ab['description']; ?></textarea>
+          </div>
+          <div class="form-group">
+              <label for="ads">Address</label>
+              <input type="text"   name="address"  value="<?php echo $ab['address']; ?>" class="form-control" id="pwd">
+          </div>
+
+                            <div class="form-group">
+                                <label>image</label>
+                                 <input type="file" name="featured_img" class="form-control">
+                                <img height="150" width="150" src="../../storage/images/<?php echo $ab['featured_img']; ?>" />
+
+
+                            </div>
+          <input type="hidden"   name="id"  value="<?php echo $ab['stid']; ?>" class="form-control" id="pwd">
+
+
+          <button type="submit" class="btn btn-primary">Update</button>
+      </form>
+<?php }
+
+else {
+ ?>
+         <form action="update.php" method="post" enctype="multipart/form-data">
+
+
+
+
+          <div class="form-group">
+              <label for="usr">Title:</label>
+              <input type="text" name="title" value="<?php echo $ab['title']; ?>"" class="form-control" id="usr">
+          </div>
+          <div class="form-group">
+              <label for="pwd">phone</label>
+              <input type="text"   name="fullname"  value="<?php echo $ab['fullname']; ?>" class="form-control" id="pwd">
+          </div>
+          <div class="form-group">
+              <label for="bio">Description</label>
+              <textarea class="form-control" rows="5" name="description" id="bio"><?php echo $ab['description']; ?></textarea>
+          </div>
+          <div class="form-group">
+              <label for="ads">Address</label>
+              <input type="text"   name="address"  value="<?php echo $ab['address']; ?>" class="form-control" id="pwd">
+          </div>
+
+                            <div class="form-group">
+                                <label>image</label>
+                                <input type="file" name="featured_img" class="form-control">
+
+                            </div>
+
+          <button type="submit" class="btn btn-primary">Update</button>
+      </form>
+
+
+    <?php  } ?>
+
+            </div>
+            <!-- /.container-fluid -->
 
         </div>
-    </div>
-    <!-- /.row -->
-
-
-    <!-- /.row -->
-
-
-    <!-- /.row -->
-
-
-    <!-- /.row -->
-
-    <div class="row">
-
-
-    <div class="col-lg-12">
-    <div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Transactions Panel</h3>
-    </div>
-    <div class="panel-body">
-    <div class="table-responsive">
-    <table class="table table-bordered table-hover table-striped">
-    <thead>
-    <tr>
-        <th>Title</th>
-        <th>Fullname</th>
-        <th>Description</th>
-        <th>Address</th>
-        <th>Featured_img</th>
-        <th>Action</th>
-    </tr>
-    </thead>
-    <tbody>
-
-
-<?php if(is_array($settings)){ ?>
-    <?php foreach ($settings as $value){ ?>
-        <tr>
-            <td> <?php echo $value['title']; ?></td>
-            <td><?php echo $value['fullname']; ?></td>
-            <td><?php echo $value['description']; ?></td>
-            <td><?php echo $value['address']; ?></td>
-
-            <td><img height="150" width="150" src="http://localhost/cvbank/storage/images/<?php echo $value['featured_img']; ?>" /> </td>
-            <td> <a href="edit.php?id=<?php echo $value['stid'] ?>">Edit</a>/
-                <a href="trash.php?id=<?php echo $value['stid'] ?>" >delete</a> </td>
-        </tr>
-    <?php } ?>
-
-<?php }else ?>
-    </tbody>
-    </table>
-    </div>
-    <div class="text-right">
-        <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    <!-- /.row -->
-
-    </div>
-    <!-- /.container-fluid -->
-
-    </div>
-    <!-- /#page-wrapper -->
+        <!-- /#page-wrapper -->
 
     </div>
     <!-- /#wrapper -->
-    session_start();
 
 <?php include_once("../common/footer.php"); ?>

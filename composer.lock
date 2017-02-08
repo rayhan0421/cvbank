@@ -4,6 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+    "hash": "494fb1e551de42a974d6aa0f784a1da4",
     "content-hash": "9a7089a070b2bf8cd06e73864cc38f4d",
     "packages": [
         {
@@ -59,7 +60,7 @@
                 "elasticsearch",
                 "search"
             ],
-            "time": "2017-02-06T13:20:44+00:00"
+            "time": "2017-02-06 13:20:44"
         },
         {
             "name": "guzzlehttp/ringphp",
@@ -110,7 +111,7 @@
                 }
             ],
             "description": "Provides a simple API and specification that abstracts away the details of HTTP into a single PHP function.",
-            "time": "2015-05-20T03:37:09+00:00"
+            "time": "2015-05-20 03:37:09"
         },
         {
             "name": "guzzlehttp/streams",
@@ -160,7 +161,7 @@
                 "Guzzle",
                 "stream"
             ],
-            "time": "2014-10-12T19:18:40+00:00"
+            "time": "2014-10-12 19:18:40"
         },
         {
             "name": "mpdf/mpdf",
@@ -211,7 +212,7 @@
                 "php",
                 "utf-8"
             ],
-            "time": "2016-12-12T10:42:18+00:00"
+            "time": "2016-12-12 10:42:18"
         },
         {
             "name": "psr/log",
@@ -258,7 +259,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-10-10T12:19:37+00:00"
+            "time": "2016-10-10 12:19:37"
         },
         {
             "name": "react/promise",
@@ -301,7 +302,7 @@
                 "promise",
                 "promises"
             ],
-            "time": "2016-12-22T14:09:01+00:00"
+            "time": "2016-12-22 14:09:01"
         },
         {
             "name": "setasign/fpdi",
@@ -350,7 +351,7 @@
                 "fpdi",
                 "pdf"
             ],
-            "time": "2015-11-30T10:53:14+00:00"
+            "time": "2015-11-30 10:53:14"
         }
     ],
     "packages-dev": [],

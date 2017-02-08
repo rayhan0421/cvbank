@@ -4,7 +4,7 @@ use App\Contact\Contact;
 $Contact= new Contact();
 $Contact->setdata($_SESSION['userinfo']);
 $Contact =$Contact->index($_SESSION['userinfo']);
-var
+
 
 
 ?>

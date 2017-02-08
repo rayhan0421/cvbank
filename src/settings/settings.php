@@ -65,7 +65,7 @@ Class settings extends model
 
         $st->execute();
 
-        $stu = $st->fetchAll();
+        $stu = $st->fetch();
 
         return $stu;
 
@@ -122,12 +122,12 @@ Class settings extends model
                 $_SESSION['msg']= "Successfully settings stored";
 
 
-                header("location:http://localhost/cvbank/views/settings/create.php");
+                header("location:http://localhost/cvbank/views/settings/");
             }else{
 
                 $_SESSION['msg']= " settings stored failed";
 
-                header("location:http://localhost/cvbank/views/settings/create.php");
+                header("location:http://localhost/cvbank/views/settings/");
 
             }
 
