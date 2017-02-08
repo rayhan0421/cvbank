@@ -9,7 +9,7 @@ Class search extends model
     // if you use constructor here
     // use this parent::__construct();
    protected $abtitle='';
-   protected $sktitle ='';
+   public $sktitle ='active';
    protected $skexp = '';
    public $id='';
    public $perpage = 2;
@@ -38,8 +38,14 @@ Class search extends model
     public function search(&$rows,&$perpage,$currentpage,&$offset){
 
            $perpage = $this->perpage;
+
            $offset = ceil($this->perpage*$currentpage);
-           $queary = "SELECT SQL_CALC_FOUND_ROWS users.id as uid, abouts.title as abtitle, abouts.bio as abbio from users JOIN abouts ON users.id = abouts.user_id WHERE abouts.title LIKE '%{$this->keyword}%' OR abouts.bio LIKE '%{$this->keyword}%' limit $this->perpage OFFSET $offset";
+           if($this->sktitle=="active"){
+               $queary =   "SELECT SQL_CALC_FOUND_ROWS users.id as uid, skills.title as abtitle, skills.description as abbio from users JOIN skills ON users.id = skills.user_id WHERE skills.experience LIKE '%{$this->sktitle}%' OR skills.title LIKE '%{$this->keyword}%' limit $this->perpage OFFSET $offset";
+           }else {
+
+               $queary = "SELECT SQL_CALC_FOUND_ROWS users.id as uid, abouts.title as abtitle, abouts.bio as abbio from users JOIN abouts ON users.id = abouts.user_id WHERE abouts.title LIKE '%{$this->keyword}%' OR abouts.bio LIKE '%{$this->keyword}%' limit $this->perpage OFFSET $offset";
+           }
             $st = $this->pdo->prepare($queary);
 
             $st->execute();

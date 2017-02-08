@@ -2,6 +2,21 @@
 include ("vendor/autoload.php");
 session_start();
 use App\home\search\search;
+
+if(isset($_GET['skill'])){
+
+ $_SESSION['skill'] = $_GET['skill'];
+}else{
+    unset($_SESSION['skill']); 
+}
+
+if(isset($_GET['experienc'])){
+
+    $_SESSION['experienc'] = $_GET['experienc'];
+}else{
+
+}
+
 $totalrows='';
 $totalpage='';
 if(isset($_GET['page'])){
@@ -255,6 +270,27 @@ if(isset($_GET['keyword'])){
             document.getElementById("mySidenav").style.width = "0";
             document.body.style.backgroundColor = "rgba(0,0,0,0)";
         }
+        function expr2()
+        {
+            var checkbox = document.getElementById("skill");
+
+            if(!checkbox.checked){
+               <?php unset($_SESSION['skill']); ?>;
+                alert( checkbox.checked );
+            }else{
+              <?php $_SESSION['skill'] = 'skill'; ?>
+                alert( checkbox.checked );
+            }
+
+
+        }
+
+        function expr()
+        {
+            var i = 0 ;
+            i = <?php echo 35; ?>;
+            alert( i );
+        }
     </script>
 </head>
 
@@ -280,6 +316,15 @@ if(isset($_GET['keyword'])){
             <div class="flipkart-navbar-search smallsearch col-sm-8 col-xs-11">
               <form action="" method="get">
                   <div class="row">
+                      <label class="checkbox-inline">
+
+                          <input type="checkbox" id="skill" onclick="expr2()" name="skill" value="skill" <?php if(array_key_exists('skill',$_SESSION)){
+                         echo "checked";  } ?> > Skill
+                      </label>
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox2" onclick="expr()" name="experienc" value="experienc"  <?php if(array_key_exists('experienc',$_SESSION)){
+                              echo "checked";  } ?> > Experience
+                      </label>
                       <input  class="flipkart-navbar-input col-xs-11" style="color:black" type="search" placeholder="Search for employee, cv and resume" autosave="saved-searches" name="keyword">
 
                       <button class="flipkart-navbar-button col-xs-1">
@@ -308,6 +353,7 @@ if(isset($_GET['keyword'])){
                  <?php
                     $results=array();
                     $search = new search();
+                    $search->sktitle = "active";
                     if(!empty($_GET['keyword'])){
                         $search->setdata($_GET);
                         $results = array();
