@@ -2,7 +2,13 @@
 include ("vendor/autoload.php");
 session_start();
 use App\home\search\search;
-
+$totalrows='';
+$totalpage='';
+if(isset($_GET['page'])){
+    $currentpage = $_GET['page']-1;
+}else{
+    $currentpage = 0;
+}
 
 
 ?>
@@ -191,6 +197,9 @@ if(isset($_GET['keyword'])){
              margin: 0px;
          }
      }
+     a:active {
+         background-color: yellow;
+     }
 
      /*Sidenav*/
      .sidenav {
@@ -302,14 +311,17 @@ if(isset($_GET['keyword'])){
                     if(!empty($_GET['keyword'])){
                         $search->setdata($_GET);
                         $results = array();
-                        $results = $search->search();
+
+                        $sl=0;
+                        $results = $search->search($totalrows,$perpage,$currentpage,$sl);
+                        $totalpage =  ceil($totalrows/$perpage);
                     }
 
 
 
                     ?>
                 <hgroup class="mb20">
-                    <h1>Search Results for <?php echo $_GET['keyword'] ?></h1>
+                    <h1>total Search <?php echo $totalrows." and " ;?> Results for <?php echo $_GET['keyword'] ?></h1>
 
                     <br/>
                 </hgroup>
@@ -342,13 +354,31 @@ if(isset($_GET['keyword'])){
                  <?php } ?>
                   <?php  } ?>
                 <?php  } ?>
+
+                <hr/>
+                <ul class="pagination">
+                <?php
+                if(isset($totalpage) && !empty($totalpage)){
+                    for($i=1;$i<=$totalpage;$i++){
+                        ?>
+                    <li> <a class="active" href="?keyword=<?php echo $keyword; ?>&page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                        <?php
+                    }
+                }
+
+
+                ?>
+                </ul>
+
+
+                <hr/>
             </div>
             <?php if(!isset($_GET['keyword'])) {?>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
 
-
+                  <h1>no cv found</h1>
                     </div>
 
                 </div>

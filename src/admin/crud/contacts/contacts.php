@@ -89,20 +89,19 @@ ob_end_flush();
 
 
          try {
-            $query = "UPDATE contacts SET title=:title,description=:desc,level=:levell,experience=:exp,experience_area=:area WHERE id=:id";
+             $query = "UPDATE contacts SET name=:name,email=:email,message=:message,phone=:phone WHERE id=:id";
 
 
-            $stmt = $this->pdo->prepare($query);
-            $stmt->execute(
-                array(
-                    ':id' => $this->id,
-                    ':title' => $this->title,
-                    ':desc'=>$this->desc,
-                    ':exp' =>$this->experience,
-                    ':levell'=>$this->level,
-                    ':area'=>$this->area
-                )
-            );
+             $stmt = $this->pdo->prepare($query);
+             $stmt->execute(
+                 array(
+                     ':id' => $this->id,
+                     ':name' => $this->name,
+                     ':email'=>$this->email,
+                     ':message' => $this->message,
+                     ':phone' => $this->phone,
+                 )
+             );
             if($stmt){
 
                 $_SESSION['msg'] ="succesfully updated ";

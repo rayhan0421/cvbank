@@ -1,6 +1,7 @@
 <?php
 namespace App\home\search;
 use App\model\model;
+use PDO;
 Class search extends model
 {
     protected $keyword='';
@@ -11,7 +12,7 @@ Class search extends model
    protected $sktitle ='';
    protected $skexp = '';
    public $id='';
-   public $perpage = 5;
+   public $perpage = 2;
 
 
     public function setdata($data)
@@ -34,16 +35,17 @@ Class search extends model
         $this->filterdata();
     }
 
-    public function search(){
+    public function search(&$rows,&$perpage,$currentpage,&$offset){
 
-
-           $queary = "SELECT users.id as uid, abouts.title as abtitle, abouts.bio as abbio from users JOIN abouts ON users.id = abouts.user_id WHERE abouts.title LIKE '%{$this->keyword}%' OR abouts.bio LIKE '%{$this->keyword}%'";
+           $perpage = $this->perpage;
+           $offset = ceil($this->perpage*$currentpage);
+           $queary = "SELECT SQL_CALC_FOUND_ROWS users.id as uid, abouts.title as abtitle, abouts.bio as abbio from users JOIN abouts ON users.id = abouts.user_id WHERE abouts.title LIKE '%{$this->keyword}%' OR abouts.bio LIKE '%{$this->keyword}%' limit $this->perpage OFFSET $offset";
             $st = $this->pdo->prepare($queary);
 
             $st->execute();
 
             $stu = $st->fetchAll();
-
+            $rows = $this->pdo->query("SELECT FOUND_ROWS()")->fetch(PDO::FETCH_COLUMN);
         return $stu;
     }
 
