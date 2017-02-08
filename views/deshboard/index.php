@@ -13,7 +13,14 @@
                     </div>
                 </div>
                 <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-12" style="min-height: 580px;">
 
+
+
+
+                    </div>
+                </div>
 
                 <!-- /.row -->
 
