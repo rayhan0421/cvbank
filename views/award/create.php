@@ -51,8 +51,9 @@ $award =$award->index($_SESSION['userinfo']);
                             </div>
 
                             <div class="form-group">
-                                <label>Description</label>
-                                <input name="description" class="form-control">
+                                <label for="dec">Description</label>
+
+                                <textarea cols="6" rows="6" name="description" class="form-control" id="dec"></textarea>
 
                             </div>
                             <div class="form-group">

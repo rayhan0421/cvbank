@@ -45,9 +45,8 @@ $skills =$skills->index($_SESSION['userinfo']);
 
             </div>
             <div class="form-group">
-                <label>desc</label>
-                <input name="desc" class="form-control">
-
+                <label for="comment">Description:</label>
+                <textarea class="form-control" rows="5" name="desc" id="comment"></textarea>
             </div>
 
 

@@ -48,8 +48,9 @@ $value= $Portfolio->show();
 
                             </div>
                             <div class="form-group">
-                                <label>Description</label>
-                                <input name="description" value="<?php echo $value['description']; ?>" class="form-control">
+                                <label for="dec">Description</label>
+
+                                <textarea id="dec" cols="6" rows="6" name="description" class="form-control"><?php echo $value['description']; ?></textarea>
 
                             </div>
 

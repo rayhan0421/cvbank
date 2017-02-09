@@ -48,8 +48,8 @@ $value= $post->show();
 
                             </div>
                             <div class="form-group">
-                                <label>Desc</label>
-                                <input name="desc" value="<?php echo $value['description']; ?>" class="form-control">
+                                <label for="dec">Desc</label>
+                              <textarea id="dec" cols="8" rows="8" name="desc" class="form-control"><?php echo $value['description']; ?></textarea>
 
                             </div>
 

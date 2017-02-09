@@ -47,10 +47,10 @@ $value= $skills->show();
                                 <input name="title" value="<?php echo $value['title']; ?>" class="form-control">
 
                             </div>
-                            <div class="form-group">
-                                <label>desc</label>
-                                <input name="desc" value="<?php echo $value['description']; ?>" class="form-control">
 
+                            <div class="form-group">
+                                <label for="comment">Description:</label>
+                                <textarea class="form-control" rows="5" name="desc" id="comment"><?php echo trim($value['description']); ?></textarea>
                             </div>
 
 

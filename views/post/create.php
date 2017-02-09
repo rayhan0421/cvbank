@@ -45,8 +45,9 @@ $post =$post->index($_SESSION['userinfo']);
 
             </div>
             <div class="form-group">
-                <label>desc</label>
-                <input name="desc" class="form-control">
+                <label for="dec">desc</label>
+
+                <textarea  name="desc" class="form-control" rows="6" cols="6" id="dec"></textarea>
 
             </div>
 

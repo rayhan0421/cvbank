@@ -55,9 +55,9 @@ $Contact2 =$Contact->index();
         <tr>
             <td> <?php echo $value['name']; ?></td>
             <td><?php echo $value['cmail']; ?></td>
-            <td><<?php echo $value['message']; ?></td>
+            <td><textarea cols="10" rows="10" class="form-control"> <?php echo $value['message']; ?> </textarea> </td>
             <td><?php echo $value['phone']; ?></td>
-            <td> <a href="edit.php?id=<?php echo $value['cid'] ?>">Edit</a>/
+            <td>
                 <a href="trash.php?id=<?php echo $value['cid'] ?>" >delete</a> </td>
         </tr>
     <?php } ?>

@@ -103,7 +103,7 @@ if(!isset($_SESSION['userinfo'])){
                     </li>
 
                     <li>
-                        <input type="text" value="asd">
+
                         <a target="_blank" href="http://localhost/cvbank/views/public/resume/?id=<?php echo $_SESSION['userinfo'][0]['id']; ?>"><i class="fa fa-fw fa-share"></i>Share link</a>
                     </li>
 
@@ -311,10 +311,7 @@ if(!isset($_SESSION['userinfo'])){
                         <li>
                             <a href="http://localhost/cvbank/views/contact/restore.php"><i class="fa fa-adjust"></i> trash</a>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
-                        </li>
-
+                     
                         <li>
                             <a href="http://localhost/cvbank/views/contact/index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
                         </li>

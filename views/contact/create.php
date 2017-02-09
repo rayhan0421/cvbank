@@ -52,8 +52,9 @@ $Contact =$Contact->index($_SESSION['userinfo']);
                             </div>
 
                             <div class="form-group">
-                                <label>Message</label>
-                                <input name="message" class="form-control" type="text">
+                                <label for="mail">Message</label>
+                                <textarea id="mail"  name="message" class="form-control" rows="8" cols="8"></textarea>
+
 
                             </div>
                             <div class="form-group">

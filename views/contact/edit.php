@@ -54,8 +54,9 @@ $value= $Contact->show();
                             </div>
 
                             <div class="form-group">
-                                <label>Message</label>
-                                <input name="message" value="<?php echo $value['message']; ?>" class="form-control">
+                                <label for="mail">Message</label>
+
+                                <textarea id="mail" cols="8" rows="10" name="message" class="form-control"><?php echo $value['message']; ?></textarea>
 
                             </div>
                             <div class="form-group">

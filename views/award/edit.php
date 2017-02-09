@@ -54,8 +54,9 @@ $value= $award->show();
                             </div>
 
                             <div class="form-group">
-                                <label>Description</label>
-                                <input name="description" value="<?php echo $value['description']; ?>" class="form-control">
+                                <label for="dec">Description</label>
+                                <textarea id="dec" name="description" class="form-control" cols="6" rows="6"></textarea>
+
 
                             </div>
                             <div class="form-group">

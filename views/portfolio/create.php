@@ -45,8 +45,9 @@ $Portfolio =$Portfolio->index($_SESSION['userinfo']);
 
                             </div>
                             <div class="form-group">
-                                <label>Description</label>
-                                <input name="description" class="form-control">
+                                <label for="dec">Description</label>
+
+                                <textarea  name="description" class="form-control" id="dec" cols="5" rows="6" ></textarea>
 
                             </div>
 
