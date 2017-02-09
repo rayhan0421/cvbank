@@ -7,7 +7,7 @@ if(isset($_GET['skill'])){
 
  $_SESSION['skill'] = $_GET['skill'];
 }else{
-    unset($_SESSION['skill']); 
+    unset($_SESSION['skill']);
 }
 
 if(isset($_GET['experienc'])){

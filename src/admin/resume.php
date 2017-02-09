@@ -30,7 +30,10 @@ Class resume extends model{
 
         $stu= $st->fetch();
 
+
         return $stu;
+
+
 
 
     }
