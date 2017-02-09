@@ -151,18 +151,34 @@ Class service extends model
 
         session_start();
         try {
-            $query = "UPDATE services SET title=:title,description=:descc,img=:img WHERE id=:id";
+            if(empty($this->img)){
+                $query = "UPDATE services SET title=:title,description=:descc WHERE id=:id";
 
 
-            $stmt = $this->pdo->prepare($query);
-            $stmt->execute(
-                array(
-                    ':id' => $this->auto_id,
-                    ':title' => $this->title,
-                    ':descc'=>$this->desc,
-                    ':img'=>$this->img
-                )
-            );
+                $stmt = $this->pdo->prepare($query);
+                $stmt->execute(
+                    array(
+                        ':id' => $this->auto_id,
+                        ':title' => $this->title,
+                        ':descc'=>$this->desc
+
+                    )
+                );
+            }else{
+                $query = "UPDATE services SET title=:title,description=:descc,img=:img WHERE id=:id";
+
+
+                $stmt = $this->pdo->prepare($query);
+                $stmt->execute(
+                    array(
+                        ':id' => $this->auto_id,
+                        ':title' => $this->title,
+                        ':descc'=>$this->desc,
+                        ':img'=>$this->img
+                    )
+                );
+
+            }
 
 //            var_dump($stmt);
 //                die();

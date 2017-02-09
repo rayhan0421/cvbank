@@ -98,7 +98,9 @@ if(!isset($_SESSION['userinfo'])){
                     <li>
                         <a href="http://localhost/cvbank/views/users/"><i class="fa fa-fw fa-user"></i> Profile</a>
                     </li>
-
+                    <li>
+                        <a target="_blank" href="http://localhost/cvbank/views/public/resume/single.php"><i class="fa fa-fw fa-star"></i>Show Resume </a>
+                    </li>
 
                     <li class="divider"></li>
                     <li>
@@ -409,9 +411,10 @@ if(!isset($_SESSION['userinfo'])){
                     </ul>
                     <?php }else{ ?>
                     <ul class="nav nav-pills">
-                        <li role="presentation" class="active"><a href="create.php"><i class="fa fa-envelope"></i>  new  </a></li>
-                        <li role="presentation"><a href="restore.php"><i class="fa fa-adjust"></i> trash</a></li>
-                        <li role="presentation"><a href="index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a></li>
+                        <li role="presentation" class="<?php echo explode('/',$_SERVER['PHP_SELF'])[4] == 'create.php' ? 'active' : '';?>"><a href="create.php"><i class="fa fa-envelope"></i>  new  </a></li>
+                        <li role="presentation" class="<?php echo explode('/',$_SERVER['PHP_SELF'])[4] == 'restore.php' ? 'active' : '';?>"><a href="restore.php"><i class="fa fa-adjust"></i> trash</a></li>
+                        <li role="presentation" class="<?php echo explode('/',$_SERVER['PHP_SELF'])[4] == 'index.php' ? 'active' : '';?>" ><a href="index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a></li>
+
                     </ul>
                     <?php } ?>
                 </div>

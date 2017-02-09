@@ -163,17 +163,41 @@ endforeach;
     </head>
     <body>
          <div class="container">
-          <div class="row">
-            <div class="col-lg-10" style="float:left">
-             <div class="no-print"><button onclick="window.print()" class="btn"> Print </button><button ><a href="http://localhost/cvbank/views/public/resume/single.php?pdf" >download pdf</a> </button></div>
-             <div class="no-print"></div>
+        <div class="row no-print" >
+            <div class="col-lg-12" style="float:left">
+            <center>
+             <h1 > CV Bank Resume </h1> 
+
+             
+             
+             
+             
+          <div class="no-print">
+             <button onclick="window.open("Test.pdf")" class="btn">
+              Print version
+              </button>
+             <button onclick="window.print()" class="btn">
+              Print
+              </button>
+          
+             <button>
+             <a target="_blank" href="http://localhost/cvbank/views/public/resume/single.php?pdf" >download pdf</a> 
+             </button>
+           </div>
+         
              </div>
-          </div>
+            </center>
+            </div>
+         </div>   
+        
         </div>
         <div class="container">
         <div class="row">
-        
-            <div class="col-lg-10" style="float:left">
+             <div class="col-lg-10" >
+             
+                <img height="150"  width="150" src="http://localhost/cvbank/storage/images/$img" />
+            </div>
+            <div class="col-lg-2" align="right">
               
                 <label>$fullname</label>
                  <br/>
@@ -186,10 +210,7 @@ endforeach;
 
 
             </div>
-            <div class="col-lg-2" style="float:right">
-             
-                <img height="100"  width="100" src="http://localhost/cvbank/storage/images/$img" />
-            </div>
+       
         </div>
         <hr/>
 
