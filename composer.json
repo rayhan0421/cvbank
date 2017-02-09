@@ -17,8 +17,8 @@
     ]
   },
   "require": {
-    "mpdf/mpdf": "^6.1",
-    "elasticsearch/elasticsearch": "~5.0"
+    "mpdf/mpdf": "^6.1"
+
 
   }
 }

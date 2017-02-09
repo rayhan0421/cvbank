@@ -30,10 +30,19 @@ if(isset($_GET['page'])){
 
 <?php
 if(isset($_GET['keyword'])){
-    $keyword=  filter_var($_GET['keyword'],FILTER_SANITIZE_STRIPPED);
+   $keyword='';
+   foreach ($_GET as $key=>$value){
+
+       $keyword.=$key."=".$value."&";
+    }
+
+
 }
 
+
 ?>
+
+
 
 <html>
 <head>
@@ -408,7 +417,7 @@ if(isset($_GET['keyword'])){
                 if(isset($totalpage) && !empty($totalpage)){
                     for($i=1;$i<=$totalpage;$i++){
                         ?>
-                    <li> <a class="active" href="?keyword=<?php echo $keyword; ?>&page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                    <li> <a class="active" href="?<?php echo $keyword; ?>page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
                         <?php
                     }
                 }
