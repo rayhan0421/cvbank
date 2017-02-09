@@ -21,11 +21,11 @@ Class search extends model
         if (array_key_exists('abtitle', $data)) {
             $this->abtitle = $data['abtitle'];
         }
-        if (array_key_exists('sktitle', $data)) {
-            $this->sktitle = $data['sktitle'];
+        if (array_key_exists('skill', $data)) {
+            $this->sktitle = $data['skill'];
         }
-        if (array_key_exists('skexp', $data)) {
-            $this->skexp  = $data['skexp'];
+        if (array_key_exists('experienc', $data)) {
+            $this->skexp  = $data['experienc'];
         }
 
         if (array_key_exists('keyword', $data)) {
@@ -40,7 +40,7 @@ Class search extends model
            $perpage = $this->perpage;
 
            $offset = ceil($this->perpage*$currentpage);
-           if($this->sktitle=="active"){
+           if($this->sktitle=="skill"){
                $queary =   "SELECT SQL_CALC_FOUND_ROWS users.id as uid, skills.title as abtitle, skills.description as abbio from users JOIN skills ON users.id = skills.user_id WHERE skills.experience LIKE '%{$this->sktitle}%' OR skills.title LIKE '%{$this->keyword}%' limit $this->perpage OFFSET $offset";
            }else {
 
@@ -51,6 +51,8 @@ Class search extends model
             $st->execute();
 
             $stu = $st->fetchAll();
+
+
             $rows = $this->pdo->query("SELECT FOUND_ROWS()")->fetch(PDO::FETCH_COLUMN);
         return $stu;
     }

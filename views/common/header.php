@@ -62,8 +62,7 @@ if(!isset($_SESSION['userinfo'])){
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html"><i class="fa fa-eye-slash" aria-hidden="true"></i> CVBANK</a>
-        </div>
+           <a href="http://localhost/cvbank/views/deshboard/"><img height="50" width="80" src="../../assets/logo.png" /></a>        </div>
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
 
@@ -116,10 +115,169 @@ if(!isset($_SESSION['userinfo'])){
                 <li class="active">
                     <a href="http://localhost/cvbank/views/deshboard/"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                 </li>
-
                 <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#awards"><i class="fa fa-newspaper-o" aria-hidden="true"></i> awards <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="awards" class="collapse">
+                    <a href="javascript:;" data-toggle="collapse" data-target="#settings"><i class="fa fa-wrench" aria-hidden="true"></i> Settings <i class="fa fa-fw fa-caret-down"></i></a>
+
+                    <ul id="settings" class="collapse <?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'settings' ? 'in' : '';?>">
+                        <li>
+                            <a href="http://localhost/cvbank/views/settings"><i class="fa fa-envelope"></i>  veiw settings  </a>
+                        </li>
+<!--                        <li>-->
+<!--                            <a href="http://localhost/cvbank/views/settings/restore.php"><i class="fa fa-adjust"></i> trash</a>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <a href="http://localhost/cvbank/views/settings/index.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>-->
+<!--                        </li>-->
+<!---->
+<!--                        <li>-->
+<!--                            <a href="http://localhost/cvbank/views/settings/index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>-->
+<!--                        </li>-->
+                    </ul>
+                </li>
+                <li class="<?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'aboutme' ? 'active' : '';?>">
+                    <a href="javascript:;" data-toggle="collapse" data-target="#AboutMe"><i class="fa fa-fighter-jet" aria-hidden="true"></i> About<i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="AboutMe" class="collapse <?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'aboutme' ? 'in' : '';?>">
+                        <li>
+                            <a href="http://localhost/cvbank/views/aboutme/"><i class="fa fa-envelope"></i> About me  </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="<?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'education' ? 'active' : '';?>">
+                    <a href="javascript:;" data-toggle="collapse" data-target="#education"><i class="fa fa-institution" aria-hidden="true"></i>Education <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="education" class="collapse <?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'education' ? 'in' : '';?>">
+                        <li>
+                            <a href="http://localhost/cvbank/views/education/create.php"><i class="fa fa-envelope"></i>  new  </a>
+                        </li>
+                        <li>
+                            <a href="http://localhost/cvbank/views/education/restore.php"><i class="fa fa-adjust"></i> trash</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
+                        </li>
+
+                        <li>
+                            <a href="http://localhost/cvbank/views/education/index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="<?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'skills' ? 'active' : '';?>">
+                    <a href="javascript:;" data-toggle="collapse" data-target="#skill"><i class="fa fa-paperclip" aria-hidden="true"></i> Skill <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="skill" class="collapse <?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'skills' ? 'in' : '';?>">
+                        <li>
+                            <a href="http://localhost/cvbank/views/skills/create.php"><i class="fa fa-envelope"></i> new</a>
+                        </li>
+                        <li>
+                            <a href="http://localhost/cvbank/views/skills/"><i class="fa fa-th-list" aria-hidden="true"></i> views skill</a>
+                        </li>
+                        <li>
+                            <a href="http://localhost/cvbank/views/skills/restore.php"><i class="fa fa-adjust"></i> Trash skills</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="<?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'experience' ? 'active' : '';?>">
+                    <a href="javascript:;" data-toggle="collapse" data-target="#experiences"><i class="fa fa-empire" aria-hidden="true"></i> Experiences <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="experiences" class="collapse <?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'experience' ? 'in' : '';?>">
+                        <li>
+                            <a href="http://localhost/cvbank/views/experience/create.php"><i class="fa fa-envelope"></i>  new  </a>
+                        </li>
+                        <li>
+                            <a href="http://localhost/cvbank/views/experience/restore.php"><i class="fa fa-adjust"></i> trash</a>
+                        </li>
+
+
+                        <li>
+                            <a href="http://localhost/cvbank/views/experience/index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="<?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'Portfolio' ? 'active' : '';?>">
+                    <a href="javascript:;" data-toggle="collapse" data-target="#portfolios"><i class="fa fa-windows" aria-hidden="true"></i> Portfolios <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="portfolios" class="collapse <?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'portfolio' ? 'in' : '';?>">
+                        <li>
+                            <a href="http://localhost/cvbank/views/Portfolio/create.php"><i class="fa fa-envelope"></i>  new  </a>
+                        </li>
+                        <li>
+                            <a href="http://localhost/cvbank/views/Portfolio/restore.php"><i class="fa fa-adjust"></i> trash</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
+                        </li>
+
+                        <li>
+                            <a href="http://localhost/cvbank/views/Portfolio/index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="<?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'post' ? 'active' : '';?>">
+                    <a href="javascript:;" data-toggle="collapse" data-target="#posts"><i class="fa fa-paper-plane" aria-hidden="true"></i> Posts <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="posts" class="collapse <?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'post' ? 'in' : '';?>">
+                        <li>
+                            <a href="http://localhost/cvbank/views/post/create.php"><i class="fa fa-envelope"></i>  new  </a>
+                        </li>
+                        <li>
+                            <a href="http://localhost/cvbank/views/post/restore.php"><i class="fa fa-adjust"></i> trash</a>
+                        </li>
+
+
+                        <li>
+                            <a href="http://localhost/cvbank/views/post/index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="<?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'service' ? 'active' : '';?>">
+                    <a href="javascript:;" data-toggle="collapse " data-target="#services"><i class="fa fa-shield" aria-hidden="true"></i> Services <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="services" class="collapse <?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'service' ? 'in' : '';?>">
+                        <li>
+                            <a href="http://localhost/cvbank/views/service/create.php"><i class="fa fa-envelope"></i>  new  </a>
+                        </li>
+                        <li>
+                            <a href="http://localhost/cvbank/views/service/restore.php"><i class="fa fa-adjust"></i> trash</a>
+                        </li>
+
+
+                        <li>
+                            <a href="http://localhost/cvbank/views/service/index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="<?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'facts' ? 'active' : '';?>">
+                    <a href="javascript:;" data-toggle="collapse" data-target="#facts"><i class="fa fa-cc-discover" aria-hidden="true"></i> Facts <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="facts" class="collapse <?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'facts' ? 'in' : '';?>">
+                        <li>
+                            <a href="http://localhost/cvbank/views/facts/create.php"><i class="fa fa-envelope"></i>  new  </a>
+                        </li>
+                        <li>
+                            <a href="http://localhost/cvbank/views/facts/restore.php"><i class="fa fa-adjust"></i> trash</a>
+                        </li>
+                        <li>
+                            <a href="http://localhost/cvbank/views/facts/index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="<?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'hobbies' ? 'active' : '';?>">
+                    <a href="javascript:;" data-toggle="collapse" data-target="#hobbies"><i class="fa fa-gamepad" aria-hidden="true"></i> Hobbies <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="hobbies" class="collapse <?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'hobbies' ? 'in' : '';?>">
+                        <li>
+                            <a href="http://localhost/cvbank/views/hobbies/create.php"><i class="fa fa-envelope"></i>  new  </a>
+                        </li>
+                        <li>
+                            <a href="http://localhost/cvbank/views/hobbies/restore.php"><i class="fa fa-adjust"></i> trash</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
+                        </li>
+
+                        <li>
+                            <a href="http://localhost/cvbank/views/hobbies/index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li class="<?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'award' ? 'active' : '';?>">
+                    <a href="javascript:;" data-toggle="collapse" data-target="#awards"><i class="fa fa-floppy-o" aria-hidden="true"></i> Awards <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="awards" class="collapse <?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'award' ? 'in' : '';?>">
                         <li>
                             <a href="http://localhost/cvbank/views/award/create.php"><i class="fa fa-envelope"></i>  new  </a>
                         </li>
@@ -136,9 +294,9 @@ if(!isset($_SESSION['userinfo'])){
                     </ul>
                 </li>
 
-                <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#contacts"><i class="fa fa-newspaper-o" aria-hidden="true"></i> contacts <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="contacts" class="collapse">
+                <li class="<?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'contact' ? 'active' : '';?>">
+                    <a href="javascript:;" data-toggle="collapse" data-target="#contacts"><i class="fa fa-mail-reply" aria-hidden="true"></i> Contacts <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="contacts" class="collapse <?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'contact' ? 'in' : '';?>">
                         <li>
                             <a href="http://localhost/cvbank/views/contact/create.php"><i class="fa fa-envelope"></i>  new  </a>
                         </li>
@@ -156,184 +314,36 @@ if(!isset($_SESSION['userinfo'])){
                 </li>
 
 
-                <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#education"><i class="fa fa-newspaper-o" aria-hidden="true"></i> education <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="education" class="collapse">
-                        <li>
-                            <a href="http://localhost/cvbank/views/education/create.php"><i class="fa fa-envelope"></i>  new  </a>
-                        </li>
-                        <li>
-                            <a href="http://localhost/cvbank/views/education/restore.php"><i class="fa fa-adjust"></i> trash</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
-                        </li>
-
-                        <li>
-                            <a href="http://localhost/cvbank/views/education/index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#experiences"><i class="fa fa-newspaper-o" aria-hidden="true"></i> experiences <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="experiences" class="collapse">
-                        <li>
-                            <a href="http://localhost/cvbank/views/experience/create.php"><i class="fa fa-envelope"></i>  new  </a>
-                        </li>
-                        <li>
-                            <a href="http://localhost/cvbank/views/experience/restore.php"><i class="fa fa-adjust"></i> trash</a>
-                        </li>
 
 
-                        <li>
-                            <a href="http://localhost/cvbank/views/experience/index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
-                        </li>
-                    </ul>
-                </li>
 
-                <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#portfolios"><i class="fa fa-newspaper-o" aria-hidden="true"></i> portfolios <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="portfolios" class="collapse">
-                        <li>
-                            <a href="http://localhost/cvbank/views/Portfolio/create.php"><i class="fa fa-envelope"></i>  new  </a>
-                        </li>
-                        <li>
-                            <a href="http://localhost/cvbank/views/Portfolio/restore.php"><i class="fa fa-adjust"></i> trash</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
-                        </li>
 
-                        <li>
-                            <a href="http://localhost/cvbank/views/Portfolio/index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
-                        </li>
-                    </ul>
-                </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
                 <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#hobbies"><i class="fa fa-newspaper-o" aria-hidden="true"></i> hobbies <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="hobbies" class="collapse">
-                        <li>
-                            <a href="http://localhost/cvbank/views/hobbies/create.php"><i class="fa fa-envelope"></i>  new  </a>
-                        </li>
-                        <li>
-                            <a href="http://localhost/cvbank/views/hobbies/restore.php"><i class="fa fa-adjust"></i> trash</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
-                        </li>
-
-                        <li>
-                            <a href="http://localhost/cvbank/views/hobbies/index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#posts"><i class="fa fa-newspaper-o" aria-hidden="true"></i> posts <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="posts" class="collapse">
-                        <li>
-                            <a href="http://localhost/cvbank/views/post/create.php"><i class="fa fa-envelope"></i>  new  </a>
-                        </li>
-                        <li>
-                            <a href="http://localhost/cvbank/views/post/restore.php"><i class="fa fa-adjust"></i> trash</a>
-                        </li>
 
 
-                        <li>
-                            <a href="http://localhost/cvbank/views/post/index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#services"><i class="fa fa-newspaper-o" aria-hidden="true"></i> services <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="services" class="collapse">
-                        <li>
-                            <a href="http://localhost/cvbank/views/service/create.php"><i class="fa fa-envelope"></i>  new  </a>
-                        </li>
-                        <li>
-                            <a href="http://localhost/cvbank/views/service/restore.php"><i class="fa fa-adjust"></i> trash</a>
-                        </li>
-
-
-                        <li>
-                            <a href="http://localhost/cvbank/views/service/index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#settings"><i class="fa fa-newspaper-o" aria-hidden="true"></i> settings <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="settings" class="collapse">
-                        <li>
-                            <a href="http://localhost/cvbank/views/settings/create.php"><i class="fa fa-envelope"></i>  new  </a>
-                        </li>
-                        <li>
-                            <a href="http://localhost/cvbank/views/settings/restore.php"><i class="fa fa-adjust"></i> trash</a>
-                        </li>
-                        <li>
-                            <a href="http://localhost/cvbank/views/settings/index.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
-                        </li>
-
-                        <li>
-                            <a href="http://localhost/cvbank/views/settings/index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
-                        </li>
-                    </ul>
-                </li>
-
-
-
-                <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#AboutMe"><i class="fa fa-newspaper-o" aria-hidden="true"></i> About Me <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="AboutMe" class="collapse">
-                        <li>
-                            <a href="http://localhost/cvbank/views/aboutme/"><i class="fa fa-envelope"></i> views  </a>
-                        </li>
-
-                    </ul>
-                </li>
-
-
-                <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#skill"><i class="fa fa-newspaper-o" aria-hidden="true"></i> skill <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="skill" class="collapse">
-                        <li>
-                            <a href="http://localhost/cvbank/views/skills/create.php"><i class="fa fa-envelope"></i> new</a>
-                        </li>
-                        <li>
-                            <a href="http://localhost/cvbank/views/skills/"><i class="fa fa-th-list" aria-hidden="true"></i> views skill</a>
-                        </li>
-                        <li>
-                            <a href="http://localhost/cvbank/views/skills/restore.php"><i class="fa fa-adjust"></i> Trash skills</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-
-                <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#facts"><i class="fa fa-newspaper-o" aria-hidden="true"></i> facts <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="facts" class="collapse">
-                        <li>
-                            <a href="http://localhost/cvbank/views/facts/create.php"><i class="fa fa-envelope"></i>  new  </a>
-                        </li>
-                        <li>
-                            <a href="http://localhost/cvbank/views/facts/restore.php"><i class="fa fa-adjust"></i> trash</a>
-                        </li>
-                        <li>
-                            <a href="http://localhost/cvbank/views/facts/index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
-                        </li>
-                    </ul>
-                </li>
 
 
             </ul>
         </div>
    <?php  }else {?>
-              <div class="collapse navbar-collapse navbar-ex1-collapse">
+              <div class="collapse  navbar-collapse navbar-ex1-collapse">
                   <ul class="nav navbar-nav side-nav">
                       <li class="active">
                           <a href="http://localhost/cvbank/views/admin/"><i class="fa fa-fw fa-dashboard"></i>Admin Dashboard</a>
@@ -388,4 +398,21 @@ if(!isset($_SESSION['userinfo'])){
                         ?>
                     </div>
                 </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <?php  $page=explode('/',$_SERVER['PHP_SELF'])[3]; ?>
+                    <?php if($page=="aboutme" || $page==="settings"){ ?>
+                    <ul class="nav nav-pills">
+
+                    </ul>
+                    <?php }else{ ?>
+                    <ul class="nav nav-pills">
+                        <li role="presentation" class="active"><a href="create.php"><i class="fa fa-envelope"></i>  new  </a></li>
+                        <li role="presentation"><a href="restore.php"><i class="fa fa-adjust"></i> trash</a></li>
+                        <li role="presentation"><a href="index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a></li>
+                    </ul>
+                    <?php } ?>
+                </div>
+
             </div>
