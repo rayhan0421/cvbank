@@ -102,6 +102,11 @@ if(!isset($_SESSION['userinfo'])){
                         <a target="_blank" href="http://localhost/cvbank/views/public/resume/single.php"><i class="fa fa-fw fa-star"></i>Show Resume </a>
                     </li>
 
+                    <li>
+                        <input type="text" value="asd">
+                        <a target="_blank" href="http://localhost/cvbank/views/public/resume/?id=<?php echo $_SESSION['userinfo'][0]['id']; ?>"><i class="fa fa-fw fa-share"></i>Share link</a>
+                    </li>
+
                     <li class="divider"></li>
                     <li>
                         <a href="http://localhost/cvbank/views/login/logout.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
@@ -114,10 +119,10 @@ if(!isset($_SESSION['userinfo'])){
           <?php if($_SESSION['userinfo'][0]['user_role']==1) {?>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
-                <li class="active">
+                <li class="<?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'deshboard' ? 'active' : '';?>">
                     <a href="http://localhost/cvbank/views/deshboard/"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                 </li>
-                <li>
+                <li class="<?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'settings' ? 'active' : '';?>">
                     <a href="javascript:;" data-toggle="collapse" data-target="#settings"><i class="fa fa-wrench" aria-hidden="true"></i> Settings <i class="fa fa-fw fa-caret-down"></i></a>
 
                     <ul id="settings" class="collapse <?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'settings' ? 'in' : '';?>">
