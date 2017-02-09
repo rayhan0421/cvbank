@@ -226,8 +226,8 @@ if(!isset($_SESSION['userinfo'])){
                     </ul>
                 </li>
                 <li class="<?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'service' ? 'active' : '';?>">
-                    <a href="javascript:;" data-toggle="collapse " data-target="#services"><i class="fa fa-shield" aria-hidden="true"></i> Services <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="services" class="collapse <?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'service' ? 'in' : '';?>">
+                    <a href="javascript:;" data-toggle="collapse" data-target="#serv"><i class="fa fa-star-half" aria-hidden="true"></i> Services <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="serv" class="collapse <?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'post' ? 'in' : '';?>">
                         <li>
                             <a href="http://localhost/cvbank/views/service/create.php"><i class="fa fa-envelope"></i>  new  </a>
                         </li>
@@ -241,6 +241,7 @@ if(!isset($_SESSION['userinfo'])){
                         </li>
                     </ul>
                 </li>
+
                 <li class="<?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'facts' ? 'active' : '';?>">
                     <a href="javascript:;" data-toggle="collapse" data-target="#facts"><i class="fa fa-cc-discover" aria-hidden="true"></i> Facts <i class="fa fa-fw fa-caret-down"></i></a>
                     <ul id="facts" class="collapse <?php echo explode('/',$_SERVER['PHP_SELF'])[3] == 'facts' ? 'in' : '';?>">

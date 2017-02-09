@@ -354,7 +354,7 @@ if(isset($_GET['keyword'])){
                     $results=array();
                     $search = new search();
 
-                    $search->sktitle = "";
+                    $search->sktitle = "no";
                     if(!empty($_GET['keyword'])){
                         $search->setdata($_GET);
                         $results = array();

@@ -327,10 +327,10 @@ EOD;
 <?php
 
 if(isset($_GET['pdf'])){
-    $pdf_student =  new mPDF();
+    $pdf_cv =  new mPDF();
 
-    $pdf_student->WriteHTML($html);
-    $pdf_student->Output();
+    $pdf_cv->WriteHTML($html);
+    $pdf_cv->Output();
 }else{
     echo $html;
 }
