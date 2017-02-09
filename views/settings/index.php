@@ -62,13 +62,11 @@ $ab =$ab->index();
               <input type="text"   name="address"  value="<?php echo $ab['address']; ?>" class="form-control" id="pwd">
           </div>
 
-                            <div class="form-group">
-                                <label>image</label>
-                                 <input type="file" name="featured_img" class="form-control">
-                                <img height="150" width="150" src="../../storage/images/<?php echo $ab['featured_img']; ?>" />
-
-
-                            </div>
+          <div class="form-group">
+            <label>image</label>
+            <input type="file" name="featured_img" class="form-control">
+            <img height="150" width="150" src="../../storage/images/<?php echo $ab['featured_img']; ?>" />
+           </div>
           <input type="hidden"   name="id"  value="<?php echo $ab['stid']; ?>" class="form-control" id="pwd">
 
 
@@ -78,7 +76,7 @@ $ab =$ab->index();
 
 else {
  ?>
-         <form action="update.php" method="post" enctype="multipart/form-data">
+         <form action="store.php" method="post" enctype="multipart/form-data">
 
 
 
@@ -100,11 +98,10 @@ else {
               <input type="text"   name="address"  value="<?php echo $ab['address']; ?>" class="form-control" id="pwd">
           </div>
 
-                            <div class="form-group">
-                                <label>image</label>
-                                <input type="file" name="featured_img" class="form-control">
-
-                            </div>
+           <div class="form-group">
+            <label>image</label>
+             <input type="file" name="featured_img" class="form-control">
+            </div>
 
           <button type="submit" class="btn btn-primary">Update</button>
       </form>

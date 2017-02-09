@@ -84,7 +84,7 @@ $post = $resume->post();
         <!-- Sidebar-->
         <div class="aside1">
             <a class="contact-button"><i class="fa fa-paper-plane"></i></a>
-            <a class="download-button"><i class="fa fa-cloud-download"></i></a>
+            <a target="_blank" class="download-button" href="http://localhost/cvbank/views/public/resume/single.php?id=<?php echo $_GET['id']; ?>"><i class="fa fa-cloud-download"></i></a>
             <a class="download-button" href="../../../index.php"><i class="fa fa-search"></i></a>
             <div class="aside-content"><span class="part1">CVBANK</span><span class="part2">Professional Vcard</span>
             </div>
@@ -147,6 +147,8 @@ $post = $resume->post();
                     <div><a href="" class="previous-page arrow"><i class="fa fa-angle-left"></i></a>
                     </div>
                     <div><a href="" class="next-page arrow"><i class="fa fa-angle-right"></i></a>
+                    </div>
+                    <div><a href="http://localhost/cvbank/views/public/resume/single.php?id=<?php echo $_GET['id']; ?>" class="next-page arrow"><i class="fa fa-download"></i></a>
                     </div>
                     <!-- News scroll -->
 

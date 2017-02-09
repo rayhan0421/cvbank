@@ -3,7 +3,16 @@ include ("../../../vendor/autoload.php");
 session_start();
 use App\admin\resume;
 $resume= new resume();
-$data['id'] = $_SESSION['userinfo'][0]['id'];
+$id='';
+if(isset($_GET['id'])){
+    $data['id'] = $_GET['id'];
+    $id=$data['id'];
+
+}else{
+
+    $data['id'] = $_SESSION['userinfo'][0]['id'];
+}
+
 $print = null;
 if(isset($_GET['print'])){
     $print = "print";
@@ -181,7 +190,7 @@ endforeach;
               </button>
           
              <button>
-             <a target="_blank" href="http://localhost/cvbank/views/public/resume/single.php?pdf" >download pdf</a> 
+             <a target="_blank" href="http://localhost/cvbank/views/public/resume/single.php?pdf=pdf&id=$id" >download pdf</a> 
              </button>
            </div>
          

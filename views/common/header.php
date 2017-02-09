@@ -99,7 +99,7 @@ if(!isset($_SESSION['userinfo'])){
                         <a href="http://localhost/cvbank/views/users/"><i class="fa fa-fw fa-user"></i> Profile</a>
                     </li>
                     <li>
-                        <a target="_blank" href="http://localhost/cvbank/views/public/resume/single.php"><i class="fa fa-fw fa-star"></i>Show Resume </a>
+                        <a target="_blank" href="http://localhost/cvbank/views/public/resume/single.php?id=<?php echo $_SESSION['userinfo'][0]['id']; ?>"><i class="fa fa-fw fa-star"></i>Show Resume </a>
                     </li>
 
                     <li>
@@ -159,9 +159,7 @@ if(!isset($_SESSION['userinfo'])){
                         <li>
                             <a href="http://localhost/cvbank/views/education/restore.php"><i class="fa fa-adjust"></i> trash</a>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
-                        </li>
+
 
                         <li>
                             <a href="http://localhost/cvbank/views/education/index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
@@ -207,9 +205,7 @@ if(!isset($_SESSION['userinfo'])){
                         <li>
                             <a href="http://localhost/cvbank/views/Portfolio/restore.php"><i class="fa fa-adjust"></i> trash</a>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
-                        </li>
+
 
                         <li>
                             <a href="http://localhost/cvbank/views/Portfolio/index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
@@ -272,9 +268,7 @@ if(!isset($_SESSION['userinfo'])){
                         <li>
                             <a href="http://localhost/cvbank/views/hobbies/restore.php"><i class="fa fa-adjust"></i> trash</a>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
-                        </li>
+
 
                         <li>
                             <a href="http://localhost/cvbank/views/hobbies/index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
@@ -292,9 +286,7 @@ if(!isset($_SESSION['userinfo'])){
                         <li>
                             <a href="http://localhost/cvbank/views/award/restore.php"><i class="fa fa-adjust"></i> trash</a>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> edit</a>
-                        </li>
+
 
                         <li>
                             <a href="http://localhost/cvbank/views/award/index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
