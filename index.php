@@ -10,12 +10,7 @@ if(isset($_GET['skill'])){
     unset($_SESSION['skill']);
 }
 
-if(isset($_GET['experienc'])){
 
-    $_SESSION['experienc'] = $_GET['experienc'];
-}else{
-
-}
 
 $totalrows='';
 $totalpage='';
@@ -325,15 +320,15 @@ if(isset($_GET['keyword'])){
             <div class="flipkart-navbar-search smallsearch col-sm-8 col-xs-11">
               <form action="" method="get">
                   <div class="row">
-                      <label class="checkbox-inline">
+                      <div class="form-group" style="width: 30%">
+                          <label for="sel1">Filter:</label>
+                          <select name="filter" class="form-control" id="sel1">
+                              <option selected> no filter </option>
+                              <option value="skill">Skill</option>
+                              <option value="exp">Experience</option>
 
-                          <input type="checkbox" id="skill"  name="skill" value="skill" <?php if(array_key_exists('skill',$_SESSION)){
-                         /*echo "checked";*/  } ?> > Skill
-                      </label>
-                      <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox2"  name="experienc" value="experienc"  <?php if(array_key_exists('experienc',$_SESSION)){
-                             /* echo "checked";*/  } ?> > Experience
-                      </label>
+                          </select>
+                      </div>
                       <input  class="flipkart-navbar-input col-xs-11" style="color:black" type="search" placeholder="Search for employee, cv and resume" autosave="saved-searches" name="keyword">
 
                       <button class="flipkart-navbar-button col-xs-1">
@@ -384,12 +379,7 @@ if(isset($_GET['keyword'])){
                  <?php if(!empty($_GET['keyword'])){
 
                      ?>
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="inlineCheckbox1" value="option1"> Skill
-                        </label>
-                        <label class="checkbox-inline">
-                            <input type="checkbox" id="inlineCheckbox2" value="option2"> Experience
-                        </label>
+
                     
 
                         <?php foreach ($results as $value) { ?>

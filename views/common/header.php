@@ -311,7 +311,7 @@ if(!isset($_SESSION['userinfo'])){
                         <li>
                             <a href="http://localhost/cvbank/views/contact/restore.php"><i class="fa fa-adjust"></i> trash</a>
                         </li>
-                     
+
                         <li>
                             <a href="http://localhost/cvbank/views/contact/index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a>
                         </li>
@@ -411,14 +411,18 @@ if(!isset($_SESSION['userinfo'])){
                     <ul class="nav nav-pills">
 
                     </ul>
-                    <?php }else{ ?>
+                    <?php }else{
+                          if($_SESSION['userinfo'][0]['user_role']==2){
+
+                          }else{
+                        ?>
                     <ul class="nav nav-pills">
                         <li role="presentation" class="<?php echo explode('/',$_SERVER['PHP_SELF'])[4] == 'create.php' ? 'active' : '';?>"><a href="create.php"><i class="fa fa-envelope"></i>  new  </a></li>
                         <li role="presentation" class="<?php echo explode('/',$_SERVER['PHP_SELF'])[4] == 'restore.php' ? 'active' : '';?>"><a href="restore.php"><i class="fa fa-adjust"></i> trash</a></li>
                         <li role="presentation" class="<?php echo explode('/',$_SERVER['PHP_SELF'])[4] == 'index.php' ? 'active' : '';?>" ><a href="index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a></li>
 
                     </ul>
-                    <?php } ?>
+                    <?php } }?>
                 </div>
 
             </div>

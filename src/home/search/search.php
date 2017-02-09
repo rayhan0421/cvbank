@@ -12,7 +12,7 @@ Class search extends model
    public $sktitle ='active';
    protected $skexp = '';
    public $id='';
-   public $perpage = 2;
+   public $perpage = 5;
 
 
     public function setdata($data)
@@ -21,8 +21,8 @@ Class search extends model
         if (array_key_exists('abtitle', $data)) {
             $this->abtitle = $data['abtitle'];
         }
-        if (array_key_exists('skill', $data)) {
-            $this->sktitle = $data['skill'];
+        if (array_key_exists('filter', $data)) {
+            $this->sktitle = $data['filter'];
         }
         if (array_key_exists('experienc', $data)) {
             $this->skexp  = $data['experienc'];
@@ -37,12 +37,17 @@ Class search extends model
 
     public function search(&$rows,&$perpage,$currentpage,&$offset){
 
+
            $perpage = $this->perpage;
 
            $offset = ceil($this->perpage*$currentpage);
            if($this->sktitle=="skill"){
                $queary =   "SELECT SQL_CALC_FOUND_ROWS users.id as uid, skills.title as abtitle, skills.description as abbio from users JOIN skills ON users.id = skills.user_id WHERE skills.experience LIKE '%{$this->sktitle}%' OR skills.title LIKE '%{$this->keyword}%' limit $this->perpage OFFSET $offset";
-           }else {
+           }elseif($this->sktitle=="exp"){
+               $queary =   "SELECT SQL_CALC_FOUND_ROWS users.id as uid, skills.title as abtitle, skills.description as abbio from users JOIN skills ON users.id = skills.user_id WHERE skills.experience LIKE '%{$this->sktitle}%' OR skills.experience LIKE '%{$this->keyword}%' limit $this->perpage OFFSET $offset";
+
+           }
+           else {
 
                $queary = "SELECT SQL_CALC_FOUND_ROWS users.id as uid, abouts.title as abtitle, abouts.bio as abbio from users JOIN abouts ON users.id = abouts.user_id WHERE abouts.title LIKE '%{$this->keyword}%' OR abouts.bio LIKE '%{$this->keyword}%' limit $this->perpage OFFSET $offset";
            }
