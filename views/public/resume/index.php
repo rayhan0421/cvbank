@@ -333,11 +333,12 @@ $post = $resume->post();
 
                         <!-- publication wrapper -->
                         <div id="mygrid">
+                            <?php $serial=1; ?>
                             <!-- publication item -->
-                            <?php foreach ($post as $value) {?>
+                            <?php foreach ($post as $value) { $serial++?>
                             <div class="publication_item" data-groups='["all","CONFERENCES"]' data-date-publication="2007-12-01">
                                 <div class="media">
-                                    <a href=".publication-detail1" class="ex-link open_popup" data-effect="mfp-zoom-out"><i class="fa fa-plus-square-o"></i></a>
+                                    <a href=".publication-detail<?php echo $serial; ?>" class="ex-link open_popup" data-effect="mfp-zoom-out"><i class="fa fa-plus-square-o"></i></a>
                                     <div class="date pull-left">
                                         <span class="day"> <?php echo explode('-',$value['created_at'])[0]; ?></span>
                                         <span class="month"><?php echo explode('-',$value['created_at'])[1]; ?></span>
@@ -352,7 +353,7 @@ $post = $resume->post();
 
                                     <span class="publication_authors"></span>
                                 </div>
-                                <div class="mfp-hide mfp-with-anim publication-detail1 publication-detail">
+                                <div class="mfp-hide mfp-with-anim publication-detail<?php echo $serial;?> publication-detail">
                                     <div class="image_work">
 
                                     </div>
@@ -451,8 +452,8 @@ $post = $resume->post();
                         <h2>WORKS</h2>
                         <div class="portfolio">
                             <!-- Portfolio Item -->
-                             <?php $i=0; $arr= array("work1","work2","work3","work4","work5","work6","work7","work8")?>
-                            <?php foreach ($port as $value) { ?>
+                             <?php $i=1; ?>
+                            <?php foreach ($port as $value) { $i++; ?>
                             <!-- Portfolio Item -->
                             <figure class="effect-milo">
                                 <img src="http://localhost/cvbank/storage/images/<?php echo $value['img']; ?>" alt="img11" width="282" height="222" />
@@ -460,11 +461,11 @@ $post = $resume->post();
                                     <span class="label"><?php echo $value['category']; ?></span>
                                     <div class="portfolio_button">
                                         <h3><?php echo $value['title']; ?></h3>
-                                        <a href=".work" class="open_popup" data-effect="mfp-zoom-out">
+                                        <a href=".work<?php echo $i; ?>" class="open_popup" data-effect="mfp-zoom-out">
                                             <i class="hovicon effect-9 sub-b"><i class="fa fa-search"></i></i>
                                         </a>
                                     </div>
-                                    <div class="mfp-hide mfp-with-anim work_desc <?php echo $arr[$i++]; ?>">
+                                    <div class="mfp-hide mfp-with-anim work_desc work<?php echo $i; ?>">
                                         <div class="col-md-6">
                                             <div class="image_work">
                                                 <img src="http://localhost/cvbank/storage/images/<?php echo $value['img']; ?>" alt="img" width="560" height="420">
