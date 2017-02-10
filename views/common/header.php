@@ -427,7 +427,7 @@ if(!isset($_SESSION['userinfo'])){
             <div class="row">
                 <div class="col-lg-6">
                     <?php  $page=explode('/',$_SERVER['PHP_SELF'])[3]; ?>
-                    <?php if($page=="aboutme" || $page==="settings"){ ?>
+                    <?php if($page=="aboutme" || $page==="settings"|| $page=="deshboard"){ ?>
                     <ul class="nav nav-pills">
 
                     </ul>
@@ -435,6 +435,7 @@ if(!isset($_SESSION['userinfo'])){
                           if($_SESSION['userinfo'][0]['user_role']==2){
 
                           }else{
+
                         ?>
                     <ul class="nav nav-pills">
                         <li role="presentation" class="<?php echo explode('/',$_SERVER['PHP_SELF'])[4] == 'create.php' ? 'active' : '';?>"><a href="create.php"><i class="fa fa-envelope"></i>  new  </a></li>
@@ -442,7 +443,9 @@ if(!isset($_SESSION['userinfo'])){
                         <li role="presentation" class="<?php echo explode('/',$_SERVER['PHP_SELF'])[4] == 'index.php' ? 'active' : '';?>" ><a href="index.php"> <i class="fa fa-th-list" aria-hidden="true"></i> list</a></li>
 
                     </ul>
-                    <?php } }?>
+                    <?php }
+
+                    }?>
                 </div>
 
                 <div class="col-lg-6">
