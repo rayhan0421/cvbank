@@ -148,6 +148,7 @@ Class hobbies extends model
 
     public function update(){
 
+
         try {
 
             if(empty($this->img)){

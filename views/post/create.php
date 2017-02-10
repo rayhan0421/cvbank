@@ -45,9 +45,9 @@ $post =$post->index($_SESSION['userinfo']);
 
             </div>
             <div class="form-group">
-                <label for="dec">desc</label>
+                <label>desc</label>
 
-                <textarea  name="desc" class="form-control" rows="6" cols="6" id="dec"></textarea>
+                <textarea  id="posteditor" name="desc" class="form-control" rows="6" cols="6"></textarea>
 
             </div>
 
@@ -66,6 +66,19 @@ $post =$post->index($_SESSION['userinfo']);
         <button type="submit" class="btn btn-default">Save</button>
 
         </form>
+        <script type="text/javascript" >
+            // Replace the <textarea id="editor1"> with a CKEditor
+            // instance, using default configuration.
+            CKEDITOR.replace( 'posteditor' );
+
+
+            function getimagelink(src) {
+                var link = document.getElementById("img");
+                document.getElementById("imagesrc").value =src;
+
+            }
+
+        </script>
     </div>
     <div class="text-right">
 

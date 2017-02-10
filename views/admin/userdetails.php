@@ -664,8 +664,9 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                                    $facts = $resume->facts();
 
                                    if(is_array($facts)){
+                                       $sl=1;
 
-                                       foreach ($facts as $value){ $sl=1;?>
+                                       foreach ($facts as $value){ $sl++;?>
                                            <form action="facts/update.php" method="post" enctype="multipart/form-data">
                                                <tr>
 
@@ -673,11 +674,14 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
 
                                                    <td ><input type="text" value="<?php echo $value['no_of_items'] ;?>" name="no_of_items" ></td>
                                                    <td >
-                                                       <input type="file" value="<?php echo $value['img'] ;?>" name="img" >
-                                                       <?php if(!empty($value['img'])) { ?>
+                                                      <?php if(!empty($value['img'])) { ?>
 
-                                                       <img height="150" width="150" src="http://localhost/cvbank/storage/images/<?php echo $value['img']; ?>" />
+                                                       <img  id="previmg22<?php echo $sl; ?>"  src="http://localhost<?php echo $value['img']; ?>" />
                                                   <?php } ?>
+                                                       <div id="image" onclick="openKCFinder22<?php echo $sl; ?>(this)"><div style="margin:1px">Click here to choose an image</div></div>
+
+                                                       <input type="hidden" name="img" id="imagesrc22<?php echo $sl; ?>">
+
                                                    </td>
 
 
@@ -692,6 +696,60 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                                                </tr>
                                            </form>
 
+
+                                           <script type="text/javascript" >
+                                               function openKCFinder22<?php echo $sl; ?>(div) {
+                                                   window.KCFinder = {
+                                                       callBack: function(url) {
+                                                           window.KCFinder = null;
+                                                           div.innerHTML = '<div style="margin:5px">Loading...</div>';
+                                                           var img = new Image();
+                                                           img.src = url;
+                                                           img.onload = function() {
+
+                                                               div.innerHTML = '<img height="100" width="100" id="img22<?php echo $sl; ?>" src="' + url + '" />';
+                                                               var img = document.getElementById('img22<?php echo $sl; ?>');
+                                                               var o_w = img.offsetWidth;
+                                                               var o_h = img.offsetHeight;
+                                                               var f_w = div.offsetWidth;
+                                                               var f_h = div.offsetHeight;
+                                                               if ((o_w > f_w) || (o_h > f_h)) {
+                                                                   if ((f_w / f_h) > (o_w / o_h))
+                                                                       f_w = parseInt((o_w * f_h) / o_h);
+                                                                   else if ((f_w / f_h) < (o_w / o_h))
+                                                                       f_h = parseInt((o_h * f_w) / o_w);
+                                                                   img.style.width = f_w + "px";
+                                                                   img.style.height = f_h + "px";
+                                                               } else {
+                                                                   f_w = o_w;
+                                                                   f_h = o_h;
+                                                               }
+                                                               img.style.marginLeft = parseInt((div.offsetWidth - f_w) / 2) + 'px';
+                                                               img.style.marginTop = parseInt((div.offsetHeight - f_h) / 2) + 'px';
+                                                               img.style.visibility = "visible";
+                                                               getimagelink22<?php echo $sl; ?>(url);
+                                                           }
+                                                       }
+                                                   };
+                                                   window.open('/cvbank/src/kcfinder/browse.php?type=images&dir=images/public',
+                                                       'kcfinder_image', 'status=0, toolbar=0, location=0, menubar=0, ' +
+                                                       'directories=0, resizable=1, scrollbars=0, width=800, height=600'
+                                                   );
+                                               }
+                                               // Replace the <textarea id="editor1"> with a CKEditor
+
+
+
+                                               function getimagelink22<?php echo $sl; ?>(src) {
+                                                   var link = document.getElementById("previmg22<?php echo $sl; ?>");
+                                                   link.style.display = "none";
+
+
+                                                   document.getElementById("imagesrc22<?php echo $sl; ?>").value =src;
+
+                                               }
+
+                                           </script>
 
 
                                            <?php
@@ -722,14 +780,68 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
 
                                        <div class="form-group">
                                            <label>image</label>
-                                           <input type="file" name="img" class="form-control">
+                                           <div id="image" onclick="openKCFinder3(this)"><div style="margin:5px">Click here to choose an image</div></div>
 
                                        </div>
+                                       <input type="hidden" name="img" id="imagesrc3" required>
 
 
-                                       <button type="submit" class="btn btn-default">Save</button>
+                                       <input type="submit" class="btn btn-default" />
 
                                    </form>
+
+                                   <script type="text/javascript" >
+                                       // Replace the <textarea id="editor1"> with a CKEditor
+
+
+                                       function openKCFinder3(div) {
+                                           window.KCFinder = {
+                                               callBack: function(url) {
+                                                   window.KCFinder = null;
+                                                   div.innerHTML = '<div style="margin:5px">Loading...</div>';
+                                                   var img = new Image();
+                                                   img.src = url;
+                                                   img.onload = function() {
+
+                                                       div.innerHTML = '<img height="100" width="100" id="img3" src="' + url + '" />';
+                                                       var img = document.getElementById('img3');
+                                                       var o_w = img.offsetWidth;
+                                                       var o_h = img.offsetHeight;
+                                                       var f_w = div.offsetWidth;
+                                                       var f_h = div.offsetHeight;
+                                                       if ((o_w > f_w) || (o_h > f_h)) {
+                                                           if ((f_w / f_h) > (o_w / o_h))
+                                                               f_w = parseInt((o_w * f_h) / o_h);
+                                                           else if ((f_w / f_h) < (o_w / o_h))
+                                                               f_h = parseInt((o_h * f_w) / o_w);
+                                                           img.style.width = f_w + "px";
+                                                           img.style.height = f_h + "px";
+                                                       } else {
+                                                           f_w = o_w;
+                                                           f_h = o_h;
+                                                       }
+                                                       img.style.marginLeft = parseInt((div.offsetWidth - f_w) / 2) + 'px';
+                                                       img.style.marginTop = parseInt((div.offsetHeight - f_h) / 2) + 'px';
+                                                       img.style.visibility = "visible";
+                                                       getimagelink3(url);
+                                                   }
+                                               }
+                                           };
+                                           window.open('/cvbank/src/kcfinder/browse.php?type=images&dir=images/public',
+                                               'kcfinder_image', 'status=0, toolbar=0, location=0, menubar=0, ' +
+                                               'directories=0, resizable=1, scrollbars=0, width=800, height=600'
+                                           );
+                                       }
+                                       function getimagelink3(src) {
+                                          // var link = document.getElementById("img3");
+
+
+                                          // link.style.display = "none";
+                                           document.getElementById("imagesrc3").value =src;
+
+                                       }
+
+                                   </script>
                                </div>
                                 </div>
 
@@ -768,21 +880,23 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                                    </tr>
                                    <?php
                                    $hoby = $resume->hobbies();
-
+                                   $sl=1;
                                    if(is_array($hoby)){
 
-                                       foreach ($hoby as $value){ $sl=1;?>
+                                       foreach ($hoby as $value){ ?>
                                            <form action="hobbies/update.php" method="post" enctype="multipart/form-data">
                                                <tr>
                                                    <td>  <?php echo $sl++; ?> </td>
                                                    <td> <input type="text" value=" <?php echo $value['title']; ?>" name="title" >  </td>
                                                    <td > <input type="text" value="<?php echo $value['description']; ?> " name="description"></td>
                                                    <td >
-                                                       <input type="file" value="<?php echo $value['img'] ;?>" name="img" >
                                                        <?php if(!empty($value['img'])) { ?>
 
-                                                           <img height="150" width="150" src="http://localhost/cvbank/storage/images/<?php echo $value['img']; ?>" />
+                                                           <img  id="previmg92<?php echo $sl; ?>"  src="http://localhost<?php echo $value['img']; ?>" />
                                                        <?php } ?>
+                                                       <div id="image" onclick="openKCFinder92<?php echo $sl; ?>(this)"><div style="margin:1px">Click here to choose an image</div></div>
+
+                                                       <input type="hidden" name="img" id="imagesrc92<?php echo $sl; ?>">
                                                    </td>
 
 
@@ -797,7 +911,59 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                                                </tr>
                                            </form>
 
+                                           <script type="text/javascript" >
+                                               function openKCFinder92<?php echo $sl; ?>(div) {
+                                                   window.KCFinder = {
+                                                       callBack: function(url) {
+                                                           window.KCFinder = null;
+                                                           div.innerHTML = '<div style="margin:5px">Loading...</div>';
+                                                           var img = new Image();
+                                                           img.src = url;
+                                                           img.onload = function() {
 
+                                                               div.innerHTML = '<img height="100" width="100" id="img92<?php echo $sl; ?>" src="' + url + '" />';
+                                                               var img = document.getElementById('img92<?php echo $sl; ?>');
+                                                               var o_w = img.offsetWidth;
+                                                               var o_h = img.offsetHeight;
+                                                               var f_w = div.offsetWidth;
+                                                               var f_h = div.offsetHeight;
+                                                               if ((o_w > f_w) || (o_h > f_h)) {
+                                                                   if ((f_w / f_h) > (o_w / o_h))
+                                                                       f_w = parseInt((o_w * f_h) / o_h);
+                                                                   else if ((f_w / f_h) < (o_w / o_h))
+                                                                       f_h = parseInt((o_h * f_w) / o_w);
+                                                                   img.style.width = f_w + "px";
+                                                                   img.style.height = f_h + "px";
+                                                               } else {
+                                                                   f_w = o_w;
+                                                                   f_h = o_h;
+                                                               }
+                                                               img.style.marginLeft = parseInt((div.offsetWidth - f_w) / 2) + 'px';
+                                                               img.style.marginTop = parseInt((div.offsetHeight - f_h) / 2) + 'px';
+                                                               img.style.visibility = "visible";
+                                                               getimagelink92<?php echo $sl; ?>(url);
+                                                           }
+                                                       }
+                                                   };
+                                                   window.open('/cvbank/src/kcfinder/browse.php?type=images&dir=images/public',
+                                                       'kcfinder_image', 'status=0, toolbar=0, location=0, menubar=0, ' +
+                                                       'directories=0, resizable=1, scrollbars=0, width=800, height=600'
+                                                   );
+                                               }
+                                               // Replace the <textarea id="editor1"> with a CKEditor
+
+
+
+                                               function getimagelink92<?php echo $sl; ?>(src) {
+                                                   var link = document.getElementById("previmg92<?php echo $sl; ?>");
+                                                   link.style.display = "none";
+
+
+                                                   document.getElementById("imagesrc92<?php echo $sl; ?>").value =src;
+
+                                               }
+
+                                           </script>
 
                                            <?php
 
@@ -825,16 +991,70 @@ if(!isset($_GET['id']) && !empty($_GET['id'])){
                                        </div>
 
                                        <div class="form-group">
-                                           <label>img</label>
-                                           <input type="file" name="img" class="form-control">
+                                           <label>image</label>
+                                           <div id="image" onclick="openKCFinder4(this)"><div style="margin:5px">Click here to choose an image</div></div>
 
                                        </div>
+                                       <input type="hidden" name="img" id="imagesrc4" required>
                                        <input name="user_id" type="hidden" value="<?php echo $_GET['id']; ?>" class="form-control">
 
 
                                        <button type="submit" class="btn btn-default">Save</button>
 
                                    </form>
+
+                                   <script type="text/javascript" >
+                                       // Replace the <textarea id="editor1"> with a CKEditor
+
+
+                                       function openKCFinder4(div) {
+                                           window.KCFinder = {
+                                               callBack: function(url) {
+                                                   window.KCFinder = null;
+                                                   div.innerHTML = '<div style="margin:5px">Loading...</div>';
+                                                   var img = new Image();
+                                                   img.src = url;
+                                                   img.onload = function() {
+
+                                                       div.innerHTML = '<img height="100" width="100" id="img4" src="' + url + '" />';
+                                                       var img = document.getElementById('img4');
+                                                       var o_w = img.offsetWidth;
+                                                       var o_h = img.offsetHeight;
+                                                       var f_w = div.offsetWidth;
+                                                       var f_h = div.offsetHeight;
+                                                       if ((o_w > f_w) || (o_h > f_h)) {
+                                                           if ((f_w / f_h) > (o_w / o_h))
+                                                               f_w = parseInt((o_w * f_h) / o_h);
+                                                           else if ((f_w / f_h) < (o_w / o_h))
+                                                               f_h = parseInt((o_h * f_w) / o_w);
+                                                           img.style.width = f_w + "px";
+                                                           img.style.height = f_h + "px";
+                                                       } else {
+                                                           f_w = o_w;
+                                                           f_h = o_h;
+                                                       }
+                                                       img.style.marginLeft = parseInt((div.offsetWidth - f_w) / 2) + 'px';
+                                                       img.style.marginTop = parseInt((div.offsetHeight - f_h) / 2) + 'px';
+                                                       img.style.visibility = "visible";
+                                                       getimagelink4(url);
+                                                   }
+                                               }
+                                           };
+                                           window.open('/cvbank/src/kcfinder/browse.php?type=images&dir=images/public',
+                                               'kcfinder_image', 'status=0, toolbar=0, location=0, menubar=0, ' +
+                                               'directories=0, resizable=1, scrollbars=0, width=800, height=600'
+                                           );
+                                       }
+                                       function getimagelink4(src) {
+                                           // var link = document.getElementById("img3");
+
+
+                                           // link.style.display = "none";
+                                           document.getElementById("imagesrc4").value =src;
+
+                                       }
+
+                                   </script>
                                </div>
                            </div>
 

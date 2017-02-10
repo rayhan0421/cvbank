@@ -3,8 +3,10 @@
 use App\hobbies\hobbies;
 $hobbies= new hobbies();
 session_start();
+$hobbies->setdata($_POST);
+$hobbies->update();
 
-
+/*
 if ($_FILES['img']['error'] == 0) {
 
     if (isset($_FILES['img'])) {
@@ -50,6 +52,7 @@ if ($_FILES['img']['error'] == 0) {
     $hobbies->setdata($_POST);
     $hobbies->update();
 }
+*/
 ?>
 
 

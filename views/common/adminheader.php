@@ -56,6 +56,93 @@ if(!isset($_SESSION['userinfo'])){
     <script src="../../assets/js/jquery.dataTables.min.js"></script>
     <script src="../../assets/js/buttons.print.min.js"></script>
     <script src="../../assets/js/pdfmake.min.js"></script>
+    <script type="text/javascript" src="../../assets/ckeditor/ckeditor.js"></script>
+
+
+    <script type="text/javascript">
+        function openKCFinder(div) {
+            window.KCFinder = {
+                callBack: function(url) {
+                    window.KCFinder = null;
+                    div.innerHTML = '<div style="margin:5px">Loading...</div>';
+                    var img = new Image();
+                    img.src = url;
+                    img.onload = function() {
+
+                        div.innerHTML = '<img height="100" width="100" id="img" src="' + url + '" />';
+                        var img = document.getElementById('img');
+                        var o_w = img.offsetWidth;
+                        var o_h = img.offsetHeight;
+                        var f_w = div.offsetWidth;
+                        var f_h = div.offsetHeight;
+                        if ((o_w > f_w) || (o_h > f_h)) {
+                            if ((f_w / f_h) > (o_w / o_h))
+                                f_w = parseInt((o_w * f_h) / o_h);
+                            else if ((f_w / f_h) < (o_w / o_h))
+                                f_h = parseInt((o_h * f_w) / o_w);
+                            img.style.width = f_w + "px";
+                            img.style.height = f_h + "px";
+                        } else {
+                            f_w = o_w;
+                            f_h = o_h;
+                        }
+                        img.style.marginLeft = parseInt((div.offsetWidth - f_w) / 2) + 'px';
+                        img.style.marginTop = parseInt((div.offsetHeight - f_h) / 2) + 'px';
+                        img.style.visibility = "visible";
+                        getimagelink(url);
+                    }
+                }
+            };
+            window.open('/cvbank/src/kcfinder/browse.php?type=images&dir=images/public',
+                'kcfinder_image', 'status=0, toolbar=0, location=0, menubar=0, ' +
+                'directories=0, resizable=1, scrollbars=0, width=800, height=600'
+            );
+        }
+        function openKCFinder2(div) {
+            window.KCFinder = {
+                callBack: function(url) {
+                    window.KCFinder = null;
+                    div.innerHTML = '<div style="margin:5px">Loading...</div>';
+                    var img = new Image();
+                    img.src = url;
+                    img.onload = function() {
+
+                        div.innerHTML = '<img height="100" width="100" id="img2" src="' + url + '" />';
+                        var img = document.getElementById('img2');
+                        var o_w = img.offsetWidth;
+                        var o_h = img.offsetHeight;
+                        var f_w = div.offsetWidth;
+                        var f_h = div.offsetHeight;
+                        if ((o_w > f_w) || (o_h > f_h)) {
+                            if ((f_w / f_h) > (o_w / o_h))
+                                f_w = parseInt((o_w * f_h) / o_h);
+                            else if ((f_w / f_h) < (o_w / o_h))
+                                f_h = parseInt((o_h * f_w) / o_w);
+                            img.style.width = f_w + "px";
+                            img.style.height = f_h + "px";
+                        } else {
+                            f_w = o_w;
+                            f_h = o_h;
+                        }
+                        img.style.marginLeft = parseInt((div.offsetWidth - f_w) / 2) + 'px';
+                        img.style.marginTop = parseInt((div.offsetHeight - f_h) / 2) + 'px';
+                        img.style.visibility = "visible";
+                        getimagelink2(url);
+                    }
+                }
+            };
+            window.open('/cvbank/src/kcfinder/browse.php?type=images&dir=images/public',
+                'kcfinder_image', 'status=0, toolbar=0, location=0, menubar=0, ' +
+                'directories=0, resizable=1, scrollbars=0, width=800, height=600'
+            );
+        }
+
+
+
+
+
+
+    </script>
 </head>
 
 <body>

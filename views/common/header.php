@@ -35,17 +35,63 @@ if(!isset($_SESSION['userinfo'])){
     <!-- Morris Charts CSS -->
     <link href="../../assets/deshboard/css/plugins/morris.css" rel="stylesheet">
 
-    <!-- Custom Fonts -->
+    <!-- Custom Fonts  rayhan-->
     <link href="../../assets/deshboard/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
+
     <script src="../../assets/deshboard/js/jquery.js"></script>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
+    <![endif]-->
+    <script type="text/javascript" src="../../assets/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript">
+        function openKCFinder(div) {
+            window.KCFinder = {
+                callBack: function(url) {
+                    window.KCFinder = null;
+                    div.innerHTML = '<div style="margin:5px">Loading...</div>';
+                    var img = new Image();
+                    img.src = url;
+                    img.onload = function() {
+
+                        div.innerHTML = '<img height="100" width="100" id="img" src="' + url + '" />';
+                        var img = document.getElementById('img');
+                        var o_w = img.offsetWidth;
+                        var o_h = img.offsetHeight;
+                        var f_w = div.offsetWidth;
+                        var f_h = div.offsetHeight;
+                        if ((o_w > f_w) || (o_h > f_h)) {
+                            if ((f_w / f_h) > (o_w / o_h))
+                                f_w = parseInt((o_w * f_h) / o_h);
+                            else if ((f_w / f_h) < (o_w / o_h))
+                                f_h = parseInt((o_h * f_w) / o_w);
+                            img.style.width = f_w + "px";
+                            img.style.height = f_h + "px";
+                        } else {
+                            f_w = o_w;
+                            f_h = o_h;
+                        }
+                        img.style.marginLeft = parseInt((div.offsetWidth - f_w) / 2) + 'px';
+                        img.style.marginTop = parseInt((div.offsetHeight - f_h) / 2) + 'px';
+                        img.style.visibility = "visible";
+                        getimagelink(url);
+                    }
+                }
+            };
+            window.open('/cvbank/src/kcfinder/browse.php?type=images&dir=images/public',
+                'kcfinder_image', 'status=0, toolbar=0, location=0, menubar=0, ' +
+                'directories=0, resizable=1, scrollbars=0, width=800, height=600'
+            );
+        }
+
+
+
+    </script>
 </head>
 
 <body>
@@ -314,24 +360,6 @@ if(!isset($_SESSION['userinfo'])){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 <li>
 
 
@@ -415,6 +443,12 @@ if(!isset($_SESSION['userinfo'])){
 
                     </ul>
                     <?php } }?>
+                </div>
+
+                <div class="col-lg-6">
+
+
+
                 </div>
 
             </div>

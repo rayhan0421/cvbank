@@ -3,9 +3,19 @@ include_once ("../../../vendor/autoload.php");
 use App\admin\crud\hobbies\hobbies;
 session_start();
 $sk = new hobbies();
+$id= $_POST['user_id'];
+if(empty($_POST['img'])){
+    $_SESSION['msg'] = "please upload image";
+    header("location:http://localhost/cvbank/views/admin/userdetails.php?id=$id");
+}else{
+    $sk->setdata($_POST);
+    $sk->store();
+}
 
 
 
+
+/*
 if ($_FILES['img']['error'] == 0) {
 
     if (isset($_FILES['img'])) {
@@ -55,3 +65,4 @@ if ($_FILES['img']['error'] == 0) {
     $sk->setdata($_POST);
     $sk->store();
 }
+/*

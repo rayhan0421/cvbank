@@ -2,7 +2,10 @@
 <?php
 use App\facts\facts;
 $fact= new facts();
+$fact->setdata($_POST);
+$fact->update();
 
+/*
 if ($_FILES['img']['error'] == 0) {
 
     if (isset($_FILES['img'])) {
@@ -49,6 +52,7 @@ if ($_FILES['img']['error'] == 0) {
     $fact->setdata($_POST);
     $fact->update();
 }
+*/
 ?>
 
 

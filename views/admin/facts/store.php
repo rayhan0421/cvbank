@@ -5,7 +5,18 @@ use App\admin\crud\facts\facts;
 session_start();
 $sk = new facts();
 $_SESSION['facts']="in";
+$id= $_POST['user_id'];
 
+if(empty($_POST['img'])){
+    $_SESSION['msg']= "please upload image";
+    header("location:http://localhost/cvbank/views/admin/userdetails.php?id=$id");
+}else{
+    $sk->setdata($_POST);
+    $sk->store();
+}
+
+
+/*
 if ($_FILES['img']['error'] == 0) {
 
     if (isset($_FILES['img'])) {
@@ -51,3 +62,5 @@ if ($_FILES['img']['error'] == 0) {
     $sk->setdata($_POST);
     $sk->store();
 }
+
+*/

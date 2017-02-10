@@ -49,7 +49,7 @@ $value= $post->show();
                             </div>
                             <div class="form-group">
                                 <label for="dec">Desc</label>
-                              <textarea id="dec" cols="8" rows="8" name="desc" class="form-control"><?php echo $value['description']; ?></textarea>
+                              <textarea id="posteditor" cols="8" rows="8" name="desc" class="form-control"><?php echo $value['description']; ?></textarea>
 
                             </div>
 
@@ -62,13 +62,25 @@ $value= $post->show();
                                 <label>Categories</label>
                                 <input name="categories" value="<?php echo $value['categories']; ?>" class="form-control">
                                 <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
-
                             </div>
 
 
                             <button type="submit" class="btn btn-default">update</button>
 
                         </form>
+                        <script type="text/javascript" >
+                            // Replace the <textarea id="editor1"> with a CKEditor
+                            // instance, using default configuration.
+                            CKEDITOR.replace( 'posteditor' );
+
+
+                            function getimagelink(src) {
+                                var link = document.getElementById("img");
+                                document.getElementById("imagesrc").value =src;
+
+                            }
+
+                        </script>
                     </div>
                     <div class="text-right">
 

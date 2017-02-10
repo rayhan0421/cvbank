@@ -54,7 +54,7 @@ $facts =$facts->index();
         <tr>
             <td> <?php echo $value['title']; ?></td>
             <td><?php echo $value['no_of_items']; ?></td>
-            <td><img height="150" width="150" src="http://localhost/cvbank/storage/images/<?php echo $value['img']; ?>" /> </td>
+            <td><img height="150" width="150" src="http://localhost<?php echo $value['img']; ?>" /> </td>
 
             <td> <a href="edit.php?id=<?php echo $value['fid'] ?>">Edit</a>/
                 <a href="trash.php?id=<?php echo $value['fid'] ?>" >delete</a> </td>

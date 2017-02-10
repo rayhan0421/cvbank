@@ -11,7 +11,12 @@ if(strlen($_POST['title'])<3){
 
     header("location:create.php");
 
-}else {
+}else{
+    $d->setdata($_POST);
+    $d->store();
+}
+/*
+else {
     if ($_FILES['img']['error'] == 0) {
 
         if (isset($_FILES['img'])) {
@@ -54,6 +59,8 @@ if(strlen($_POST['title'])<3){
 
     }
 }
+
+*/
 
 
 

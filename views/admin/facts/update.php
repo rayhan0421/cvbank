@@ -4,12 +4,13 @@ use App\admin\crud\facts\facts;
 session_start();
 $sk = new facts();
 
-
-
 $_SESSION['facts']="in";
 
+$sk->setdata($_POST);
+$sk->update();
 
 
+/*
 if ($_FILES['img']['error'] == 0) {
 
     if (isset($_FILES['img'])) {
@@ -56,3 +57,4 @@ if ($_FILES['img']['error'] == 0) {
     $sk->update();
 
 }
+*/

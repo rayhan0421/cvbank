@@ -54,15 +54,30 @@ $value= $facts->show();
 
                             <div class="form-group">
                                 <label>image</label>
-                                <input type="file" name="img" value="<?php echo $value['img']; ?>" class="form-control">
-                                <img height="150" width="150" src="http://localhost/cvbank/storage/images/<?php echo $value['img']; ?>" />
 
+                                <img height="150" id="previmg" width="150" src="http://localhost<?php echo $value['img']; ?>" />
+                                <div id="image" onclick="openKCFinder(this)"><div style="margin:1px">Click here to choose an image</div></div>
+
+                                <input type="hidden" name="img" id="imagesrc">
                             </div>
                             <input type="hidden" value="<?php echo $value['id']; ?>" name="id"  class="form-control">
 
                             <button type="submit" class="btn btn-default">update</button>
 
                         </form>
+                        <script type="text/javascript" >
+                            // Replace the <textarea id="editor1"> with a CKEditor
+
+
+
+                            function getimagelink(src) {
+                                var link = document.getElementById("previmg");
+                                link.style.display = "none";
+                                document.getElementById("imagesrc").value =src;
+
+                            }
+
+                        </script>
                     </div>
                     <div class="text-right">
 

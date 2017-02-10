@@ -38,6 +38,7 @@ Class facts extends model
 
     public function store(){
 
+
         try{
             if(empty($this->img)) {
                 $queary = "INSERT INTO `facts` (`id`, `user_id`,`title`,`no_of_items`,`created_at`) VALUES (:a,:h,:b,:c,:g);";

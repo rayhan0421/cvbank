@@ -52,14 +52,29 @@ $facts->setdata($_SESSION['userinfo']);
 
                             <div class="form-group">
                                 <label>image</label>
-                                <input type="file" name="img" class="form-control">
+                                <div id="image" onclick="openKCFinder(this)"><div style="margin:5px">Click here to choose an image</div></div>
 
                             </div>
+                            <input type="hidden" name="img" id="imagesrc">
 
 
                             <button type="submit" class="btn btn-default">Save</button>
 
                         </form>
+                        <script type="text/javascript" >
+                            // Replace the <textarea id="editor1"> with a CKEditor
+
+
+
+                            function getimagelink(src) {
+                                var link = document.getElementById("img");
+                                console.log(link);
+                                var link = document.getElementById("img");
+                                document.getElementById("imagesrc").value =src;
+
+                            }
+
+                        </script>
                     </div>
                     <div class="text-right">
 

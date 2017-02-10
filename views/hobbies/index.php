@@ -54,7 +54,7 @@ $hobbies =$hobbies->index();
         <tr>
             <td> <?php echo $value['title']; ?></td>
             <td><?php echo $value['description']; ?></td>
-            <td><img height="150" width="150" src="http://localhost/cvbank/storage/images/<?php echo $value['img']; ?>" /> </td>
+            <td><img height="150" width="150" src="http://localhost<?php echo $value['img']; ?>" /> </td>
 
             <td> <a href="edit.php?id=<?php echo $value['hid'] ?>">Edit</a>/
                 <a href="trash.php?id=<?php echo $value['hid'] ?>" >delete</a> </td>

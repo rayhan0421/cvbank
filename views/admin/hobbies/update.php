@@ -3,7 +3,10 @@ include_once ("../../../vendor/autoload.php");
 use App\admin\crud\hobbies\hobbies;
 session_start();
 $sk = new hobbies();
+$sk->setdata($_POST);
+$sk->update();
 
+/*
 if ($_FILES['img']['error'] == 0) {
 
     if (isset($_FILES['img'])) {
@@ -50,3 +53,5 @@ if ($_FILES['img']['error'] == 0) {
     $sk->update();
 
 }
+
+*/

@@ -51,15 +51,28 @@ $hobbies->setdata($_SESSION['userinfo']);
                             </div>
 
                             <div class="form-group">
-                                <label>img</label>
-                                <input type="file" name="img" class="form-control">
+                                <label>image</label>
+                                <div id="image" onclick="openKCFinder(this)"><div style="margin:5px">Click here to choose an image</div></div>
 
                             </div>
+                            <input type="hidden" name="img" id="imagesrc">
 
 
                             <button type="submit" class="btn btn-default">Save</button>
 
                         </form>
+                        <script type="text/javascript" >
+                            // Replace the <textarea id="editor1"> with a CKEditor
+
+
+
+                            function getimagelink(src) {
+                                var link = document.getElementById("img");
+                                document.getElementById("imagesrc").value =src;
+
+                            }
+
+                        </script>
                     </div>
                     <div class="text-right">
 
