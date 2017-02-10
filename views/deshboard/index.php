@@ -14,10 +14,31 @@
                 </div>
                 <!-- /.row -->
                 <div class="row">
-                    <div class="col-lg-12" style="min-height: 580px;">
+                    <div class="col-lg-3" style="min-height: 580px;">
+
+             <?php
+             use App\deshboard\deshboard;
+
+
+             $usersnumber = new deshboard();
+
+            $total=$usersnumber->totalusers();
 
 
 
+
+             ?>
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-users fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge"><?php  echo $total['tnumber']-1; ?></div>
+                                    <div>Total Users!</div>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
                 </div>

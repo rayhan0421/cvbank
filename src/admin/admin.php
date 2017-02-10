@@ -53,7 +53,7 @@ Class admin extends model{
     public function index(){
 
 
-        $queary = "SELECT abouts.*, users.* FROM abouts JOIN users ON users.id = abouts.user_id WHERE users.user_role!=2";
+        $queary = "SELECT  abouts.*, users.* FROM abouts JOIN users ON users.id = abouts.user_id WHERE users.user_role!=2";
 
         $st = $this->pdo->prepare($queary);
 

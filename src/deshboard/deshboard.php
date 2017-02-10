@@ -45,6 +45,19 @@ Class deshboard extends model{
 
     }
 
+   public function totalusers(){
+
+       $queary = "select COUNT(*) as tnumber from users";
+
+       $st = $this->pdo->prepare($queary);
+
+       $st->execute();
+
+       $stu= $st->fetch();
+
+       return $stu;
+   }
+
   protected function validate(){
 
 

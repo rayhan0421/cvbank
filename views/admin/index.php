@@ -48,6 +48,7 @@ $sl= 1;
                      <th>username</th>
                      <th>title</th>
                      <th>bio</th>
+                     <th>Resume</th>
                      <th>active</th>
                      <th>action</th>
 
@@ -65,6 +66,7 @@ $sl= 1;
                              <td><?php echo $value['username']; ?> </td>
                              <td><?php echo $value['title']; ?> </td>
                              <td><?php echo  $value['bio'] ;?> </td>
+                             <td> <a target="_blank" href="http://localhost/cvbank/views/public/resume/single.php?id=<?php echo $value['user_id']; ?>">View Resume</a> </td>
                              <td><?php  if($value['is_active']){ echo "active"; }else{ echo "<span style='color:orangered'>inactive</span>"; } ?> </td>
                              <td><a href="userdetails.php?id=<?php echo $value['user_id'];  ?> ">details</a> </td>
                          </tr>
