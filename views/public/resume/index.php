@@ -346,7 +346,7 @@ $post = $resume->post();
                                     <div class="media-body">
                                         <h3><?php echo $value['title']; ?></h3>
                                         <h4><?php echo $value['categories']; ?></h4>
-                                        <span class="publication_description"><?php echo $value['description']; ?>  </span> </div>
+                                        <span class="publication_description"><?php echo substr($value['description'],0,200); ?>  </span> </div>
                                     <hr style="margin:8px auto">
                                     <span class="label label-primary"><?php echo $value['tags']; ?></span>
 
