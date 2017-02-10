@@ -98,7 +98,7 @@ $post = $resume->post();
                 <a id="my-link" href="#my-panel"><i class="fa fa-bars"></i></a>
                 <a href="#" class="download"><i class="fa fa-cloud-download"></i></a>
                 <div class="img-wrap">
-                    <img src="http://localhost/cvbank/storage/images/<?php echo $setting['featured_img']; ?>" alt="" width="150" height="150" />
+                    <img src="http://localhost/cvbank/storage/images/<?php echo $setting['featured_img']; ?>" alt=""/>
                 </div>
                 <div class="profile_info">
                     <h1><?php echo $setting['fullname']; ?></h1>
@@ -456,7 +456,7 @@ $post = $resume->post();
                             <?php foreach ($port as $value) { $i++; ?>
                             <!-- Portfolio Item -->
                             <figure class="effect-milo">
-                                <img src="http://localhost/cvbank/storage/images/<?php echo $value['img']; ?>" alt="img11" width="282" height="222" />
+                                <img src="http://localhost/cvbank/storage/images/<?php echo $value['img']; ?>" alt="img11"  />
                                 <figcaption>
                                     <span class="label"><?php echo $value['category']; ?></span>
                                     <div class="portfolio_button">
@@ -468,14 +468,14 @@ $post = $resume->post();
                                     <div class="mfp-hide mfp-with-anim work_desc work<?php echo $i; ?>">
                                         <div class="col-md-6">
                                             <div class="image_work">
-                                                <img src="http://localhost/cvbank/storage/images/<?php echo $value['img']; ?>" alt="img" width="560" height="420">
+                                                <img  src="http://localhost/cvbank/storage/images/<?php echo $value['img']; ?>" alt="img">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="project_content">
                                                 <h2 class="project_title">
                                                     <?php echo $value['description']; ?>
-                                                             </div>
+                                           </div>
                                         </div>
                                         <a class="ext_link" href="#"><i class="fa fa-external-link"></i></a>
                                         <div style="clear:both"></div>
