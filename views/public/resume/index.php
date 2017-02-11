@@ -72,6 +72,8 @@ $post = $resume->post();
         }
         </style>
     </noscript>
+
+
 </head>
 
 <body>
@@ -96,7 +98,7 @@ $post = $resume->post();
             <!-- Profil Image-->
             <div class="hs-headline">
                 <a id="my-link" href="#my-panel"><i class="fa fa-bars"></i></a>
-                <a href="#" class="download"><i class="fa fa-cloud-download"></i></a>
+
                 <div class="img-wrap">
                     <img src="http://localhost/cvbank/storage/images/<?php echo $setting['featured_img']; ?>" alt=""/>
                 </div>
@@ -149,7 +151,7 @@ $post = $resume->post();
                     </div>
                     <div><a href="" class="next-page arrow"><i class="fa fa-angle-right"></i></a>
                     </div>
-                    <div><a href="http://localhost/cvbank/views/public/resume/single.php?id=<?php echo $_GET['id']; ?>" class="next-page arrow"><i class="fa fa-download"></i></a>
+                    <div><a href="http://localhost/cvbank/views/public/resume/single.php?id=<?php echo $_GET['id']; ?> " target="_blank"><i class="fa fa-download"></i></a>
                     </div>
                     <!-- News scroll -->
 
@@ -517,6 +519,7 @@ $post = $resume->post();
                             <input type="submit" class="submit_btn" id="submit_btn" value="Send" />
                         </fieldset>
                         </form>
+
                         <!-- End Contact Form -->
                     </div>
                 </article>

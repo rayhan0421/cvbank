@@ -43,6 +43,7 @@ Class contacts extends model
 
 
 
+
         try{
             $queary = "INSERT INTO `contacts` (`id`, `user_id`,`name`,`email`,`message`,`phone`,`created_at`) VALUES (:a,:h,:b,:c,:d,:e,:g);";
 
